@@ -1,8 +1,8 @@
 .box-left{
-	padding-right: 0;
+	padding-right: 0px !important;
 }
 .box-right{
-	padding-left: 0;
+	padding-left: 0px !important;
 }
 
 .product-posts{
@@ -33,7 +33,7 @@
 
 .product-posts .product-title{
 	font-size: 24px;
-    padding: 5px;
+    padding: 5px 15px;
     font-weight: 500;
     margin-bottom: 15px;
 }
