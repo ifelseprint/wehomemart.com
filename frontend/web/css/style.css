@@ -2534,6 +2534,10 @@ blockquote.text-white cite span {
     text-decoration: none;
     outline: none !important;
 }
+.mobile-cats-menu li a img{
+    display: inline-block;
+    width: 30px;
+}
 .mobile-menu-light {
     background-color: #fff;
 }

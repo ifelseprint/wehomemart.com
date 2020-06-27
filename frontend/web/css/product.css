@@ -1,11 +1,12 @@
-.product-posts{
-	padding: 15px 0px;
-}
-.product-posts .box-left{
+.box-left{
 	padding-right: 0;
 }
-.product-posts .box-right{
+.box-right{
 	padding-left: 0;
+}
+
+.product-posts{
+	padding: 15px 0px;
 }
 .product-posts .proudct-list .list-header{
 	background: #4d8ed4;
@@ -28,4 +29,38 @@
 .product-posts .proudct-list .list-nav ul.list-menu a img{
 	display: inline-block;
     width: 30px;
+}
+
+.product-posts .product-title{
+	font-size: 24px;
+    padding: 5px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.product-posts .product-title::before{
+	position: absolute;
+    content: "";
+    height: 4px;
+    width: 50px;
+    top: 42px;
+    background-color: #4d8ed4;
+}
+
+.product-detail-posts{
+	padding: 40px 0px;
+    background: rgb(236,236,236);
+	background: linear-gradient(0deg, rgba(236,236,236,1) 85%, rgb(222, 222, 222) 100%);
+}
+.product-detail-posts .product-icon{
+	text-align: center;
+}
+.product-detail-posts .product-icon i{
+	font-size: 100px;
+	color: #ccc;
+}
+.product-detail-posts .product-title{
+	font-size: 24px;
+    padding: 5px 0px;
+    font-weight: 500;
+    color: #4d8ed4;
 }

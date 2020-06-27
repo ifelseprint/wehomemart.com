@@ -41,7 +41,7 @@ use frontend\widgets\ProductMenu;
             <div class="tab-pane fade" id="mobile-cats-tab" role="tabpanel" aria-labelledby="mobile-cats-link">
                 <nav class="mobile-cats-nav">
                     <ul class="mobile-cats-menu">
-                        <?= ProductMenu::widget(array('action'=>'link-list')); ?>
+                        <?= ProductMenu::widget(array('action'=>'link-list-icon')); ?>
                     </ul><!-- End .mobile-cats-menu -->
                 </nav><!-- End .mobile-cats-nav -->
             </div><!-- .End .tab-pane -->

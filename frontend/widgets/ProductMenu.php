@@ -14,8 +14,6 @@ class ProductMenu extends \yii\base\Widget {
 
         if($this->action=='link-nav'){
             $render = "product_menu_link_nav";
-        }else if($this->action=='link-list'){
-            $render = "product_menu_link_list";
         }else if($this->action=='link-list-icon'){
             $render = "product_menu_link_list_icon";
         }

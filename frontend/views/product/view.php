@@ -11,7 +11,7 @@ ProductAsset::register($this);
     		<div class="row">
     			<div class="col-xs-12 col-lg-4 box-left">
     				<div class="proudct-list">
-    					<div class="list-header">รายการสินค้า</div>
+    					<div class="list-header">รายการสินค้า </div>
     					<nav class="list-nav">
 		                    <ul class="list-menu">
 		                        <?= ProductMenu::widget(array('action'=>'link-list-icon')); ?>
@@ -20,8 +20,30 @@ ProductAsset::register($this);
     				</div>
     			</div>
     			<div class="col-xs-12 col-lg-8 box-right">
+    				<div class="product-title">
+    					<?=$product['product_name_'.Yii::$app->language];?>
+    				</div>
     				<div class="proudct-img">
-    					<img src="<?=Url::base(true);?>/img/show-product.jpg">
+    					<img src="<?=Url::base(true);?>/uploads/<?=$product['productDetails'][0]['product_detail_image'];?>">
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="product-detail-posts">
+    	<div class="container">
+    	    <div class="row">
+    			<div class="col-xs-12 col-lg-4 box-left">
+    				<div class="product-icon">
+    					<i class="fa fa-comments-o"></i>
+    				</div>
+    			</div>
+    			<div class="col-xs-12 col-lg-8 box-right">
+    				<div class="product-title">
+    					<?=$product['product_name_'.Yii::$app->language];?>
+    				</div>
+    				<div class="product-detail">
+    					<?=$product['productDetails'][0]['product_detail_content_'.Yii::$app->language];?>
     				</div>
     			</div>
     		</div>
