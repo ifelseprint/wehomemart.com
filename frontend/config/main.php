@@ -11,8 +11,9 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'basePath' => dirname(__DIR__),
+    'language' => 'th',
     'bootstrap' => ['log'],
+    'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'frontend\controllers',
     'homeUrl'=> $baseUrl,
     'components' => [
@@ -43,14 +44,26 @@ return [
         ],
         
         'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['th','en'],
+            'enableLanguageDetection' => false,
+            'enableDefaultLanguageUrlCode' => true,
+            'enableLanguagePersistence' => true,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 '' => 'home/index',
+                // th
+                '<controller:(product|สินค้า)>/<slug>' => 'product/view',
+                // en
+                // 'product/<slug:[a-zA-Z0-9-]\w+>' => 'product/view',
+
+                // default
+                // '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                // '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+
                 'error/404' => 'error/404',
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
         

@@ -1684,8 +1684,8 @@ blockquote.text-white cite span {
     letter-spacing: 0;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 .menu li > a span:not(.tip) {
     position: relative;
@@ -1883,7 +1883,7 @@ blockquote.text-white cite span {
     margin-left: 1rem;
 }
 .header-bottom .menu > li > a {
-    padding: 12px 20px;
+    padding: 12px 12px;
 }
 .header-bottom .menu > li > .sf-with-ul {
     padding-right: 3rem;
@@ -2657,6 +2657,7 @@ p {
 	background: #000;
 	color: #fff;
 	padding: 0.3rem 1.5rem;
+    width: 50px;
 }
 .header-2 .language .header-dropdown a::after{
 	display: none;

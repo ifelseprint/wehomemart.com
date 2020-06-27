@@ -2,8 +2,6 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\assets\HomeAsset;
-use frontend\assets\AppAsset;
-AppAsset::register($this);
 HomeAsset::register($this);
 ?>
 <main class="main">
