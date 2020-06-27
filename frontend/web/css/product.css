@@ -1,0 +1,31 @@
+.product-posts{
+	padding: 15px 0px;
+}
+.product-posts .box-left{
+	padding-right: 0;
+}
+.product-posts .box-right{
+	padding-left: 0;
+}
+.product-posts .proudct-list .list-header{
+	background: #4d8ed4;
+    padding: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+}
+.product-posts .proudct-list .list-nav ul.list-menu li{
+	border-bottom: 2px solid #ececec;
+}
+.product-posts .proudct-list .list-nav ul.list-menu li.active,
+.product-posts .proudct-list .list-nav ul.list-menu li:hover{
+	background: #ececec;
+}
+.product-posts .proudct-list .list-nav ul.list-menu a{
+	padding: 10px 15px;
+	display: block;
+}
+.product-posts .proudct-list .list-nav ul.list-menu a img{
+	display: inline-block;
+    width: 30px;
+}

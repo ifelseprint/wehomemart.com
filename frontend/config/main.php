@@ -53,16 +53,16 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '' => 'home/index',
-                // th
-                '<controller:(product|สินค้า)>/<slug>' => 'product/view',
-                // en
-                // 'product/<slug:[a-zA-Z0-9-]\w+>' => 'product/view',
+                // product
+                '<product_index:(product|สินค้า)>' => 'product/view',
+                '<product_view:(product|สินค้า)>/<slug>' => 'product/view',
 
                 // default
                 // '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 // '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-
+       
+                // error
                 'error/404' => 'error/404',
             ],
         ],
