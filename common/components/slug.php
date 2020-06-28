@@ -17,13 +17,5 @@ class slug extends Component {
         return strtolower(strtr($string, $table));
     }
 
-    public static function mapping($string) {
-
-        $explode = explode('-', $string);
-        list($firstSlug) = $explode;
-        // -- Returns the slug
-        return $firstSlug;
-    }
-
 }
 ?>

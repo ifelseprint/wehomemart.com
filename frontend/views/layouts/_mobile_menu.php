@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use frontend\widgets\ProductMenu;
+use frontend\widgets\ServiceMenu;
 ?>
 <!-- Mobile Menu -->
 <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
@@ -22,6 +23,9 @@ use frontend\widgets\ProductMenu;
             <li class="nav-item">
                 <a class="nav-link" id="mobile-cats-link" data-toggle="tab" href="#mobile-cats-tab" role="tab" aria-controls="mobile-cats-tab" aria-selected="false"><?= Yii::t('app', 'menu_product');?></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="mobile-service-link" data-toggle="tab" href="#mobile-service-tab" role="tab" aria-controls="mobile-service-tab" aria-selected="false"><?= Yii::t('app', 'menu_service');?></a>
+            </li>
         </ul>
 
         <div class="tab-content">
@@ -35,6 +39,19 @@ use frontend\widgets\ProductMenu;
                             <a href="#"><?= Yii::t('app', 'menu_product');?></a>
                             <?= ProductMenu::widget(array('action'=>'link-nav')); ?>
                         </li>
+                        <li class="active">
+                            <a href="<?=Url::base(true);?>"><?= Yii::t('app', 'menu_article');?></a>
+                        </li>
+                        <li>
+                            <a href="#"><?= Yii::t('app', 'menu_service');?></a>
+                            <?= ServiceMenu::widget(array('action'=>'link-nav')); ?>
+                        </li>
+                        <li class="active">
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>"><?= Yii::t('app', 'menu_join_us');?></a>
+                        </li>
+                        <li class="active">
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_contact_us');?>"><?= Yii::t('app', 'menu_contact_us');?></a>
+                        </li>
                     </ul>
                 </nav><!-- End .mobile-nav -->
             </div><!-- .End .tab-pane -->
@@ -44,6 +61,14 @@ use frontend\widgets\ProductMenu;
                         <?= ProductMenu::widget(array('action'=>'link-list-icon')); ?>
                     </ul><!-- End .mobile-cats-menu -->
                 </nav><!-- End .mobile-cats-nav -->
+            </div><!-- .End .tab-pane -->
+
+            <div class="tab-pane fade" id="mobile-service-tab" role="tabpanel" aria-labelledby="mobile-service-link">
+                <nav class="mobile-service-nav">
+                    <ul class="mobile-service-menu">
+                        <?= ServiceMenu::widget(array('action'=>'link-list')); ?>
+                    </ul><!-- End .mobile-service-menu -->
+                </nav><!-- End .mobile-service-nav -->
             </div><!-- .End .tab-pane -->
         </div><!-- End .tab-content -->
 

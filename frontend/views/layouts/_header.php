@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\widgets\ProductMenu;
+use frontend\widgets\ServiceMenu;
 ?>
 <header class="header header-2 header-intro-clearance">
     <div class="header-middle">
@@ -86,10 +87,11 @@ use frontend\widgets\ProductMenu;
                             <?= ProductMenu::widget(array('action'=>'link-nav')); ?>
                         </li>
                         <li>
-                            <a href="#"><?= Yii::t('app', 'menu_article');?></a>
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>"><?= Yii::t('app', 'menu_article');?></a>
                         </li>
                         <li>
                             <a href="#"><?= Yii::t('app', 'menu_service');?></a>
+                            <?= ServiceMenu::widget(array('action'=>'link-nav')); ?>
                         </li>
                         <li>
                             <a href="#"><?= Yii::t('app', 'menu_join_us');?></a>

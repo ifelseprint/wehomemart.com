@@ -5,7 +5,11 @@ use yii\helpers\Url;
 <ul>
 	<?php
 	foreach ($product as $data) {
-	?>
-	<li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_product');?>/<?= Yii::$app->slug->create($data['product_name_'.Yii::$app->language]); ?>"><i class="fa fa-angle-right"></i> <?= $data['product_name_'.Yii::$app->language]; ?></a></li>
+		$active = '';
+		if(Yii::$app->getRequest()->getQueryParam('slug_id') == $data['product_id']){
+			$active = "active";
+		}
+		?>
+	<li class="<?=$active?>"><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_product');?>/<?= Yii::$app->slug->create($data['product_name_'.Yii::$app->language]); ?>-<?=$data['product_id']?>"><i class="fa fa-angle-right"></i> <?= $data['product_name_'.Yii::$app->language]; ?></a></li>
 	<?php } ?>
 </ul>	

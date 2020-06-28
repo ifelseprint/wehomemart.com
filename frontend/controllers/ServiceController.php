@@ -3,7 +3,7 @@
 namespace frontend\controllers;
 use yii;
 
-class ProductController extends \yii\web\Controller
+class ServiceController extends \yii\web\Controller
 {
     public function actionIndex()
     {
@@ -13,16 +13,16 @@ class ProductController extends \yii\web\Controller
     {
     	$slug_id = Yii::$app->getRequest()->getQueryParam('slug_id');
 
-    	$models = \common\models\Product::find()
-    	->joinWith('productDetails')
-        ->where(['product.is_active' => 1])
-        ->andWhere(['product.product_id' => $slug_id])
-        ->orderBy(['product.product_id' => SORT_ASC])
+    	$models = \common\models\Service::find()
+    	->joinWith('serviceDetails')
+        ->where(['service.is_active' => 1])
+        ->andWhere(['service.service_id' => $slug_id])
+        ->orderBy(['service.service_id' => SORT_ASC])
         ->asArray()
         ->one();
 
         return $this->render('view', [
-            'product' => $models,
+            'service' => $models,
         ]);
     }
 }

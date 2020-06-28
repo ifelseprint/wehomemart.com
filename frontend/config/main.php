@@ -55,7 +55,10 @@ return [
                 '' => 'home/index',
                 // product
                 '<product_index:(product|สินค้า)>' => 'product/view',
-                '<product_view:(product|สินค้า)>/<slug>' => 'product/view',
+                '<product_view:(product|สินค้า)>/<slug>-<slug_id>' => 'product/view',
+                // service
+                '<service_index:(service|บริการ)>' => 'service/view',
+                '<service_view:(service|บริการ)>/<slug>-<slug_id>' => 'service/view',
 
                 // default
                 // '<controller:\w+>/<id:\d+>' => '<controller>/view',
