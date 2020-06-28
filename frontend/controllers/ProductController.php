@@ -12,7 +12,7 @@ class ProductController extends \yii\web\Controller
 
     public function actionView()
     {
-    	$slug = str_replace("-"," ",Yii::$app->getRequest()->getQueryParam('slug'));
+    	$slug = Yii::$app->slug->mapping(Yii::$app->getRequest()->getQueryParam('slug'));
     	$select_field = 'product_name_'.Yii::$app->language;
 
     	$models = \common\models\Product::find()
