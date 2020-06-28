@@ -2480,8 +2480,7 @@ blockquote.text-white cite span {
     border: none;
 }
 .mobile-menu-container .tab-content .mobile-nav,
-.mobile-menu-container .tab-content .mobile-cats-nav,
-.mobile-menu-container .tab-content .mobile-service-nav,
+.mobile-menu-container .tab-content .mobile-cats-nav
 {
     margin-bottom: 0;
 }
@@ -2537,30 +2536,6 @@ blockquote.text-white cite span {
     outline: none !important;
 }
 .mobile-cats-menu li a img{
-    display: inline-block;
-    width: 30px;
-}
-.mobile-service-nav .mobile-menu > li > a {
-    text-transform: capitalize;
-}
-.mobile-service-menu li a {
-    position: relative;
-    display: block;
-    padding: 1rem 4.5rem 1rem 2rem;
-    color: rgba(255, 255, 255, 0.8);
-    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.08);
-}
-.mobile-service-menu li a.mobile-service-lead {
-    font-weight: 500;
-    color: #fff;
-}
-.mobile-service-menu li a:hover,
-.mobile-service-menu li a:focus {
-    color: #000;
-    text-decoration: none;
-    outline: none !important;
-}
-.mobile-service-menu li a img{
     display: inline-block;
     width: 30px;
 }
@@ -2622,15 +2597,6 @@ blockquote.text-white cite span {
     color: #666;
 }
 .mobile-menu-light .mobile-cats-menu li a:not(:hover):not(:focus).mobile-cats-lead {
-    color: #333;
-}
-.mobile-menu-light .mobile-service-menu li a {
-    border-bottom-color: #efefef;
-}
-.mobile-menu-light .mobile-service-menu li a:not(:hover):not(:focus) {
-    color: #666;
-}
-.mobile-menu-light .mobile-service-menu li a:not(:hover):not(:focus).mobile-service-lead {
     color: #333;
 }
 p {

@@ -57,9 +57,7 @@ return [
                 '<product_index:(product|สินค้า)>' => 'product/view',
                 '<product_view:(product|สินค้า)>/<slug>-<slug_id>' => 'product/view',
                 // service
-                '<service_index:(service|บริการ)>' => 'service/view',
-                '<service_view:(service|บริการ)>/<slug>-<slug_id>' => 'service/view',
-
+                '<service_index:(service|บริการ)>' => 'service/index',
                 // default
                 // '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

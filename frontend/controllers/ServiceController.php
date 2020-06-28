@@ -7,10 +7,6 @@ class ServiceController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        return $this->render('index');
-    }
-    public function actionView()
-    {
     	$slug_id = Yii::$app->getRequest()->getQueryParam('slug_id');
 
     	$models = \common\models\Service::find()
@@ -21,7 +17,7 @@ class ServiceController extends \yii\web\Controller
         ->asArray()
         ->one();
 
-        return $this->render('view', [
+        return $this->render('index', [
             'service' => $models,
         ]);
     }
