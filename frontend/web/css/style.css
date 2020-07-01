@@ -11,8 +11,8 @@ body {
 }
 body {
 	font-family: 'Kanit', sans-serif;
-	font-size: 14px;
-    font-weight: 300;
+	font-size: 16px;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -1801,7 +1801,7 @@ blockquote.text-white cite span {
 .menu li:hover > a,
 .menu li.show > a,
 .menu li.active > a {
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.8);
     color: #4d8ed4;
 }
 .demo-list {
