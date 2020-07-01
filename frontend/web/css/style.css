@@ -1188,7 +1188,7 @@ blockquote.text-white cite span {
 .header-search-no-radius .header-search-wrapper,
 .header-search-no-radius .form-control,
 .header-search-no-radius .btn {
-    border-radius: 0;
+    border-radius: 7px;
 }
 .header-search-no-round .header-search-wrapper {
     border-radius: 0.3rem;
@@ -1515,6 +1515,7 @@ blockquote.text-white cite span {
         height: 38px;
         padding-top: 0.9rem;
         padding-bottom: 0.9rem;
+		border-radius: 7px;
     }
     .header-search-extended select {
         height: 38px;
@@ -2662,7 +2663,10 @@ p {
 	background: #000;
 	color: #fff;
 	padding: 0.3rem 1.5rem;
-    width: 50px;
+    width: 60px;
+	border-radius: 7px;
+	text-align: center;
+	font-weight: 400;
 }
 .header-2 .language .header-dropdown a::after{
 	display: none;
