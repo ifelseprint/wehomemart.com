@@ -1,6 +1,6 @@
 .promotion-posts{
     padding: 10px 0px 30px 0;
-    background: #4d8ed4;
+    background: #075176;
 }
 .promotion-posts .block-title {
     padding: 25px 0px;
@@ -21,7 +21,7 @@
 }
 .product-posts .block-title .title{
     margin-bottom: 5px;
-    color: #4d8ed4;
+    color: #075176;
 	font-size: 3.4rem;
 }
 .service-posts{
@@ -65,7 +65,7 @@
 	flex-wrap: wrap;
 	margin-right: -15px;
 	margin-left: -15px;
-	background: #4d8ed4;
+	background: #075176;
 }
 .idea-posts .block-content{
 	display: inline-flex;
