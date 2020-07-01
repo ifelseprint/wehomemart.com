@@ -2670,6 +2670,7 @@ p {
 }
 .header-2 .language .header-dropdown a::after{
 	display: none;
+	border-radius: 0px;
 }
 .header-2 .header-dropdown + .header-dropdown {
     margin-left: 4rem;
