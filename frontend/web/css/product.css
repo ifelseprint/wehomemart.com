@@ -35,7 +35,8 @@
 	font-size: 24px;
     padding: 5px 15px;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
+	background-color: #fff;
 }
 .product-posts .product-title::before{
 	position: absolute;
