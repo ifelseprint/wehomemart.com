@@ -2664,13 +2664,12 @@ p {
 	color: #fff;
 	padding: 0.3rem 1.5rem;
     width: 60px;
-	border-radius: 7px;
+	border-radius: 0px;
 	text-align: center;
 	font-weight: 400;
 }
 .header-2 .language .header-dropdown a::after{
 	display: none;
-	border-radius: 0px;
 }
 .header-2 .header-dropdown + .header-dropdown {
     margin-left: 4rem;
