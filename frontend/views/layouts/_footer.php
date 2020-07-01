@@ -36,9 +36,9 @@ use yii\helpers\Url;
                         </span>
 
                         <div class="icon-box-content">
-                            <p style="letter-spacing: 2px;">CONTACT CENTER</p>
+                            <p style="letter-spacing: 5px;">CONTACT CENTER</p>
                             <h3 class="icon-box-title"> 08-1839-1818</h3><!-- End .icon-box-title -->
-                            <p style="font-size: 12px;">จ.-อ. ช่วงเวลา 08.00-18.00 น.</p>
+                            <p style="font-size: 15px;">จ.-อ. ช่วงเวลา 08.00-18.00 น.</p>
                         </div><!-- End .icon-box-content -->
                     </div><!-- End .icon-box -->
                 </div><!-- End .col-sm-12 col-lg-4 -->
@@ -58,15 +58,11 @@ use yii\helpers\Url;
                                 <ul class="widget-list">
                                     <li><a href="#">ธุรกิจในเครือ</a></li>
                                     <li><a href="#">ความเป็นมา</a></li>
-                                    <li><a href="#">ผลงานการบริหารงาน</a></li>
-                                    <li><a href="#">รับเรื่องร้องเรียน</a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .col-sm-6 -->
                             <div class="col-sm-6 col-md-6">
                                 <ul class="widget-list">
-                                    <li><a href="#">วัสัยทัศน์</a></li>
-                                    <li><a href="#">คระกรรมการบริหาร</a></li>
-                                    <li><a href="#">วิถีวนาวัฒน์</a></li>
+                                    <li><a href="#">วิสัยทัศน์</a></li>
                                     <li><a href="#">ร่วมงานกับเรา</a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .col-sm-6 -->
@@ -116,11 +112,11 @@ use yii\helpers\Url;
                             </div><!-- End .row -->
                             <div class="row" style="padding-top: 10px;">
                                 <div class="col-sm-6 col-md-5">
-                                    Contact Center <p><a href="tel:074338000">081-8391818</a></p>
+                                    Contact Center <p><a href="tel:0818391818">081-8391818</a></p>
                                 </div><!-- End .col-sm-6 -->
                                 <div class="col-sm-6 col-md-7">
                                     <figure class="footer-address">
-                                        จ. - ส. ช่วงเวลา 08.000-17.00 น.
+                                        จ. - ส. ช่วงเวลา 08.00-17.00 น.
                                     </figure><!-- End .footer-payments -->
                                 </div><!-- End .col-sm-6 -->
                             </div><!-- End .row -->

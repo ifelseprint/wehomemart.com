@@ -4682,7 +4682,7 @@ p {
 }
 .footer {
     width: 100%;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.4rem;
 }
 .footer a {
@@ -4889,7 +4889,7 @@ p {
 }
 .widget-about-title {
     display: block;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.3rem;
     color: #333333;
     letter-spacing: 0;
@@ -5203,7 +5203,7 @@ p {
 .icon-box-title {
     font-weight: 400;
     color: #fff;
-    font-size: 26px;
+    font-size: 33px;
     letter-spacing: -0.025em;
     margin-bottom: 0.9rem;
 }
