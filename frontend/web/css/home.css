@@ -25,7 +25,7 @@
 	font-size: 3.4rem;
 }
 .service-posts{
-	padding: 10px 0px 30px 0;
+	padding: 55px 0px 55px 0;
 	background: #fff;
 }
 .service-posts .entry{
@@ -47,7 +47,7 @@
 }
 .service-posts .entry-body .entry-title,
 .service-posts .entry-body .entry-content{
-	font-size: 14px;
+	font-size: 16px;
 	text-align: left;
 	line-height: 18px;
 }
@@ -55,7 +55,7 @@
 	font-weight: 400;
 }
 .service-posts .entry-body .entry-content{
-	font-weight: 200;
+	font-weight: 300;
 }
 
 .idea-posts{
@@ -87,6 +87,9 @@
 }
 .idea-posts .block-content .btn-readmore:hover{
 	background: rgba(247, 57, 75, 0.5);
+}
+.idea-posts h2{
+	margin-top: 25px;
 }
 .article-posts{
     padding: 10px 0px 30px 0;
