@@ -17,7 +17,7 @@
 	margin-bottom: 20px;
 }
 .article-posts .article-block .article-box{
-	border-bottom: 5px #4d8ed4 solid;
+	border-bottom: 5px #075176 solid;
 	background: #fff;
 	padding: 0px 20px;
 }
@@ -27,7 +27,7 @@
 }
 .article-posts .article-block .article-box .article-box-header .article-view{
 	float: left;
-	color: #4d8ed4;
+	color: #075176;
 	font-weight: 500;
 }
 .article-posts .article-block .article-box .article-box-header .article-created-date{
