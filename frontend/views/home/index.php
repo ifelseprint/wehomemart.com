@@ -342,20 +342,24 @@ HomeAsset::register($this);
     </div>
 
     <div class="idea-posts">
-    	<div class="col-xs-12 col-lg-6">
-    		<img src ="<?=Url::base(true);?>/img/idea.jpg" alt="image desc" width="100%">
-    	</div>
-    	<div class="col-xs-12 col-lg-6 block-content">
-			<div class="block-desc">
-				<div>
-	    			<img src ="<?=Url::base(true);?>/img/homeofidea.png" alt="image desc" width="324">
-		    		<h2 class="title text-left">แต่งบ้านแนวบ้านปูนเปือย</h2><!-- End .title-lg text-center -->
-		    		<p class="text-left">บ้านที่ดีคือบ้านที่อยู่แล้วเป็นสุข ซึ่งก็คือ การออกแบบสภาพแวดล้อมให้มีความใกล้ชิดกับ “ธรรมชาติของตัวเรา” มากที่สุด</p>
 
-		    		<a href="#" class="btn-readmore">อ่านต่อ</a>
+		<div class="row">
+	    	<div class="col-xs-12 col-lg-6">
+	    		<img src ="<?=Url::base(true);?>/img/idea.jpg" alt="image desc" width="100%">
+	    	</div>
+	    	<div class="col-xs-12 col-lg-6 block-content">
+				<div class="block-desc">
+					<div>
+		    			<img src ="<?=Url::base(true);?>/img/homeofidea.png" alt="image desc" width="250">
+			    		<h2 class="title text-left">แต่งบ้านแนวบ้านปูนเปือย</h2><!-- End .title-lg text-center -->
+			    		<p class="text-left">บ้านที่ดีคือบ้านที่อยู่แล้วเป็นสุข ซึ่งก็คือ การออกแบบสภาพแวดล้อมให้มีความใกล้ชิดกับ “ธรรมชาติของตัวเรา” มากที่สุด</p>
+
+			    		<a href="#" class="btn-readmore">อ่านต่อ</a>
+			    	</div>
 		    	</div>
 	    	</div>
-    	</div>
+	    </div>
+
   	</div> <!-- End .promotion-posts -->
 
     <div class="article-posts">
