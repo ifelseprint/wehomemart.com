@@ -11,8 +11,8 @@ body {
 }
 body {
 	font-family: 'Kanit', sans-serif;
-	font-size: 14px;
-    font-weight: 300;
+	font-size: 16px;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -82,7 +82,7 @@ img {
     background-color: #000 !important;
 }
 .bg-secondary {
-    background-color: #4d8ed4 !important;
+    background-color: #075176 !important;
 }
 .bg-image {
     background-color: #ccc;
@@ -142,7 +142,7 @@ h1,
 }
 h2,
 .h2 {
-    font-size: 3.6rem;
+    font-size: 34px;
 }
 h3,
 .h3 {
@@ -168,7 +168,7 @@ a {
 }
 a:hover,
 a:focus {
-    color: #4d8ed4;
+    color: #075176;
     text-decoration: none;
 }
 .link-underline {
@@ -178,7 +178,7 @@ a:focus {
     color: #000 !important;
 }
 .text-secondary {
-    color: #4d8ed4 !important;
+    color: #075176 !important;
 }
 .text-dark {
     color: #333 !important;
@@ -1188,7 +1188,7 @@ blockquote.text-white cite span {
 .header-search-no-radius .header-search-wrapper,
 .header-search-no-radius .form-control,
 .header-search-no-radius .btn {
-    border-radius: 0;
+    border-radius: 7px;
 }
 .header-search-no-round .header-search-wrapper {
     border-radius: 0.3rem;
@@ -1515,6 +1515,7 @@ blockquote.text-white cite span {
         height: 38px;
         padding-top: 0.9rem;
         padding-bottom: 0.9rem;
+		border-radius: 7px;
     }
     .header-search-extended select {
         height: 38px;
@@ -1801,8 +1802,8 @@ blockquote.text-white cite span {
 .menu li:hover > a,
 .menu li.show > a,
 .menu li.active > a {
-	background: rgba(255, 255, 255, 0.5);
-    color: #4d8ed4;
+	background: rgba(255, 255, 255, 0.8);
+    color: #075176;
 }
 .demo-list {
     display: flex;
@@ -1868,7 +1869,7 @@ blockquote.text-white cite span {
     background-color: #000;
 }
 .tip.tip-new {
-    background-color: #4d8ed4;
+    background-color: #075176;
 }
 .tip.tip-hot {
     background-color: #ef837b;
@@ -2624,7 +2625,7 @@ p {
 }
 .header-2 .header-search-extended .btn {
     height: 40px;
-    background-color: #4d8ed4;
+    background-color: #075176;
     color: #fff;
     max-width: 60px;
 }
@@ -2662,7 +2663,10 @@ p {
 	background: #000;
 	color: #fff;
 	padding: 0.3rem 1.5rem;
-    width: 50px;
+    width: 60px;
+	border-radius: 0px;
+	text-align: center;
+	font-weight: 400;
 }
 .header-2 .language .header-dropdown a::after{
 	display: none;
@@ -4678,7 +4682,7 @@ p {
 }
 .footer {
     width: 100%;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.4rem;
 }
 .footer a {
@@ -4885,7 +4889,7 @@ p {
 }
 .widget-about-title {
     display: block;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.3rem;
     color: #333333;
     letter-spacing: 0;
@@ -5199,7 +5203,7 @@ p {
 .icon-box-title {
     font-weight: 400;
     color: #fff;
-    font-size: 26px;
+    font-size: 33px;
     letter-spacing: -0.025em;
     margin-bottom: 0.9rem;
 }
@@ -5246,7 +5250,7 @@ p {
     margin-bottom: 1.3rem;
 }
 .icon-boxes-container {
-    background-color: #4d8ed4;
+    background-color: #075176;
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -6175,8 +6179,8 @@ p {
 .btn-outline-white-2:not(:disabled):not(.disabled).active,
 .show > .btn-outline-white-2.dropdown-toggle {
     color: #fff;
-    background-color: #4d8ed4;
-    border-color: #4d8ed4;
+    background-color: #075176;
+    border-color: #075176;
     box-shadow: none;
 }
 .btn-outline-white-2.disabled,
@@ -6429,7 +6433,7 @@ p {
     height: 4px;
     width: 50px;
     top: 12px;
-    background-color: #4d8ed4;
+    background-color: #075176;
     transform: translateY(-50%);
 }
 .product-title a:hover,
@@ -6502,7 +6506,7 @@ p {
 }
 .product-label.label-new {
     color: #fff;
-    background-color: #4d8ed4;
+    background-color: #075176;
 }
 .product-label.label-top {
     color: #fff;
@@ -6518,7 +6522,7 @@ p {
 }
 .product-label.label-secondary {
     color: #fff;
-    background-color: #4d8ed4;
+    background-color: #075176;
 }
 .product-label-text {
     color: #000;
@@ -7001,7 +7005,7 @@ p {
 .product.product-4 .btn-product:hover,
 .product.product-4 .btn-product:focus {
     color: #fff;
-    background-color: #4d8ed4;
+    background-color: #075176;
 }
 .product.product-4 .btn-product:hover span,
 .product.product-4 .btn-product:focus span {
@@ -7940,7 +7944,7 @@ p {
 .btn-video:hover,
 .btn-video:focus {
     color: #fff;
-    background-color: #4d8ed4;
+    background-color: #075176;
     box-shadow: 0 0 0 1rem rgba(255, 255, 255, 0.2);
 }
 .video-banner-poster .video-banner-title {
@@ -13356,7 +13360,7 @@ button:focus {
     color: #000;
 }
 .in-stock {
-    color: #4d8ed4;
+    color: #075176;
 }
 .out-of-stock {
     color: #ef837b;
