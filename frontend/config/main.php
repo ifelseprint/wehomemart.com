@@ -58,6 +58,8 @@ return [
                 '<product_view:(product|สินค้า)>/<slug>-<slug_id>' => 'product/view',
                 // service
                 '<service_index:(service|บริการ)>' => 'service/index',
+                // article
+                '<article_index:(article|บทความ)>' => 'article/index',
                 // default
                 // '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

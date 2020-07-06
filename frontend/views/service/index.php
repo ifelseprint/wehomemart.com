@@ -7,7 +7,13 @@ ServiceAsset::register($this);
 <main class="main">
 	<div class="service-posts">
         <div class="service-banner">
-            <img src="<?=Url::base(true);?>/img/bannerservice.jpg">
+        	<div class="container">
+	    		<div class="row">
+	    			<div class="col-lg-12">
+            			<img src="<?=Url::base(true);?>/img/bannerservice.jpg">
+            		</div>
+            	</div>
+            </div>
         </div>
         <div class="service-block">
         	<div class="container">

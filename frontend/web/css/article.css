@@ -1,0 +1,77 @@
+.box-left{
+	padding-right: 0px !important;
+}
+.box-right{
+	padding-left: 0px !important;
+}
+.article-posts .article-block{
+	padding: 20px 0px;
+}
+.article-posts .article-block .article-header{
+	margin-top: 20px;
+	padding: 20px 0px;
+	font-size: 18px;
+	text-align: center;
+}
+.article-posts .article-block .row{
+	margin-bottom: 20px;
+}
+.article-posts .article-block .article-box{
+	border-bottom: 5px #4d8ed4 solid;
+	background: #fff;
+	padding: 0px 20px;
+}
+.article-posts .article-block .article-box .article-box-header{
+	padding: 10px 0px;
+	border-bottom: 1px solid #f5f5f5;
+}
+.article-posts .article-block .article-box .article-box-header .article-view{
+	float: left;
+	color: #4d8ed4;
+	font-weight: 500;
+}
+.article-posts .article-block .article-box .article-box-header .article-created-date{
+	float: right;
+	font-weight: 500;
+}
+.article-posts .article-block .article-box .article-box-title{
+	padding: 15px 0px;
+}
+.article-posts .article-block .article-box .article-box-title h4{
+	padding: 0px;
+	margin: 0px;
+    font-weight: 300;
+    text-align: center;
+}
+.article-posts .article-block .article-box .article-box-image .box-image-left{
+	width: 50%;
+	float: left;
+}
+.article-posts .article-block .article-box .article-box-image .box-image-right{
+	float: left;
+	width: 50%;
+}
+.article-posts .article-block .article-box .article-box-image .box-image-1{
+	height: 310px;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: cover;
+}
+.article-posts .article-block .article-box .article-box-image .box-image-2,
+.article-posts .article-block .article-box .article-box-image .box-image-3
+{
+	height: 150px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	background-repeat: no-repeat;
+}
+.article-posts .article-block .article-box .article-box-detail{
+	padding: 10px 0px;
+}
+.article-posts .article-block .article-box .article-box-readmore{
+	padding: 5px 0px;
+    text-align: right;
+}
+.article-posts .article-block .article-box .article-box-readmore a{
+	color: #777;
+}
