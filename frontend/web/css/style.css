@@ -5730,9 +5730,9 @@ p {
 .btn-link:focus,
 .btn-link .btn-link-dark:hover,
 .btn-link .btn-link-dark:focus {
-    color: #000;
+    color: #075176;
     text-decoration: none;
-    border-color: #000;
+    border-color: #075176;
 }
 .btn-link i:first-child {
     margin-right: 1rem;
@@ -5753,8 +5753,8 @@ p {
 }
 .btn-primary {
     color: #fff;
-    background-color: #000;
-    border-color: #000;
+    background-color: #075176;
+    border-color: #075176;
     box-shadow: none;
 }
 .btn-primary:hover,

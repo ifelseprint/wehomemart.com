@@ -95,7 +95,7 @@ use frontend\widgets\ProductMenu;
                             <a href="#"><?= Yii::t('app', 'menu_join_us');?></a>
                         </li>
                         <li>
-                            <a href="#"><?= Yii::t('app', 'menu_contact_us');?></a>
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_contact_us');?>"><?= Yii::t('app', 'menu_contact_us');?></a>
                         </li>
                         <!-- <li>
                             <a href="#" class="sf-with-ul">Pages</a>

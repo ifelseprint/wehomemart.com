@@ -60,6 +60,9 @@ return [
                 '<service_index:(service|บริการ)>' => 'service/index',
                 // article
                 '<article_index:(article|บทความ)>' => 'article/index',
+                '<article_view:(article|บทความ)>/<slug>-<slug_id>' => 'article/view',
+                // contact
+                '<contact_index:(contact|ติดต่อเรา)>' => 'contact/index',
                 // default
                 // '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
