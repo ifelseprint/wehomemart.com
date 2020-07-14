@@ -53,7 +53,7 @@ ArticleAsset::register($this);
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 							</div>
 							<div class="article-box-readmore">
-								<a href="#">อ่านต่อ</a>
+								<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1">อ่านต่อ</a>
 							</div>
 		    			</div>
 	    			</div>
@@ -85,7 +85,7 @@ ArticleAsset::register($this);
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 							</div>
 							<div class="article-box-readmore">
-								<a href="#">อ่านต่อ</a>
+								<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1">อ่านต่อ</a>
 							</div>
 		    			</div>
 	    			</div>
@@ -120,7 +120,7 @@ ArticleAsset::register($this);
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 							</div>
 							<div class="article-box-readmore">
-								<a href="#">อ่านต่อ</a>
+								<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1">อ่านต่อ</a>
 							</div>
 		    			</div>
 	    			</div>
@@ -152,7 +152,7 @@ ArticleAsset::register($this);
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 							</div>
 							<div class="article-box-readmore">
-								<a href="#">อ่านต่อ</a>
+								<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1">อ่านต่อ</a>
 							</div>
 		    			</div>
 	    			</div>

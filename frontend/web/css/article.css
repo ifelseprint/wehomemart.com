@@ -75,3 +75,59 @@
 .article-posts .article-block .article-box .article-box-readmore a{
 	color: #777;
 }
+
+/* ---------------------------------- */
+/* page view */
+/* ---------------------------------- */
+.article-posts .article-block-view .article-view-header{
+	padding: 30px 0px;
+}
+.article-posts .article-block-view .article-view-header .article-view-title{
+	font-size: 34px;
+	text-align: center;
+	padding: 10px 0px;
+}
+.article-posts .article-block-view .article-view-header .article-view-created-date{
+	font-size: 18px;
+	text-align: center;
+	padding-top: 5px;
+}
+.article-posts .article-block-view .article-view-header .article-view-created-date::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 60px;
+    bottom: 15px;
+    background-color: #ccc;
+    left: 50%;
+    margin-left: -30px;
+}
+.article-posts .article-block-view .article-view-content{
+	text-align: center;
+}
+.article-posts .article-block-view .article-view-social .icon{
+	margin-right: 5px;
+    width: 35px;
+    height: 33px;
+    display: block;
+    text-align: center;
+    line-height: 33px;
+}
+.article-posts .article-block-view .article-view-social .icon.facebook{
+	background: #2670bf;
+    color: #fff;
+}
+.article-posts .article-block-view .article-view-social .icon.twitter{
+	background: #5eaafb;
+    color: #fff;
+}
+.article-posts .article-block-view .article-view-social .icon.pinterest{
+	background: #e92336;
+    color: #fff;
+}
+
+.article-posts .article-block-view .article-view-content-footer{
+	border-top: 1px solid #ccc;
+	padding: 20px 0px;
+    margin-top: 20px;
+}
