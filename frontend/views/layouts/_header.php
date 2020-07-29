@@ -82,7 +82,7 @@ use frontend\widgets\ProductMenu;
                             <a href="<?=Url::base(true);?>"><?= Yii::t('app', 'menu_home');?></a>
                         </li>
                         <li>
-                            <a href="#"><?= Yii::t('app', 'menu_product');?></a>
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_product');?>/วัสดุโครงสร้าง-1"><?= Yii::t('app', 'menu_product');?></a>
                             <?= ProductMenu::widget(array('action'=>'link-nav')); ?>
                         </li>
                         <li>

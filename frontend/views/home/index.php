@@ -6,22 +6,11 @@ HomeAsset::register($this);
 ?>
 <main class="main">
     <div class="intro-slider-container">
-        <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl" data-owl-options='{"nav": false}'>
-            <div class="intro-slide" style="background-image: url(<?=Url::base(true);?>/img/banner.jpg);">
-              
-            </div><!-- End .intro-slide -->
+        <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl" data-owl-options='{"nav": false,"autoplay":true,"autoplayTimeout":3000,"autoplayHoverPause":true}'>
 
-            <div class="intro-slide" style="background-image: url(<?=Url::base(true);?>/img/banner-mock.jpg);">
-                <div class="container intro-content">
-                    <h3 class="intro-subtitle">Welcome to </h3><!-- End .h3 intro-subtitle -->
-                    <h1 class="intro-title"> We Home<br><span class="text-primary">ศูนย์จำหน่ายสินค้าวัสดุก่อสร้าง </span></h1><!-- End .intro-title -->
+        	<div class="intro-slide"><img src="<?=Url::base(true);?>/img/banner.jpg"></div>
+        	<div class="intro-slide"><img src="<?=Url::base(true);?>/img/banner-mock.jpg"></div>
 
-                    <a href="category.html" class="btn btn-primary">
-                        <span>Shop Now</span>
-                        <i class="icon-long-arrow-right"></i>
-                    </a>
-                </div><!-- End .container intro-content -->
-            </div><!-- End .intro-slide -->
 
             
         </div><!-- End .owl-carousel owl-simple -->
@@ -344,23 +333,25 @@ HomeAsset::register($this);
     <div class="idea-posts">
 
 		<div class="row">
-	    	<div class="col-xs-12 col-lg-6">
+	    	<div class="col-lg-6">
 	    		<img src ="<?=Url::base(true);?>/img/idea.jpg" alt="image desc" width="100%">
 	    	</div>
-	    	<div class="col-xs-12 col-lg-6 block-content">
+	    	<div class="col-lg-6 block-content">
 				<div class="block-desc">
 					<div>
 		    			<img src ="<?=Url::base(true);?>/img/homeofidea.png" alt="image desc" width="250">
-			    		<h2 class="title text-left">แต่งบ้านแนวบ้านปูนเปือย</h2><!-- End .title-lg text-center -->
+			    		<h2 class="title text-left">แต่งบ้านแนวบ้านปูนเปือย</h2>
 			    		<p class="text-left">บ้านที่ดีคือบ้านที่อยู่แล้วเป็นสุข ซึ่งก็คือ การออกแบบสภาพแวดล้อมให้มีความใกล้ชิดกับ “ธรรมชาติของตัวเรา” มากที่สุด</p>
 
-			    		<a href="#" class="btn-readmore">อ่านต่อ</a>
+			    		<div>
+			    			<a href="#" class="btn-readmore">อ่านต่อ</a>
+			    		</div>
 			    	</div>
 		    	</div>
 	    	</div>
 	    </div>
 
-  	</div> <!-- End .promotion-posts -->
+  	</div>
 
     <div class="article-posts">
     	<div class="container">

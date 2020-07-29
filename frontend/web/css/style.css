@@ -1425,13 +1425,20 @@ blockquote.text-white cite span {
     }
 }
 @media screen and (max-width: 991px) {
+    .logo img {
+        display: block;
+        max-width: 150px !important;
+        height: auto;
+    }
 	.header-intro-clearance .line,
-	.header-intro-clearance .facebook{
+	.header-intro-clearance .facebook,
+    .header-intro-clearance .language{
 	    display: none;
 	}
-	.header-intro-clearance .phone {
+	.header-intro-clearance .phone{
 	    display: block;
 	}
+
 	.header-intro-clearance .header-middle .header-right {
     	margin-left: auto;
 	}
@@ -1730,7 +1737,7 @@ blockquote.text-white cite span {
     box-shadow: 5px 10px 16px rgba(51, 51, 51, 0.05), -5px 10px 16px rgba(51, 51, 51, 0.05);
 }
 .menu ul {
-    min-width: 218px;
+    min-width: 350px;
     padding: 1.6rem 0 2rem;
 }
 .menu .megamenu .banner > a {

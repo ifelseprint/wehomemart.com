@@ -10,7 +10,7 @@ ArticleAsset::register($this);
         	<div class="container">
 	    		<div class="row">
 	    			<div class="col-lg-12">
-            			<img src="<?=Url::base(true);?>/img/banner-mock.gif">
+            			<img src="<?=Url::base(true);?>/img/banner-article.jpg">
             		</div>
             	</div>
             </div>
