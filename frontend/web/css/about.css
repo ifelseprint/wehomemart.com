@@ -1,0 +1,49 @@
+.box-left{
+	padding-right: 0px !important;
+}
+.box-right{
+	padding-left: 0px !important;
+}
+
+.about-posts .about-block .about-content{
+	background: #fff;
+}
+.about-posts .about-block .about-content .content-box{
+	padding: 10px; 
+}
+.about-posts .about-block .about-content .content-box hr{
+	border-top: 3px solid #075176;
+    margin: 10px 0px;
+    width: 70px;
+}
+.about-posts .about-block .about-content .content-box .content-about{
+	font-size: 20px;
+	color: #e92336;
+}
+.about-posts .about-block .about-content .content-box .content-header{
+	font-size: 42px;
+	color: #075176;
+}
+.about-posts .about-block .about-content .content-box .content-title{
+	color: #075176;
+	font-size: 24px;
+}
+.about-posts .about-block .about-content .content-box .content-text,
+.about-posts .mission-block .content-box .content-text
+{
+	font-size: 12px;
+    font-weight: 300;
+}
+.about-posts .mission-block {
+	background: #192028;
+	color: #fff;
+	padding: 20px 0px;
+}
+.about-posts .mission-block .content-box{
+	padding-bottom: 30px;
+}
+/*.about-posts .mission-block .content-box .box{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
