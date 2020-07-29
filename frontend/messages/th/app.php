@@ -1,6 +1,7 @@
 <?php
 return [
 	'menu_home' => 'หน้าแรก',
+	'menu_about' => 'เกี่ยวกับเรา',
     'menu_product' => 'สินค้า',
     'menu_article' => 'บทความ',
     'menu_service' => 'บริการ',

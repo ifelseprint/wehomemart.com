@@ -52,18 +52,18 @@ use yii\helpers\Url;
             <div class="row">
                 <div class="col-sm-4 col-lg-4">
                     <div class="widget">
-                        <h4 class="widget-title">เกี่ยวกับเรา</h4><!-- End .widget-title -->
+                        <h4 class="widget-title">SC HOME MART</h4><!-- End .widget-title -->
                         <div class="row">
                             <div class="col-sm-6 col-md-6">
                                 <ul class="widget-list">
-                                    <li><a href="#">ธุรกิจในเครือ</a></li>
-                                    <li><a href="#">ความเป็นมา</a></li>
+                                    <li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_about');?>"><?= Yii::t('app', 'menu_about');?></a></li>
+                                    <li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_service');?>"><?= Yii::t('app', 'menu_service');?></a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .col-sm-6 -->
                             <div class="col-sm-6 col-md-6">
                                 <ul class="widget-list">
-                                    <li><a href="#">วิสัยทัศน์</a></li>
-                                    <li><a href="#">ร่วมงานกับเรา</a></li>
+                                    <li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>"><?= Yii::t('app', 'menu_join_us');?></a></li>
+                                    <li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>"><?= Yii::t('app', 'menu_article');?></a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .col-sm-6 -->
                         </div><!-- End .row -->
@@ -72,7 +72,7 @@ use yii\helpers\Url;
 
                 <div class="col-sm-4 col-lg-4">
                     <div class="widget">
-                        <h4 class="widget-title">สินค้า</h4><!-- End .widget-title -->
+                        <h4 class="widget-title"><?= Yii::t('app', 'menu_product');?></h4><!-- End .widget-title -->
 
                         <div class="row">
                             <div class="col-sm-6 col-md-6">

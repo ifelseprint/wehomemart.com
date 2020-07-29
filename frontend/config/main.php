@@ -53,6 +53,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '' => 'home/index',
+                // about
+                '<about_index:(about us|เกี่ยวกับเรา)>' => 'about/index',
                 // product
                 '<product_index:(product|สินค้า)>' => 'product/view',
                 '<product_view:(product|สินค้า)>/<slug>-<slug_id>' => 'product/view',
@@ -61,8 +63,11 @@ return [
                 // article
                 '<article_index:(article|บทความ)>' => 'article/index',
                 '<article_view:(article|บทความ)>/<slug>-<slug_id>' => 'article/view',
+                // join
+                '<join_index:(join us|ร่วมงานกับเรา)>' => 'join/index',
+                '<join_view:(join us|ร่วมงานกับเรา)>/<slug>-<slug_id>' => 'join/view',
                 // contact
-                '<contact_index:(contact|ติดต่อเรา)>' => 'contact/index',
+                '<contact_index:(contact us|ติดต่อเรา)>' => 'contact/index',
                 // default
                 // '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
