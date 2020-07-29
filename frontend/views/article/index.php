@@ -37,17 +37,19 @@ ArticleAsset::register($this);
 								<div class="clearfix"></div>
 							</div>
 							<div class="article-box-title">
-			    				<h4>ปลูกต้นไม้มงคลในบ้าน</h4>
+			    				<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1"><h4>ปลูกต้นไม้มงคลในบ้าน</h4></a>
 							</div>
 							<div class="article-box-image">
-			    				<div class="box-image-left">
-			    					<div class="box-image-1" style="background-image: url(../img/blog5.jpg);"></div>
-			    				</div>
-			    				<div class="box-image-right">
-			    					<div class="box-image-2" style="background-image: url(../img/blog5.jpg);"></div>
-			    					<div class="box-image-3" style="background-image: url(../img/blog5.jpg);"></div>
-			    				</div>
-			    				<div class="clearfix"></div>
+								<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1">
+				    				<div class="box-image-left">
+				    					<div class="box-image-1" style="background-image: url(../img/blog5.jpg);"></div>
+				    				</div>
+				    				<div class="box-image-right">
+				    					<div class="box-image-2" style="background-image: url(../img/blog5.jpg);"></div>
+				    					<div class="box-image-3" style="background-image: url(../img/blog5.jpg);"></div>
+				    				</div>
+				    				<div class="clearfix"></div>
+				    			</a>
 							</div>
 							<div class="article-box-detail">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -69,17 +71,19 @@ ArticleAsset::register($this);
 								<div class="clearfix"></div>
 							</div>
 							<div class="article-box-title">
-			    				<h4>ปลูกต้นไม้มงคลในบ้าน</h4>
+			    				<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1"><h4>ปลูกต้นไม้มงคลในบ้าน</h4></a>
 							</div>
 							<div class="article-box-image">
-			    				<div class="box-image-left">
-			    					<div class="box-image-1" style="background-image: url(../img/blog5.jpg);"></div>
-			    				</div>
-			    				<div class="box-image-right">
-			    					<div class="box-image-2" style="background-image: url(../img/blog5.jpg);"></div>
-			    					<div class="box-image-3" style="background-image: url(../img/blog5.jpg);"></div>
-			    				</div>
-			    				<div class="clearfix"></div>
+			    				<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1">
+				    				<div class="box-image-left">
+				    					<div class="box-image-1" style="background-image: url(../img/blog5.jpg);"></div>
+				    				</div>
+				    				<div class="box-image-right">
+				    					<div class="box-image-2" style="background-image: url(../img/blog5.jpg);"></div>
+				    					<div class="box-image-3" style="background-image: url(../img/blog5.jpg);"></div>
+				    				</div>
+				    				<div class="clearfix"></div>
+				    			</a>
 							</div>
 							<div class="article-box-detail">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -104,17 +108,19 @@ ArticleAsset::register($this);
 								<div class="clearfix"></div>
 							</div>
 							<div class="article-box-title">
-			    				<h4>ปลูกต้นไม้มงคลในบ้าน</h4>
+			    				<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1"><h4>ปลูกต้นไม้มงคลในบ้าน</h4></a>
 							</div>
 							<div class="article-box-image">
-			    				<div class="box-image-left">
-			    					<div class="box-image-1" style="background-image: url(../img/blog5.jpg);"></div>
-			    				</div>
-			    				<div class="box-image-right">
-			    					<div class="box-image-2" style="background-image: url(../img/blog5.jpg);"></div>
-			    					<div class="box-image-3" style="background-image: url(../img/blog5.jpg);"></div>
-			    				</div>
-			    				<div class="clearfix"></div>
+			    				<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1">
+				    				<div class="box-image-left">
+				    					<div class="box-image-1" style="background-image: url(../img/blog5.jpg);"></div>
+				    				</div>
+				    				<div class="box-image-right">
+				    					<div class="box-image-2" style="background-image: url(../img/blog5.jpg);"></div>
+				    					<div class="box-image-3" style="background-image: url(../img/blog5.jpg);"></div>
+				    				</div>
+				    				<div class="clearfix"></div>
+				    			</a>
 							</div>
 							<div class="article-box-detail">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -136,17 +142,19 @@ ArticleAsset::register($this);
 								<div class="clearfix"></div>
 							</div>
 							<div class="article-box-title">
-			    				<h4>ปลูกต้นไม้มงคลในบ้าน</h4>
+			    				<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1"><h4>ปลูกต้นไม้มงคลในบ้าน</h4></a>
 							</div>
 							<div class="article-box-image">
-			    				<div class="box-image-left">
-			    					<div class="box-image-1" style="background-image: url(../img/blog5.jpg);"></div>
-			    				</div>
-			    				<div class="box-image-right">
-			    					<div class="box-image-2" style="background-image: url(../img/blog5.jpg);"></div>
-			    					<div class="box-image-3" style="background-image: url(../img/blog5.jpg);"></div>
-			    				</div>
-			    				<div class="clearfix"></div>
+			    				<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/xxxx-1">
+				    				<div class="box-image-left">
+				    					<div class="box-image-1" style="background-image: url(../img/blog5.jpg);"></div>
+				    				</div>
+				    				<div class="box-image-right">
+				    					<div class="box-image-2" style="background-image: url(../img/blog5.jpg);"></div>
+				    					<div class="box-image-3" style="background-image: url(../img/blog5.jpg);"></div>
+				    				</div>
+				    				<div class="clearfix"></div>
+				    			</a>
 							</div>
 							<div class="article-box-detail">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
