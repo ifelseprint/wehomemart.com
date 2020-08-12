@@ -21,4 +21,11 @@ class ServiceController extends \yii\web\Controller
             'service' => $models,
         ]);
     }
+    public function actionView()
+    {
+
+        return $this->renderPartial('view', [
+            // 'service' => $models,
+        ]);
+    }
 }

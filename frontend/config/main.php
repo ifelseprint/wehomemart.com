@@ -59,7 +59,7 @@ return [
                 '<product_index:(product|สินค้า)>' => 'product/view',
                 '<product_view:(product|สินค้า)>/<slug>-<slug_id>' => 'product/view',
                 // service
-                '<service_index:(service|บริการ)>' => 'service/index',
+                '<service_index:(we care|we care)>' => 'service/index',
                 // article
                 '<article_index:(article|บทความ)>' => 'article/index',
                 '<article_view:(article|บทความ)>/<slug>-<slug_id>' => 'article/view',

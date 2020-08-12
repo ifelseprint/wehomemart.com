@@ -75,26 +75,29 @@ use frontend\widgets\ProductMenu;
     <div class="header-bottom sticky-header">
         <div class="container">
 
-            <div class="header-center">
+            <div class="header-right" style="margin-left: 0;">
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
-                        <li class="active">
+                        <li class="<?php echo (Yii::$app->controller->id=="home" ? 'active' : '' )?>">
                             <a href="<?=Url::base(true);?>"><?= Yii::t('app', 'menu_home');?></a>
                         </li>
-                        <li>
+                        <li class="<?php echo (Yii::$app->controller->id=="about" ? 'active' : '' )?>">
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_about');?>"><?= Yii::t('app', 'menu_about');?></a>
+                        </li>
+                        <li class="<?php echo (Yii::$app->controller->id=="product" ? 'active' : '' )?>">
                             <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_product');?>/วัสดุโครงสร้าง-1"><?= Yii::t('app', 'menu_product');?></a>
                             <?= ProductMenu::widget(array('action'=>'link-nav')); ?>
                         </li>
-                        <li>
+                        <li class="<?php echo (Yii::$app->controller->id=="article" ? 'active' : '' )?>">
                             <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>"><?= Yii::t('app', 'menu_article');?></a>
                         </li>
-                        <li>
+                        <li class="<?php echo (Yii::$app->controller->id=="service" ? 'active' : '' )?>">
                             <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_service');?>"><?= Yii::t('app', 'menu_service');?></a>
                         </li>
-                        <li>
+                        <li class="<?php echo (Yii::$app->controller->id=="join" ? 'active' : '' )?>">
                             <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>"><?= Yii::t('app', 'menu_join_us');?></a>
                         </li>
-                        <li>
+                        <li class="<?php echo (Yii::$app->controller->id=="contact" ? 'active' : '' )?>">
                             <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_contact_us');?>"><?= Yii::t('app', 'menu_contact_us');?></a>
                         </li>
                         <!-- <li>

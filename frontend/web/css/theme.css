@@ -477,9 +477,3 @@
     background: #fff !important;
     color: #000 !important;
 }
-.owl-nav .owl-prev{
-    left: -80px !important;
-}
-.owl-nav .owl-next{
-    right: -80px !important;
-}

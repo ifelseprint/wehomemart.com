@@ -26,7 +26,7 @@ HomeAsset::register($this);
 	           	<p class="text-center">ดูโปรโมชั่นออนไลน์ทั้งหมด >></p>
 	        </div>
 
-	        <div style="padding: 0px 80px;">
+	        <div class="promotion-posts-slide">
 	            <div class="owl-carousel owl-simple carousel-with-shadow owl-loaded owl-drag" data-toggle="owl" data-owl-options='{
 	                    "nav": true, 
 	                    "dots": true,
@@ -273,23 +273,17 @@ HomeAsset::register($this);
 	<div class="service-posts">
     	<div class="container">
     		<div class="row">
-    			<div class="col-xs-12 col-lg-4">
+    			<div class="col-xs-12 col-lg-4 service-posts-item">
 	    			<div class="entry entry-display">
 	                    <figure class="entry-media">
 	                        <a href="#">
 	                            <img src ="<?=Url::base(true);?>/img/homa-service.jpg" alt="image desc">
 	                        </a>
 	                    </figure><!-- End .entry-media -->
-	                    <div class="entry-body text-center">
-	
-	                        <div class="entry-content">
-	                            <a href="#">ดูบริการทั้งหมด..</a>
-	                        </div><!-- End .entry-content -->
-	                	</div>
 	        		</div>
 	        	</div>
 
-	        	<div class="col-xs-12 col-lg-4">
+	        	<div class="col-xs-12 col-lg-4 service-posts-item">
 	    			<div class="entry entry-display">
 	                    <figure class="entry-media">
 	                        <a href="#">
@@ -302,13 +296,16 @@ HomeAsset::register($this);
 	                        </h3><!-- End .entry-title -->
 
 	                        <div class="entry-content">
-	                            <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt..</a>
+	                            <a href="#">
+	                            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt..</p>
+	                            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt..</p>
+	                            </a>
 	                        </div><!-- End .entry-content -->
 	                	</div>
 	        		</div>
 	        	</div>
 
-	        	<div class="col-xs-12 col-lg-4">
+	        	<div class="col-xs-12 col-lg-4 service-posts-item">
 	    			<div class="entry entry-display">
 	                    <figure class="entry-media">
 	                        <a href="#">

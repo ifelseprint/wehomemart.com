@@ -64,7 +64,11 @@
 	top: -5px;
     position: relative;
 }
-
-.contact-form{
-
+@media screen and (max-width: 991px) {
+  .contact-posts .contact-block .contact-form .form-group {
+    margin-bottom: 0;
+  }
+  .contact-posts .contact-block .contact-form .form-group .form-control {
+    margin-bottom: 10px;
+  }
 }

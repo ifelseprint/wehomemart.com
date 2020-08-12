@@ -33,3 +33,12 @@
     padding-right: 25px;
     text-align: center;
 }
+
+@media screen and (max-width: 991px) {
+	.service-posts .service-block .row{
+		margin-bottom: 0px;
+	}
+	.service-posts .service-block .service-box{
+		margin-bottom: 20px;
+	}
+}

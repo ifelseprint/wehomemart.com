@@ -28,23 +28,26 @@ use frontend\widgets\ProductMenu;
             <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu-link">
                 <nav class="mobile-nav">
                     <ul class="mobile-menu">
-                        <li class="active">
+                        <li>
                             <a href="<?=Url::base(true);?>"><?= Yii::t('app', 'menu_home');?></a>
+                        </li>
+                        <li >
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_about');?>"><?= Yii::t('app', 'menu_about');?></a>
                         </li>
                         <li>
                             <a href="#"><?= Yii::t('app', 'menu_product');?></a>
                             <?= ProductMenu::widget(array('action'=>'link-nav')); ?>
                         </li>
-                        <li class="active">
-                            <a href="<?=Url::base(true);?>"><?= Yii::t('app', 'menu_article');?></a>
+                        <li>
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>"><?= Yii::t('app', 'menu_article');?></a>
                         </li>
                         <li>
                             <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_service');?>"><?= Yii::t('app', 'menu_service');?></a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>"><?= Yii::t('app', 'menu_join_us');?></a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_contact_us');?>"><?= Yii::t('app', 'menu_contact_us');?></a>
                         </li>
                     </ul>

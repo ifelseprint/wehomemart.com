@@ -19,6 +19,7 @@ class AppAsset extends AssetBundle
         'css/magnific-popup.css',
         'css/jquery.countdown.css',
         'css/style.css',
+        'css/loader.css',
         'css/theme.css',
     ];
     public $js = [
@@ -33,6 +34,7 @@ class AppAsset extends AssetBundle
         'js/jquery.countdown.min.js',
         'js/main.js',
         'js/demo-2.js',
+        'js/App.js',
     ];
     public $depends = [
     ];
