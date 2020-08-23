@@ -28,12 +28,14 @@ class AppAsset extends AssetBundle
     public $js = [
         'plugins/bootstrap/js/bootstrap.bundle.min.js',
         'plugins/moment/moment.min.js',
+        'plugins/tinymce/tinymce.min.js',
         'plugins/select2/js/select2.full.min.js',
         'plugins/daterangepicker/daterangepicker.js',
         'dist/js/adminlte.min.js',
+        'js/App.js',
     ];
     public $depends = [
-        // 'yii\web\YiiAsset',
+        'yii\web\YiiAsset',
         // 'yii\bootstrap\BootstrapAsset',
     ];
 }

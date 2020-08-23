@@ -27,7 +27,7 @@ AppAsset::register($this);
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
       <a href="<?=Url::base(true);?>/dashboard" class="navbar-brand">
-        <img src="<?=Url::base(true);?>/img/logo_allianz_global_assistance_20190701.jpg" alt="" class="brand-image">
+        <img src="<?=Url::base(true);?>/img/logo.png" alt="" class="brand-image">
       </a>
       
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,82 +39,11 @@ AppAsset::register($this);
         <ul class="navbar-nav">
           <li class="nav-item">
             <a href="<?=Url::base(true);?>/dashboard" class="nav-link">Dashboard</a>
-          </li>
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="policy" ? 'active' : '' )?> dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Policy</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
-              <li><a href="<?=Url::base(true);?>/policy/view" class="dropdown-item <?php echo (Yii::$app->controller->action->id=="view" ? 'active' : '' )?>">View Policy</a></li>
-              <li><a href="<?=Url::base(true);?>/policy/create" class="dropdown-item <?php echo (Yii::$app->controller->action->id=="create" ? 'active' : '' )?>">Create Policy</a></li>
-              
-            </ul>
-          </li>       
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="user" ? 'active' : '' )?>">
-            <a href="<?=Url::base(true);?>/user/view" class="nav-link">Users</a>
+          </li>   
+          <li class="nav-item <?php echo (Yii::$app->controller->id=="product" ? 'active' : '' )?>">
+            <a href="<?=Url::base(true);?>/product" class="nav-link">Product</a>
           </li>          
-          <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Finance</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
-              <li><a href="#" class="dropdown-item">Account Payable </a></li>
-              <li><a href="#" class="dropdown-item">Payment</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Report</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
-              <li><a href="#" class="dropdown-item">Cost Containment Report </a></li>
-              <li><a href="#" class="dropdown-item">Cost Summary Report</a></li>
-              <li class="dropdown-divider"></li>
-              <li><a href="#" class="dropdown-item">SUMMARY MEDICAL INBOUND REPORT  </a></li>
-             </ul>
-          </li>  
-          <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Setting</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
-              <li><a href="#" class="dropdown-item">Master Data</a></li>
-
-              <li class="dropdown-divider"></li>
-
-              <!-- Level two dropdown-->
-              <li class="dropdown-submenu dropdown-hover">
-                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Operation</a>
-                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow-sm">
-                  <!-- Level three dropdown-->
-                  <li class="dropdown-submenu">
-                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hospital</a>
-                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow-sm">
-                      <li><a href="#" class="dropdown-item">Diagnostic</a></li>
-                      <li><a href="#" class="dropdown-item">Treatment</a></li>
-                      <li><a href="#" class="dropdown-item"> Department</a></li>
-                      <li><a href="#" class="dropdown-item">Medical Expenses Type</a></li>
-                      <li><a href="#" class="dropdown-item">Hospital Fee Period</a></li>
-                      <li><a href="#" class="dropdown-item">Hospital Fee</a></li>
-                      <li><a href="#" class="dropdown-item">Average</a></li>
-                      <li><a href="#" class="dropdown-item">Region Setting</a></li>                 
-                    </ul>
-                  </li>
-                  <!-- End Level three -->                
-                  <li><a href="#" class="dropdown-item">Escort</a></li>
-                  <li><a href="#" class="dropdown-item">Funeral Service</a></li>
-                  <li><a href="#" class="dropdown-item">Chartered Flight</a></li>
-                  <li><a href="#" class="dropdown-item">Hotel</a></li>
-                  <li><a href="#" class="dropdown-item">Transportation</a></li>
-                  <li><a href="#" class="dropdown-item">Commercial Airline</a></li>
-                  <li><a href="#" class="dropdown-item">Travel Agency</a></li>
-                  
-                </ul>
-              </li>
-              <!-- End Level two -->
-              <!-- Level two dropdown-->
-              <li class="dropdown-submenu dropdown-hover">
-                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Finance</a>
-                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow-sm">
-                  <li><a tabindex="-1" href="#" class="dropdown-item">Owner</a></li>
-                  <li><a href="#" class="dropdown-item">Supplier</a></li>
-                </ul>
-              </li>
-              <!-- End Level two -->              
-            </ul>
-          </li>                       
+                
         </ul>
 
       </div>
@@ -189,10 +118,10 @@ AppAsset::register($this);
         <div class="container">
             <!-- To the right -->
             <div class="appname-footer float-right d-none d-sm-inline">
-              <i class="fas fa-plug"></i> Extended Warranty System<small> version 4.0</small> 
+              <i class="fas fa-plug"></i> System<small> version 1.0</small> 
             </div>
             <!-- Default to the left -->
-            Copyright &copy; 2012 - <script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.allianz-partners.com" target="_blank">Allianz Partner</a>. All rights reserved.
+            Copyright &copy; <script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.wehomemart.com" target="_blank">SC HOME MART</a>. All rights reserved.
         </div>
     </footer>
 </div>
