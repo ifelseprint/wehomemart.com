@@ -24,7 +24,7 @@ ProductAsset::register($this);
     					<?=$product['product_name_'.Yii::$app->language];?>
     				</div>
     				<div class="proudct-img">
-    					<img src="<?=Url::base(true);?>/uploads/<?=$product['productDetails'][0]['product_detail_image'];?>">
+    					<img src="<?=Url::base(true);?>/uploads/<?=$product['productDetails'][0]['product_detail_image_path'];?>/<?=$product['productDetails'][0]['product_detail_image'];?>">
     				</div>
     			</div>
     		</div>
