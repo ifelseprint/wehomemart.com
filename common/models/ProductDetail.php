@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "product_detail".
  *
  * @property int $product_detail_id
- * @property int|null $product_id
+ * @property int $product_id
  * @property string|null $product_detail_content_th
  * @property string|null $product_detail_content_en
  * @property string|null $product_detail_image
@@ -32,6 +32,7 @@ class ProductDetail extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['product_id'], 'required'],
             [['product_id'], 'integer'],
             [['product_detail_content_th', 'product_detail_content_en'], 'string'],
             [['product_detail_image'], 'string', 'max' => 50],

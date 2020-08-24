@@ -63,7 +63,7 @@ use yii\bootstrap\ActiveForm;
                 'format' => 'raw',
                 'contentOptions' => ['style' => 'width:50px'],
                 'value' => function ($model) {
-                    return '<img src="'.str_replace('/admin', '', Yii::getAlias('@web')).'/uploads/'.$model['product_icon_path'].'/'.$model['product_icon'].'" width="30">';
+                    return '<img src="'.str_replace('/admin', '', Yii::getAlias('@web')).'/uploads/'.$model->product_icon_path.'/'.$model->product_icon.'" width="30">';
                 },
             ],
             [
