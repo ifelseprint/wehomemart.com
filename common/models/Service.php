@@ -10,8 +10,10 @@ use Yii;
  * @property int $service_id
  * @property string|null $service_name_th
  * @property string|null $service_name_en
- * @property string|null $service_icon
+ * @property string|null $service_content_th
+ * @property string|null $service_content_en
  * @property string|null $service_image
+ * @property string|null $service_image_path
  * @property int|null $is_active 0 = inactive, 1 = active
  * @property int|null $created_user
  * @property string|null $created_date
@@ -39,7 +41,8 @@ class Service extends \yii\db\ActiveRecord
             [['is_active', 'created_user', 'modified_user'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
             [['service_name_th', 'service_name_en'], 'string', 'max' => 100],
-            [['service_icon', 'service_image'], 'string', 'max' => 50],
+            [['service_content_th', 'service_content_en'], 'string', 'max' => 255],
+            [['service_image', 'service_image_path'], 'string', 'max' => 50],
         ];
     }
 
@@ -52,8 +55,10 @@ class Service extends \yii\db\ActiveRecord
             'service_id' => 'Service ID',
             'service_name_th' => 'Service Name Th',
             'service_name_en' => 'Service Name En',
-            'service_icon' => 'Service Icon',
+            'service_content_th' => 'Service Content Th',
+            'service_content_en' => 'Service Content En',
             'service_image' => 'Service Image',
+            'service_image_path' => 'Service Image Path',
             'is_active' => '0 = inactive, 1 = active',
             'created_user' => 'Created User',
             'created_date' => 'Created Date',

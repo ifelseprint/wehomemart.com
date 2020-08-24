@@ -11,7 +11,6 @@ use Yii;
  * @property int|null $service_id
  * @property string|null $service_detail_content_th
  * @property string|null $service_detail_content_en
- * @property string|null $service_detail_image
  *
  * @property Service $service
  */
@@ -33,7 +32,6 @@ class ServiceDetail extends \yii\db\ActiveRecord
         return [
             [['service_id'], 'integer'],
             [['service_detail_content_th', 'service_detail_content_en'], 'string'],
-            [['service_detail_image'], 'string', 'max' => 50],
             [['service_id'], 'exist', 'skipOnError' => true, 'targetClass' => Service::className(), 'targetAttribute' => ['service_id' => 'service_id']],
         ];
     }
@@ -48,7 +46,6 @@ class ServiceDetail extends \yii\db\ActiveRecord
             'service_id' => 'Service ID',
             'service_detail_content_th' => 'Service Detail Content Th',
             'service_detail_content_en' => 'Service Detail Content En',
-            'service_detail_image' => 'Service Detail Image',
         ];
     }
 
