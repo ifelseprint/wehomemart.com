@@ -42,134 +42,37 @@ JoinAsset::register($this);
 				<div class="col-xs-12 col-lg-8 box-right">
 					<!--Accordion wrapper-->
 					<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+						<?php
+						foreach ($Jobs as $value){
+							$jobs_name = 'jobs_name_'.Yii::$app->language;
+							$jobs_content = 'jobs_content_'.Yii::$app->language;	
+						?>
 						<!-- Accordion card -->
 						<div class="card">
 							<!-- Card header -->
-							<div class="card-header" role="tab" id="heading1">
-								<a data-toggle="collapse" data-parent="#accordionEx" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
+							<div class="card-header" role="tab" id="heading<?=$value->jobs_id;?>">
+								<a data-toggle="collapse" data-parent="#accordionEx" href="#collapse<?=$value->jobs_id;?>" aria-expanded="false" aria-controls="collapse<?=$value->jobs_id;?>">
 									<h5 >
-										พนักงานขาย <i class="fa fa-angle-down" aria-hidden="true"></i>
+										<?=$value->$jobs_name;?> <i class="fa fa-angle-down" aria-hidden="true"></i>
 									</h5>
 								</a>
 							</div>
 							<!-- Card body -->
-							<div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading1"
+							<div id="collapse<?=$value->jobs_id;?>" class="collapse" role="tabpanel" aria-labelledby="heading<?=$value->jobs_id;?>"
 							data-parent="#accordionEx">
 								<div class="card-body">
 									<div style="padding: 15px 0px;">
-										<p><b>คุณสมบัติทั่วไป</b></p>
-										<p>- อายุ 18-35 ปี</p>
-										<p>- จบปริญญาตรี สาขาใดก็ได้ </p>
-										<p>- มีความขยัน อดทน ตั้งใจทำงาน รักงานบริการ</p>
-										<p>- มีมนุษยสัมพันธ์ดี</p>
-										<p>- มีประสบการณ์ ธุรกิจค้าปลีก จะพิจารณาเป็นพิเศษ</p>
-
-										<p><b>สวัสดิการ และรายได้</b></b></p>
-										<p>- ค่าครองชีพ</p>
-										<p>- กองทุนสำรองเลี้ยงชีพ</p>
-										<p>- ค่ารักษาพยาบาล</p>
-										<p>- ตรวจสุขภาพประจำปี</p>
-										<p>- ค่านั่งเครื่องแคชเชียร์</p>
-										<p>- เงินรางวัลจากยอดขาย (Incentive)</p>
-										<p>- วันลาพิเศษ</p>
-										<p>- เงินช่วยเหลือต่างๆ</p>
-
-										<hr>
-										<p>ส่งใบสมัครด้วยตัวเองมาที่ อีเมล hr@wehomemart.com</p>
+										<?=$value->$jobs_content;?>
 									</div>
 									<div style="padding: 15px 0px;">
-										<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>/sale-1" class="btnApply">Apply now</a>
+										<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>/<?=$value->$jobs_name;?>-<?=$value->jobs_id;?>" class="btnApply">Apply now</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- Accordion card -->
-
-						<!-- Accordion card -->
-						<div class="card">
-							<!-- Card header -->
-							<div class="card-header" role="tab" id="heading2">
-								<a data-toggle="collapse" data-parent="#accordionEx" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
-									<h5 >
-										พนังานแคชเชียร์ <i class="fa fa-angle-down" aria-hidden="true"></i>
-									</h5>
-								</a>
-							</div>
-							<!-- Card body -->
-							<div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2"
-							data-parent="#accordionEx">
-								<div class="card-body">
-									<div style="padding: 15px 0px;">
-										<p><b>คุณสมบัติทั่วไป</b></p>
-										<p>- อายุ 18-35 ปี</p>
-										<p>- จบปริญญาตรี สาขาใดก็ได้ </p>
-										<p>- มีความขยัน อดทน ตั้งใจทำงาน รักงานบริการ</p>
-										<p>- มีมนุษยสัมพันธ์ดี</p>
-										<p>- มีประสบการณ์ ธุรกิจค้าปลีก จะพิจารณาเป็นพิเศษ</p>
-
-										<p><b>สวัสดิการ และรายได้</b></b></p>
-										<p>- ค่าครองชีพ</p>
-										<p>- กองทุนสำรองเลี้ยงชีพ</p>
-										<p>- ค่ารักษาพยาบาล</p>
-										<p>- ตรวจสุขภาพประจำปี</p>
-										<p>- ค่านั่งเครื่องแคชเชียร์</p>
-										<p>- เงินรางวัลจากยอดขาย (Incentive)</p>
-										<p>- วันลาพิเศษ</p>
-										<p>- เงินช่วยเหลือต่างๆ</p>
-
-										<hr>
-										<p>ส่งใบสมัครด้วยตัวเองมาที่ อีเมล hr@wehomemart.com</p>
-									</div>
-									<div style="padding: 15px 0px;">
-										<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>/sale-1" class="btnApply">Apply now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Accordion card -->
-
-						<!-- Accordion card -->
-						<div class="card">
-							<!-- Card header -->
-							<div class="card-header" role="tab" id="heading2">
-								<a data-toggle="collapse" data-parent="#accordionEx" href="#collapse3" aria-expanded="false" aria-controls="collapse2">
-									<h5 >
-										พนังานบัญชี <i class="fa fa-angle-down" aria-hidden="true"></i>
-									</h5>
-								</a>
-							</div>
-							<!-- Card body -->
-							<div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3"
-							data-parent="#accordionEx">
-								<div class="card-body">
-									<div style="padding: 15px 0px;">
-										<p><b>คุณสมบัติทั่วไป</b></p>
-										<p>- อายุ 18-35 ปี</p>
-										<p>- จบปริญญาตรี สาขาใดก็ได้ </p>
-										<p>- มีความขยัน อดทน ตั้งใจทำงาน รักงานบริการ</p>
-										<p>- มีมนุษยสัมพันธ์ดี</p>
-										<p>- มีประสบการณ์ ธุรกิจค้าปลีก จะพิจารณาเป็นพิเศษ</p>
-
-										<p><b>สวัสดิการ และรายได้</b></b></p>
-										<p>- ค่าครองชีพ</p>
-										<p>- กองทุนสำรองเลี้ยงชีพ</p>
-										<p>- ค่ารักษาพยาบาล</p>
-										<p>- ตรวจสุขภาพประจำปี</p>
-										<p>- ค่านั่งเครื่องแคชเชียร์</p>
-										<p>- เงินรางวัลจากยอดขาย (Incentive)</p>
-										<p>- วันลาพิเศษ</p>
-										<p>- เงินช่วยเหลือต่างๆ</p>
-
-										<hr>
-										<p>ส่งใบสมัครด้วยตัวเองมาที่ อีเมล hr@wehomemart.com</p>
-									</div>
-									<div style="padding: 15px 0px;">
-										<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>/sale-1" class="btnApply">Apply now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Accordion card -->
+						<?php } ?>
+						
 					</div>
 					<!-- Accordion wrapper -->
 				</div>
