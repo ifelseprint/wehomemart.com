@@ -41,9 +41,17 @@ AppAsset::register($this);
             <a href="<?=Url::base(true);?>/dashboard" class="nav-link">Dashboard</a>
           </li>   
           <li class="nav-item <?php echo (Yii::$app->controller->id=="product" ? 'active' : '' )?>">
-            <a href="<?=Url::base(true);?>/product" class="nav-link">Product</a>
-          </li>          
-                
+            <a href="<?=Url::base(true);?>/product" class="nav-link">Product/สินค้า</a>
+          </li>
+          <li class="nav-item <?php echo (Yii::$app->controller->id=="article" ? 'active' : '' )?>">
+            <a href="<?=Url::base(true);?>/article" class="nav-link">Article/บทความ</a>
+          </li>      
+          <li class="nav-item <?php echo (Yii::$app->controller->id=="service" ? 'active' : '' )?>">
+            <a href="<?=Url::base(true);?>/service" class="nav-link">Service/บริการ</a>
+          </li>
+          <li class="nav-item <?php echo (Yii::$app->controller->id=="jobs" ? 'active' : '' )?>">
+            <a href="<?=Url::base(true);?>/jobs" class="nav-link">Jobs/สมัครงาน</a>
+          </li>            
         </ul>
 
       </div>
