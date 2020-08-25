@@ -39,55 +39,9 @@ class ProductController extends \yii\web\Controller
     {
     	$Product = new Product();
     	$ProductDetail = new ProductDetail();
-
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-
-            	$folder_upload = Yii::getAlias('@frontend').'/web/uploads';
-            	$year = date("Y");
-		        $month = date("m");
-
-		        $folder = $folder_upload."/".$year;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $folder = $folder_upload."/".$year."/".$month;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $path_folder = $year."/".$month;
-
-            	// product
-            	$Product->product_name_th = Yii::$app->request->post()['Product']['product_name_th'];
-            	$Product->product_name_en = Yii::$app->request->post()['Product']['product_name_en'];
-            	$Product->product_icon = UploadedFile::getInstance($Product, 'product_icon');
-            	if(!empty($Product->product_icon)){
-				$product_icon_file  = $Product->product_icon->baseName.'_'.time().'.'.$Product->product_icon->extension;
-				$product_icon_Path  = $folder_upload."/".$path_folder."/".$product_icon_file;
-				$Product->product_icon->saveAs($product_icon_Path);
-				$Product->product_icon = $product_icon_file;
-				$Product->product_icon_path = $path_folder;
-				}
-				$Product->is_active = Yii::$app->request->post()['Product']['is_active'];
-				$Product->created_user = 1;
-				$Product->created_date = date("Y-m-d H:i:s");
-				$Product->modified_user = 1;
-				$Product->modified_date = date("Y-m-d H:i:s");
-				$Product->save();
-
-				// product detail
-				$ProductDetail->product_id = Yii::$app->db->getLastInsertID();
-				$ProductDetail->product_detail_content_th = Yii::$app->request->post()['ProductDetail']['product_detail_content_th'];
-            	$ProductDetail->product_detail_content_en = Yii::$app->request->post()['ProductDetail']['product_detail_content_en'];
-				$ProductDetail->product_detail_image = UploadedFile::getInstance($ProductDetail, 'product_detail_image');
-				if(!empty($ProductDetail->product_detail_image)){
-				$product_detail_image_file  = $ProductDetail->product_detail_image->baseName.'_'.time().'.'.$ProductDetail->product_detail_image->extension;
-				$product_detail_image_Path  = $folder_upload."/".$path_folder."/".$product_detail_image_file;
-				$ProductDetail->product_detail_image->saveAs($product_detail_image_Path);
-				$ProductDetail->product_detail_image = $product_detail_image_file;
-				$ProductDetail->product_detail_image_path = $path_folder;
-				}
-				$ProductDetail->save();
+				$save = $this->save($Product,$ProductDetail,null);
             }
         }
         return $this->renderAjax('create', [
@@ -98,65 +52,12 @@ class ProductController extends \yii\web\Controller
 
     public function actionUpdate()
     {
-    	$product_id = Yii::$app->request->get('id');
-
-    	$Product = Product::findOne(['product_id' => $product_id]);
-    	$ProductDetail = ProductDetail::findOne(['product_id' => $product_id]);
-
-
+    	$id = Yii::$app->request->get('id');
+    	$Product = Product::findOne(['product_id' => $id]);
+    	$ProductDetail = ProductDetail::findOne(['product_id' => $id]);
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-
-            	$folder_upload = Yii::getAlias('@frontend').'/web/uploads';
-            	$year = date("Y");
-		        $month = date("m");
-
-		        $folder = $folder_upload."/".$year;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $folder = $folder_upload."/".$year."/".$month;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $path_folder = $year."/".$month;
-
-            	// product
-            	$Product->product_name_th = Yii::$app->request->post()['Product']['product_name_th'];
-            	$Product->product_name_en = Yii::$app->request->post()['Product']['product_name_en'];
-            	$Product->product_icon = UploadedFile::getInstance($Product, 'product_icon');
-
-            	if(!empty($Product->product_icon)){
-				$product_icon_file  = $Product->product_icon->baseName.'_'.time().'.'.$Product->product_icon->extension;
-				$product_icon_Path  = $folder_upload."/".$path_folder."/".$product_icon_file;
-				$Product->product_icon->saveAs($product_icon_Path);
-				$Product->product_icon = $product_icon_file;
-				$Product->product_icon_path = $path_folder;
-				}else{
-				$Product->product_icon = $Product->getOldAttribute('product_icon');
-				$Product->product_icon_path = $Product->getOldAttribute('product_icon_path');
-				}
-				$Product->is_active = Yii::$app->request->post()['Product']['is_active'];
-				$Product->modified_user = 1;
-				$Product->modified_date = date("Y-m-d H:i:s");
-				$Product->save();
-
-				// product detail
-				$ProductDetail->product_detail_content_th = Yii::$app->request->post()['ProductDetail']['product_detail_content_th'];
-            	$ProductDetail->product_detail_content_en = Yii::$app->request->post()['ProductDetail']['product_detail_content_en'];
-            	$ProductDetail->product_detail_image = UploadedFile::getInstance($ProductDetail, 'product_detail_image');
-
-            	if(!empty($ProductDetail->product_detail_image)){
-				$product_detail_image_file  = $ProductDetail->product_detail_image->baseName.'_'.time().'.'.$ProductDetail->product_detail_image->extension;
-				$product_detail_image_Path  = $folder_upload."/".$path_folder."/".$product_detail_image_file;
-				$ProductDetail->product_detail_image->saveAs($product_detail_image_Path);
-				$ProductDetail->product_detail_image = $product_detail_image_file;
-				$ProductDetail->product_detail_image_path = $path_folder;
-				}else{
-				$ProductDetail->product_detail_image = $ProductDetail->getOldAttribute('product_detail_image');
-				$ProductDetail->product_detail_image_path = $ProductDetail->getOldAttribute('product_detail_image_path');
-				}
-				$ProductDetail->save();
+            	$save = $this->save($Product,$ProductDetail,$id);
             }
         }
     	return $this->renderAjax('update', [
@@ -167,15 +68,15 @@ class ProductController extends \yii\web\Controller
 
     public function actionDelete()
     {
-    	$product_id = Yii::$app->request->get('id');
+    	$id = Yii::$app->request->get('id');
 
     	$ProductDetail = ProductDetail::find()
-		->where(['product_id'=>$product_id])
+		->where(['product_id'=>$id])
 		->one()
 		->delete();
 
     	$Product = Product::find()
-		->where(['product_id'=>$product_id])
+		->where(['product_id'=>$id])
 		->one()
 		->delete();
 
@@ -187,5 +88,57 @@ class ProductController extends \yii\web\Controller
             'dataProvider' => $dataProvider,
             'search' => $search
         ]);
+    }
+
+    public function save($model,$model2=null,$id=null)
+    {
+    	$folder_upload = Yii::getAlias('@frontend').'/web/uploads';
+    	$year = date("Y");
+        $month = date("m");
+
+        $folder = $folder_upload."/".$year;
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $folder = $folder_upload."/".$year."/".$month;
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $path_folder = $year."/".$month;
+
+    	// product
+    	$model->product_name_th = Yii::$app->request->post()['Product']['product_name_th'];
+    	$model->product_name_en = Yii::$app->request->post()['Product']['product_name_en'];
+    	$model->product_icon = UploadedFile::getInstance($model, 'product_icon');
+
+    	if(!empty($model->product_icon)){
+		$product_icon_file  = $model->product_icon->baseName.'_'.time().'.'.$model->product_icon->extension;
+		$product_icon_Path  = $folder_upload."/".$path_folder."/".$product_icon_file;
+		$model->product_icon->saveAs($product_icon_Path);
+		$model->product_icon = $product_icon_file;
+		$model->product_icon_path = $path_folder;
+		}else{
+		$model->product_icon = $model->getOldAttribute('product_icon');
+		$model->product_icon_path = $model->getOldAttribute('product_icon_path');
+		}
+		$model->is_active = Yii::$app->request->post()['Product']['is_active'];
+		$model->save();
+
+		// product detail
+		$model2->product_detail_content_th = Yii::$app->request->post()['ProductDetail']['product_detail_content_th'];
+    	$model2->product_detail_content_en = Yii::$app->request->post()['ProductDetail']['product_detail_content_en'];
+    	$model2->product_detail_image = UploadedFile::getInstance($model2, 'product_detail_image');
+
+    	if(!empty($model2->product_detail_image)){
+		$product_detail_image_file  = $model2->product_detail_image->baseName.'_'.time().'.'.$model2->product_detail_image->extension;
+		$product_detail_image_Path  = $folder_upload."/".$path_folder."/".$product_detail_image_file;
+		$model2->product_detail_image->saveAs($product_detail_image_Path);
+		$model2->product_detail_image = $product_detail_image_file;
+		$model2->product_detail_image_path = $path_folder;
+		}else{
+		$model2->product_detail_image = $model2->getOldAttribute('product_detail_image');
+		$model2->product_detail_image_path = $model2->getOldAttribute('product_detail_image_path');
+		}
+		$model2->save();
     }
 }

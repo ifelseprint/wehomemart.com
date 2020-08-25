@@ -39,22 +39,27 @@ AppAsset::register($this);
         <ul class="navbar-nav">
           <li class="nav-item">
             <a href="<?=Url::base(true);?>/dashboard" class="nav-link">Dashboard</a>
-          </li>   
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="product" ? 'active' : '' )?>">
-            <a href="<?=Url::base(true);?>/product" class="nav-link">Product/สินค้า</a>
           </li>
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="article" ? 'active' : '' )?>">
-            <a href="<?=Url::base(true);?>/article" class="nav-link">Article/บทความ</a>
-          </li>      
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="service" ? 'active' : '' )?>">
-            <a href="<?=Url::base(true);?>/service" class="nav-link">Service/บริการ</a>
-          </li>
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="jobs" ? 'active' : '' )?>">
-            <a href="<?=Url::base(true);?>/jobs" class="nav-link">Jobs/สมัครงาน</a>
-          </li>
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="promotion" ? 'active' : '' )?>">
-            <a href="<?=Url::base(true);?>/promotion" class="nav-link">Promotion/โปรโมชั่น</a>
-          </li>               
+          <li class="nav-item <?php echo (Yii::$app->controller->id=="policy" ? 'active' : '' )?> dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Management</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
+              <li class="<?php echo (Yii::$app->controller->id=="product" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/product" class="nav-link">Product / สินค้า</a>
+              </li>
+              <li class="<?php echo (Yii::$app->controller->id=="article" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/article" class="nav-link">Article / บทความ</a>
+              </li>      
+              <li class="<?php echo (Yii::$app->controller->id=="service" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/service" class="nav-link">Service / บริการ</a>
+              </li>
+              <li class="<?php echo (Yii::$app->controller->id=="jobs" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/jobs" class="nav-link">Jobs / สมัครงาน</a>
+              </li>
+              <li class="<?php echo (Yii::$app->controller->id=="promotion" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/promotion" class="nav-link">Promotion / โปรโมชั่น</a>
+              </li>        
+            </ul>
+          </li>              
         </ul>
 
       </div>

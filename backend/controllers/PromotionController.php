@@ -39,7 +39,7 @@ class PromotionController extends \yii\web\Controller
     	$Promotion = new Promotion();
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-                $save = $this->save($Promotion,'create',null);
+                $save = $this->save($Promotion,null);
             }
         }
         return $this->renderAjax('create', [
@@ -53,7 +53,7 @@ class PromotionController extends \yii\web\Controller
         $Promotion = Promotion::findOne(['promotion_id' => $id]);
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-                $save = $this->save($Promotion,'update',$id);
+                $save = $this->save($Promotion,$id);
             }
         }
     	return $this->renderAjax('update', [
@@ -80,7 +80,7 @@ class PromotionController extends \yii\web\Controller
         ]);
     }
 
-    public function save($model,$action,$id=null)
+    public function save($model,$id=null)
     {
 
         $folder_upload = Yii::getAlias('@frontend').'/web/uploads';
@@ -126,12 +126,6 @@ class PromotionController extends \yii\web\Controller
         }
 
         $model->is_active = Yii::$app->request->post()['Promotion']['is_active'];
-        if($action=="create"){
-        $model->created_user = 1;
-        $model->created_date = date("Y-m-d H:i:s");
-        }
-        $model->modified_user = 1;
-        $model->modified_date = date("Y-m-d H:i:s");
         $model->save();
 
         return true;

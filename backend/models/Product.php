@@ -45,16 +45,19 @@ class Product extends \common\models\Product
 
         return $dataProvider;
     }
-
-    public function upload($fileName)
+    public function beforeSave($insert)
     {
-
-        if ($this->validate()) {
-            $this->product_icon->saveAs($fileName);
-            return true;
-        } else {
+        if (!parent::beforeSave($insert)) {
             return false;
         }
-
+        if ($insert) {
+            //new record code here
+            $this->created_user =  '1';
+            $this->created_date =  date("Y-m-d H:i:s");
+        } else {
+            $this->modified_user =  '1';
+            $this->modified_date = date("Y-m-d H:i:s");
+        }
+        return true;
     }
 }

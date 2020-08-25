@@ -42,46 +42,7 @@ class ServiceController extends \yii\web\Controller
 
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-
-            	$folder_upload = Yii::getAlias('@frontend').'/web/uploads';
-            	$year = date("Y");
-		        $month = date("m");
-
-		        $folder = $folder_upload."/".$year;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $folder = $folder_upload."/".$year."/".$month;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $path_folder = $year."/".$month;
-
-            	// Service
-            	$Service->service_name_th = Yii::$app->request->post()['Service']['service_name_th'];
-            	$Service->service_name_en = Yii::$app->request->post()['Service']['service_name_en'];
-            	$Service->service_content_th = Yii::$app->request->post()['Service']['service_content_th'];
-            	$Service->service_content_en = Yii::$app->request->post()['Service']['service_content_en'];
-            	$Service->service_image = UploadedFile::getInstance($Service, 'service_image');
-            	if(!empty($Service->service_image)){
-				$service_image_file  = $Service->service_image->baseName.'_'.time().'.'.$Service->service_image->extension;
-				$service_image_path  = $folder_upload."/".$path_folder."/".$service_image_file;
-				$Service->service_image->saveAs($service_image_path);
-				$Service->service_image = $service_image_file;
-				$Service->service_image_path = $path_folder;
-				}
-				$Service->is_active = Yii::$app->request->post()['Service']['is_active'];
-				$Service->created_user = 1;
-				$Service->created_date = date("Y-m-d H:i:s");
-				$Service->modified_user = 1;
-				$Service->modified_date = date("Y-m-d H:i:s");
-				$Service->save();
-
-				// Service Detail
-				$ServiceDetail->service_id = Yii::$app->db->getLastInsertID();
-				$ServiceDetail->service_detail_content_th = Yii::$app->request->post()['ServiceDetail']['service_detail_content_th'];
-            	$ServiceDetail->service_detail_content_en = Yii::$app->request->post()['ServiceDetail']['service_detail_content_en'];
-				$ServiceDetail->save();
+            	$save = $this->save($Service,$ServiceDetail,null);
             }
         }
         return $this->renderAjax('create', [
@@ -92,55 +53,12 @@ class ServiceController extends \yii\web\Controller
 
     public function actionUpdate()
     {
-    	$service_id = Yii::$app->request->get('id');
-
-    	$Service = Service::findOne(['service_id' => $service_id]);
-    	$ServiceDetail = ServiceDetail::findOne(['service_id' => $service_id]);
-
-
+    	$id = Yii::$app->request->get('id');
+    	$Service = Service::findOne(['service_id' => $id]);
+    	$ServiceDetail = ServiceDetail::findOne(['service_id' => $id]);
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-
-            	$folder_upload = Yii::getAlias('@frontend').'/web/uploads';
-            	$year = date("Y");
-		        $month = date("m");
-
-		        $folder = $folder_upload."/".$year;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $folder = $folder_upload."/".$year."/".$month;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $path_folder = $year."/".$month;
-
-            	// Service
-            	$Service->service_name_th = Yii::$app->request->post()['Service']['service_name_th'];
-            	$Service->service_name_en = Yii::$app->request->post()['Service']['service_name_en'];
-            	$Service->service_content_th = Yii::$app->request->post()['Service']['service_content_th'];
-            	$Service->service_content_en = Yii::$app->request->post()['Service']['service_content_en'];
-            	$Service->service_image = UploadedFile::getInstance($Service, 'service_image');
-
-            	if(!empty($Service->service_image)){
-				$service_image_file  = $Service->service_image->baseName.'_'.time().'.'.$Service->service_image->extension;
-				$service_image_path  = $folder_upload."/".$path_folder."/".$service_image_file;
-				$Service->service_image->saveAs($service_image_path);
-				$Service->service_image = $service_image_file;
-				$Service->service_image_path = $path_folder;
-				}else{
-				$Service->service_image = $Service->getOldAttribute('service_image');
-				$Service->service_image_path = $Service->getOldAttribute('service_image_path');
-				}
-				$Service->is_active = Yii::$app->request->post()['Service']['is_active'];
-				$Service->modified_user = 1;
-				$Service->modified_date = date("Y-m-d H:i:s");
-				$Service->save();
-
-				// Service detail
-				$ServiceDetail->service_detail_content_th = Yii::$app->request->post()['ServiceDetail']['service_detail_content_th'];
-            	$ServiceDetail->service_detail_content_en = Yii::$app->request->post()['ServiceDetail']['service_detail_content_en'];
-				$ServiceDetail->save();
+            	$save = $this->save($Service,$ServiceDetail,$id);
             }
         }
     	return $this->renderAjax('update', [
@@ -151,15 +69,14 @@ class ServiceController extends \yii\web\Controller
 
     public function actionDelete()
     {
-    	$service_id = Yii::$app->request->get('id');
-
+    	$id = Yii::$app->request->get('id');
     	$ServiceDetail = ServiceDetail::find()
-		->where(['service_id'=>$service_id])
+		->where(['service_id'=>$id])
 		->one()
 		->delete();
 
     	$Service = Service::find()
-		->where(['service_id'=>$service_id])
+		->where(['service_id'=>$id])
 		->one()
 		->delete();
 
@@ -171,5 +88,68 @@ class ServiceController extends \yii\web\Controller
             'dataProvider' => $dataProvider,
             'search' => $search
         ]);
+    }
+
+    public function saveBanner($model,$id)
+    {
+        $folder_upload = Yii::getAlias('@frontend').'/web/uploads';
+        $year = date("Y");
+        $month = date("m");
+        $folder = $folder_upload."/".$year;
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $folder = $folder_upload."/".$year."/".$month;
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $path_folder = $year."/".$month;
+
+        $model->banner_image_th = UploadedFile::getInstance($model, 'banner_image_th');
+    }
+    public function save($model,$model2=null,$id=null)
+    {
+
+        $folder_upload = Yii::getAlias('@frontend').'/web/uploads';
+        $year = date("Y");
+        $month = date("m");
+
+        $folder = $folder_upload."/".$year;
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $folder = $folder_upload."/".$year."/".$month;
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $path_folder = $year."/".$month;
+
+        // Service
+        $model->service_name_th = Yii::$app->request->post()['Service']['service_name_th'];
+        $model->service_name_en = Yii::$app->request->post()['Service']['service_name_en'];
+        $model->service_content_th = Yii::$app->request->post()['Service']['service_content_th'];
+        $model->service_content_en = Yii::$app->request->post()['Service']['service_content_en'];
+        $model->service_image = UploadedFile::getInstance($model, 'service_image');
+
+        if(!empty($model->service_image)){
+        $service_image_file  = $model->service_image->baseName.'_'.time().'.'.$model->service_image->extension;
+        $service_image_path  = $folder_upload."/".$path_folder."/".$service_image_file;
+        $model->service_image->saveAs($service_image_path);
+        $model->service_image = $service_image_file;
+        $model->service_image_path = $path_folder;
+        }else{
+        $model->service_image = $model->getOldAttribute('service_image');
+        $model->service_image_path = $model->getOldAttribute('service_image_path');
+        }
+        $model->is_active = Yii::$app->request->post()['Service']['is_active'];
+
+        $model->save();
+
+        // Service detail
+        $model2->service_detail_content_th = Yii::$app->request->post()['ServiceDetail']['service_detail_content_th'];
+        $model2->service_detail_content_en = Yii::$app->request->post()['ServiceDetail']['service_detail_content_en'];
+        $model2->save();
+
+        return true;
     }
 }

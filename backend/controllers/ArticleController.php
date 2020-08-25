@@ -39,49 +39,9 @@ class ArticleController extends \yii\web\Controller
     {
     	$Article = new Article();
     	$ArticleDetail = new ArticleDetail();
-
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-
-            	$folder_upload = Yii::getAlias('@frontend').'/web/uploads';
-            	$year = date("Y");
-		        $month = date("m");
-
-		        $folder = $folder_upload."/".$year;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $folder = $folder_upload."/".$year."/".$month;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $path_folder = $year."/".$month;
-
-            	// Article
-            	$Article->article_name_th = Yii::$app->request->post()['Article']['article_name_th'];
-            	$Article->article_name_en = Yii::$app->request->post()['Article']['article_name_en'];
-            	$Article->article_content_th = Yii::$app->request->post()['Article']['article_content_th'];
-            	$Article->article_content_en = Yii::$app->request->post()['Article']['article_content_en'];
-            	$Article->article_image = UploadedFile::getInstance($Article, 'article_image');
-            	if(!empty($Article->article_image)){
-				$article_image_file  = $Article->article_image->baseName.'_'.time().'.'.$Article->article_image->extension;
-				$article_image_path  = $folder_upload."/".$path_folder."/".$article_image_file;
-				$Article->article_image->saveAs($article_image_path);
-				$Article->article_image = $article_image_file;
-				$Article->article_image_path = $path_folder;
-				}
-				$Article->is_active = Yii::$app->request->post()['Article']['is_active'];
-				$Article->created_user = 1;
-				$Article->created_date = date("Y-m-d H:i:s");
-				$Article->modified_user = 1;
-				$Article->modified_date = date("Y-m-d H:i:s");
-				$Article->save();
-
-				// Article Detail
-				$ArticleDetail->article_id = Yii::$app->db->getLastInsertID();
-				$ArticleDetail->article_detail_content_th = Yii::$app->request->post()['ArticleDetail']['article_detail_content_th'];
-            	$ArticleDetail->article_detail_content_en = Yii::$app->request->post()['ArticleDetail']['article_detail_content_en'];
-				$ArticleDetail->save();
+                $save = $this->save($Article,$ArticleDetail,null);
             }
         }
         return $this->renderAjax('create', [
@@ -92,55 +52,12 @@ class ArticleController extends \yii\web\Controller
 
     public function actionUpdate()
     {
-    	$article_id = Yii::$app->request->get('id');
-
-    	$Article = Article::findOne(['article_id' => $article_id]);
-    	$ArticleDetail = ArticleDetail::findOne(['article_id' => $article_id]);
-
-
+    	$id = Yii::$app->request->get('id');
+    	$Article = Article::findOne(['article_id' => $id]);
+    	$ArticleDetail = ArticleDetail::findOne(['article_id' => $id]);
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-
-            	$folder_upload = Yii::getAlias('@frontend').'/web/uploads';
-            	$year = date("Y");
-		        $month = date("m");
-
-		        $folder = $folder_upload."/".$year;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $folder = $folder_upload."/".$year."/".$month;
-		        if (!is_dir($folder)) {
-		            mkdir($folder);
-		        }
-		        $path_folder = $year."/".$month;
-
-            	// Article
-            	$Article->article_name_th = Yii::$app->request->post()['Article']['article_name_th'];
-            	$Article->article_name_en = Yii::$app->request->post()['Article']['article_name_en'];
-            	$Article->article_content_th = Yii::$app->request->post()['Article']['article_content_th'];
-            	$Article->article_content_en = Yii::$app->request->post()['Article']['article_content_en'];
-            	$Article->article_image = UploadedFile::getInstance($Article, 'article_image');
-
-            	if(!empty($Article->article_image)){
-				$article_image_file  = $Article->article_image->baseName.'_'.time().'.'.$Article->article_image->extension;
-				$article_image_path  = $folder_upload."/".$path_folder."/".$article_image_file;
-				$Article->article_image->saveAs($article_image_path);
-				$Article->article_image = $article_image_file;
-				$Article->article_image_path = $path_folder;
-				}else{
-				$Article->article_image = $Article->getOldAttribute('article_image');
-				$Article->article_image_path = $Article->getOldAttribute('article_image_path');
-				}
-				$Article->is_active = Yii::$app->request->post()['Article']['is_active'];
-				$Article->modified_user = 1;
-				$Article->modified_date = date("Y-m-d H:i:s");
-				$Article->save();
-
-				// Article detail
-				$ArticleDetail->article_detail_content_th = Yii::$app->request->post()['ArticleDetail']['article_detail_content_th'];
-            	$ArticleDetail->article_detail_content_en = Yii::$app->request->post()['ArticleDetail']['article_detail_content_en'];
-				$ArticleDetail->save();
+                $save = $this->save($Article,$ArticleDetail,$id);
             }
         }
     	return $this->renderAjax('update', [
@@ -151,15 +68,14 @@ class ArticleController extends \yii\web\Controller
 
     public function actionDelete()
     {
-    	$article_id = Yii::$app->request->get('id');
-
+    	$id = Yii::$app->request->get('id');
     	$ArticleDetail = ArticleDetail::find()
-		->where(['article_id'=>$article_id])
+		->where(['article_id'=>$id])
 		->one()
 		->delete();
 
     	$Article = Article::find()
-		->where(['article_id'=>$article_id])
+		->where(['article_id'=>$id])
 		->one()
 		->delete();
 
@@ -171,5 +87,48 @@ class ArticleController extends \yii\web\Controller
             'dataProvider' => $dataProvider,
             'search' => $search
         ]);
+    }
+    public function save($model,$model2=null,$id=null)
+    {
+        $folder_upload = Yii::getAlias('@frontend').'/web/uploads';
+        $year = date("Y");
+        $month = date("m");
+
+        $folder = $folder_upload."/".$year;
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $folder = $folder_upload."/".$year."/".$month;
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $path_folder = $year."/".$month;
+
+        // Article
+        $model->article_name_th = Yii::$app->request->post()['Article']['article_name_th'];
+        $model->article_name_en = Yii::$app->request->post()['Article']['article_name_en'];
+        $model->article_content_th = Yii::$app->request->post()['Article']['article_content_th'];
+        $model->article_content_en = Yii::$app->request->post()['Article']['article_content_en'];
+        $model->article_image = UploadedFile::getInstance($model, 'article_image');
+
+        if(!empty($model->article_image)){
+        $article_image_file  = $model->article_image->baseName.'_'.time().'.'.$model->article_image->extension;
+        $article_image_path  = $folder_upload."/".$path_folder."/".$article_image_file;
+        $model->article_image->saveAs($article_image_path);
+        $model->article_image = $article_image_file;
+        $model->article_image_path = $path_folder;
+        }else{
+        $model->article_image = $model->getOldAttribute('article_image');
+        $model->article_image_path = $model->getOldAttribute('article_image_path');
+        }
+        $model->is_active = Yii::$app->request->post()['Article']['is_active'];
+        $model->save();
+
+        // Article detail
+        $model2->article_detail_content_th = Yii::$app->request->post()['ArticleDetail']['article_detail_content_th'];
+        $model2->article_detail_content_en = Yii::$app->request->post()['ArticleDetail']['article_detail_content_en'];
+        $model2->save();
+
+        return true;
     }
 }
