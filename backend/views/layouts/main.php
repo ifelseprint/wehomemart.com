@@ -51,7 +51,10 @@ AppAsset::register($this);
           </li>
           <li class="nav-item <?php echo (Yii::$app->controller->id=="jobs" ? 'active' : '' )?>">
             <a href="<?=Url::base(true);?>/jobs" class="nav-link">Jobs/สมัครงาน</a>
-          </li>            
+          </li>
+          <li class="nav-item <?php echo (Yii::$app->controller->id=="promotion" ? 'active' : '' )?>">
+            <a href="<?=Url::base(true);?>/promotion" class="nav-link">Promotion/โปรโมชั่น</a>
+          </li>               
         </ul>
 
       </div>
