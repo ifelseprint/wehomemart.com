@@ -23,7 +23,6 @@ HomeAsset::register($this);
 
         	<div class="block-title">
 	            <h2 class="title text-center">โปรโมชั่นออนไลน์</h2><!-- End .title-lg text-center -->
-	           	<p class="text-center">ดูโปรโมชั่นออนไลน์ทั้งหมด >></p>
 	        </div>
 
 	        <div class="promotion-posts-slide">
@@ -47,45 +46,20 @@ HomeAsset::register($this);
 	                }'>
 		            <div class="owl-stage-outer">
 		            	<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0.4s ease 0s; width: 1188px;">
+		            		<?php
+		            		foreach ($Promotion as $value) {
+		            			$promotion_image = 'promotion_image_'.Yii::$app->language;
+		            		?>
 		            		<div class="owl-item active" style="width: 376px; margin-right: 20px;">
 		            			<article class="entry entry-display">
 				                    <figure class="entry-media">
-				                        <a href="single.html">
-				                            <img src="https://portotheme.com/html/molla/assets/images/demos/demo-2/blog/post-1.jpg" alt="image desc">
+				                        <a href="#">
+				                            <img src="<?=Url::base(true);?>/uploads/<?=$value->promotion_image_path?>/<?=$value->$promotion_image?>" alt="image desc">
 				                        </a>
 				                    </figure><!-- End .entry-media -->
 		                		</article>
 		                	</div>
-		                	<div class="owl-item active" style="width: 376px; margin-right: 20px;">
-		                		<article class="entry entry-display">
-				                    <figure class="entry-media">
-				                        <a href="single.html">
-				                            <img src="https://portotheme.com/html/molla/assets/images/demos/demo-2/blog/post-2.jpg" alt="image desc">
-				                        </a>
-				                    </figure><!-- End .entry-media -->
-	 
-		                		</article>
-		                	</div>
-		                	<div class="owl-item active" style="width: 376px; margin-right: 20px;">
-		                		<article class="entry entry-display">
-				                    <figure class="entry-media">
-				                        <a href="single.html">
-				                            <img src="https://portotheme.com/html/molla/assets/images/demos/demo-2/blog/post-3.jpg" alt="image desc">
-				                        </a>
-				                    </figure><!-- End .entry-media -->
-		                		</article>
-		                	</div>
-
-		                	<div class="owl-item active" style="width: 376px; margin-right: 20px;">
-		                		<article class="entry entry-display">
-				                    <figure class="entry-media">
-				                        <a href="single.html">
-				                            <img src="https://portotheme.com/html/molla/assets/images/demos/demo-2/blog/post-1.jpg" alt="image desc">
-				                        </a>
-				                    </figure><!-- End .entry-media -->
-		                		</article>
-		                	</div>
-
+		                	<?php } ?>
 		                </div> <!-- End .owl-stage -->
 		            </div>
 		            <div class="owl-nav disabled">
