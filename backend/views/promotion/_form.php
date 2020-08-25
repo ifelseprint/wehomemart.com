@@ -46,8 +46,17 @@ $url = $action=='create'? $action : $action.'/'.$Promotion['promotion_id'];
 
           <div class="form-group-sm row">
             <div class="col-sm-12">
-              <label class="col-form-label-sm">Promotion Image:</label>
-              <?= $form->field($Promotion, 'promotion_image_th')->fileInput(['class' => 'form-control form-control-sm']); ?>
+              <table border="1" width="100%" cellpadding="10" style="border: 1px solid #ccc;">
+                <tr>
+                  <td width="100">
+                    <img src="../uploads/<?=$Promotion->promotion_image_path?>/<?=$Promotion->promotion_image_th?>" width="100" height="70">
+                  </td>
+                  <td>
+                    <label class="col-form-label-sm">Promotion image:</label>
+                    <?= $form->field($Promotion, 'promotion_image_th')->fileInput(['class' => 'form-control form-control-sm']); ?>
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
 
@@ -76,8 +85,17 @@ $url = $action=='create'? $action : $action.'/'.$Promotion['promotion_id'];
           </div>
           <div class="form-group-sm row">
             <div class="col-sm-12">
-              <label class="col-form-label-sm">Promotion Image:</label>
-              <?= $form->field($Promotion, 'promotion_image_en')->fileInput(['class' => 'form-control form-control-sm']); ?>
+              <table border="1" width="100%" cellpadding="10" style="border: 1px solid #ccc;">
+                <tr>
+                  <td width="100">
+                    <img src="../uploads/<?=$Promotion->promotion_image_path?>/<?=$Promotion->promotion_image_en?>" width="100" height="70">
+                  </td>
+                  <td>
+                    <label class="col-form-label-sm">Promotion image:</label>
+                    <?= $form->field($Promotion, 'promotion_image_en')->fileInput(['class' => 'form-control form-control-sm']); ?>
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
