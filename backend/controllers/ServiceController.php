@@ -6,6 +6,7 @@ use yii\web\Controller;
 use yii\web\Request;
 use backend\models\Service;
 use common\models\ServiceDetail;
+use backend\models\Banner;
 use yii\helpers\Url;
 use yii\web\UploadedFile;
 use yii\helpers\ArrayHelper;
@@ -39,15 +40,17 @@ class ServiceController extends \yii\web\Controller
     {
     	$Service = new Service();
     	$ServiceDetail = new ServiceDetail();
+        $Banner = new Banner();
 
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-            	$save = $this->save($Service,$ServiceDetail,null);
+            	$save = $this->save($Service,$ServiceDetail,$Banner,null);
             }
         }
         return $this->renderAjax('create', [
 			'Service' => $Service,
 			'ServiceDetail' => $ServiceDetail,
+            'Banner' => $Banner,
 		]);
     }
 
@@ -56,14 +59,19 @@ class ServiceController extends \yii\web\Controller
     	$id = Yii::$app->request->get('id');
     	$Service = Service::findOne(['service_id' => $id]);
     	$ServiceDetail = ServiceDetail::findOne(['service_id' => $id]);
+        $Banner = Banner::findOne(['banner_page_id' => 2,'banner_mapping_id' => $id]);
+        // $Banner->banner_image = array();
+        // 
+        // $Banner = new Banner();
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
-            	$save = $this->save($Service,$ServiceDetail,$id);
+            	$save = $this->save($Service,$ServiceDetail,$Banner,$id);
             }
         }
     	return $this->renderAjax('update', [
 			'Service' => $Service,
-			'ServiceDetail' => $ServiceDetail,
+            'ServiceDetail' => $ServiceDetail,
+            'Banner' => $Banner,
 		]);
     }
 
@@ -90,39 +98,9 @@ class ServiceController extends \yii\web\Controller
         ]);
     }
 
-    public function saveBanner($model,$id)
+
+    public function save($model,$model2=null,$banner=null,$id=null)
     {
-        $folder_upload = Yii::getAlias('@frontend').'/web/uploads';
-        $year = date("Y");
-        $month = date("m");
-        $folder = $folder_upload."/".$year;
-        if (!is_dir($folder)) {
-            mkdir($folder);
-        }
-        $folder = $folder_upload."/".$year."/".$month;
-        if (!is_dir($folder)) {
-            mkdir($folder);
-        }
-        $path_folder = $year."/".$month;
-
-        $model->banner_image_th = UploadedFile::getInstance($model, 'banner_image_th');
-    }
-    public function save($model,$model2=null,$id=null)
-    {
-
-        $folder_upload = Yii::getAlias('@frontend').'/web/uploads';
-        $year = date("Y");
-        $month = date("m");
-
-        $folder = $folder_upload."/".$year;
-        if (!is_dir($folder)) {
-            mkdir($folder);
-        }
-        $folder = $folder_upload."/".$year."/".$month;
-        if (!is_dir($folder)) {
-            mkdir($folder);
-        }
-        $path_folder = $year."/".$month;
 
         // Service
         $model->service_name_th = Yii::$app->request->post()['Service']['service_name_th'];
@@ -130,26 +108,63 @@ class ServiceController extends \yii\web\Controller
         $model->service_content_th = Yii::$app->request->post()['Service']['service_content_th'];
         $model->service_content_en = Yii::$app->request->post()['Service']['service_content_en'];
         $model->service_image = UploadedFile::getInstance($model, 'service_image');
-
-        if(!empty($model->service_image)){
-        $service_image_file  = $model->service_image->baseName.'_'.time().'.'.$model->service_image->extension;
-        $service_image_path  = $folder_upload."/".$path_folder."/".$service_image_file;
-        $model->service_image->saveAs($service_image_path);
-        $model->service_image = $service_image_file;
-        $model->service_image_path = $path_folder;
+        $service_image = $model->upload();
+        if(!empty($service_image)){
+            $model->service_image = $service_image['fileName'];
+            $model->service_image_path = $service_image['filePath'];
         }else{
-        $model->service_image = $model->getOldAttribute('service_image');
-        $model->service_image_path = $model->getOldAttribute('service_image_path');
+            $model->service_image = $model->getOldAttribute('service_image');
+            $model->service_image_path = $model->getOldAttribute('service_image_path');
         }
         $model->is_active = Yii::$app->request->post()['Service']['is_active'];
-
         $model->save();
 
         // Service detail
+        $model2->service_id = $model->service_id;
         $model2->service_detail_content_th = Yii::$app->request->post()['ServiceDetail']['service_detail_content_th'];
         $model2->service_detail_content_en = Yii::$app->request->post()['ServiceDetail']['service_detail_content_en'];
         $model2->save();
 
+        $banner->banner_page_id = 2;
+        $banner->banner_mapping_id = $model->service_id;
+        $banner->banner_image_1 = UploadedFile::getInstance($banner, 'banner_image_1');
+        $banner->banner_image_2 = UploadedFile::getInstance($banner, 'banner_image_2');
+        $banner->banner_image_3 = UploadedFile::getInstance($banner, 'banner_image_3');
+        $banner->banner_image_4 = UploadedFile::getInstance($banner, 'banner_image_4');
+        $banner_image_1 = $banner->upload('banner_image_1');
+        $banner_image_2 = $banner->upload('banner_image_2');
+        $banner_image_3 = $banner->upload('banner_image_3');
+        $banner_image_4 = $banner->upload('banner_image_4');
+     
+        if(!empty($banner_image_1)){
+            $banner->banner_image_1 = $banner_image_1['fileName'];
+            $banner->banner_image_1_path = $banner_image_1['filePath'];
+        }else{
+            $banner->banner_image_1 = $banner->getOldAttribute('banner_image_1');
+            $banner->banner_image_1_path = $banner->getOldAttribute('banner_image_1_path');
+        }
+        if(!empty($banner_image_2)){
+            $banner->banner_image_2 = $banner_image_2['fileName'];
+            $banner->banner_image_2_path = $banner_image_2['filePath'];
+        }else{
+            $banner->banner_image_2 = $banner->getOldAttribute('banner_image_2');
+            $banner->banner_image_2_path = $banner->getOldAttribute('banner_image_2_path');
+        }
+        if(!empty($banner_image_3)){
+            $banner->banner_image_3 = $banner_image_3['fileName'];
+            $banner->banner_image_3_path = $banner_image_3['filePath'];
+        }else{
+            $banner->banner_image_3 = $banner->getOldAttribute('banner_image_3');
+            $banner->banner_image_3_path = $banner->getOldAttribute('banner_image_3_path');
+        }
+        if(!empty($banner_image_4)){
+            $banner->banner_image_4 = $banner_image_4['fileName'];
+            $banner->banner_image_4_path = $banner_image_4['filePath'];
+        }else{
+            $banner->banner_image_4 = $banner->getOldAttribute('banner_image_4');
+            $banner->banner_image_4_path = $banner->getOldAttribute('banner_image_4_path');
+        }
+        $banner->save();
         return true;
     }
 }

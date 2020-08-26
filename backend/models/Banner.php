@@ -5,7 +5,7 @@ namespace backend\models;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\UploadedFile;
-class Service extends \common\models\Service
+class Banner extends \common\models\Banner
 {
 
     public $pageSize = 25;
@@ -16,7 +16,7 @@ class Service extends \common\models\Service
             [['pageSize'], 'integer'],
         ]);
     }
-    public function upload()
+    public function upload($field)
     {
 
         $folder_upload = Yii::getAlias('@frontend').'/web/uploads';
@@ -33,9 +33,9 @@ class Service extends \common\models\Service
         }
         $path_folder = $year."/".$month;
 
-        if(!empty($this->service_image)){
-            $image_file = $this->service_image->baseName.'_'.time().'.'.$this->service_image->extension;
-            $this->service_image->saveAs($folder_upload."/".$path_folder."/".$image_file);
+        if(!empty($this->$field)){
+            $image_file = $this->$field->baseName.'_'.time().'.'.$this->$field->extension;
+            $this->$field->saveAs($folder_upload."/".$path_folder."/".$image_file);
             return [
             'fileName' => $image_file,
             'filePath' => $path_folder
@@ -43,27 +43,6 @@ class Service extends \common\models\Service
         }else{
             return false;
         }
-    }
-    public function search($params)
-    {
-
-        $query = Service::find();
-        $dataProvider = new ActiveDataProvider([
-            'pagination' => [
-                'pageSize' => $this->pageSize,
-            ],
-            'query' => $query,
-            'sort'=> ['defaultOrder' => ['service_id' => SORT_DESC]]
-        ]);
-
-        if (!($this->load($params))) {
-            return $dataProvider;
-        }
-        $query->andFilterWhere(['like', 'service_name_th', $this->service_name_th]);
-        $query->andFilterWhere(['like', 'service_name_en', $this->service_name_en]);
-        $query->andFilterWhere(['=', 'is_active', $this->is_active]);
-
-        return $dataProvider;
     }
     public function beforeSave($insert)
     {
