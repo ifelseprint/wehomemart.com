@@ -23,7 +23,6 @@ class AppAsset extends AssetBundle
         'css/theme.css',
     ];
     public $js = [
-        'js/jquery.min.js',
         'js/bootstrap.bundle.min.js',
         'js/jquery.hoverIntent.min.js',
         'js/jquery.waypoints.min.js',
@@ -37,5 +36,6 @@ class AppAsset extends AssetBundle
         'js/App.js',
     ];
     public $depends = [
+        'yii\web\YiiAsset',
     ];
 }

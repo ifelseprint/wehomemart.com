@@ -68,6 +68,7 @@ return [
                 '<join_view:(join us|ร่วมงานกับเรา)>/<slug>-<slug_id>' => 'join/view',
                 // contact
                 '<contact_index:(contact us|ติดต่อเรา)>' => 'contact/index',
+                '<contact_index:(contact)>/submit' => 'contact/index',
                 // default
                 // '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

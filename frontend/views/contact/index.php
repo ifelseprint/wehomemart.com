@@ -1,9 +1,17 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\Pjax;
 use frontend\assets\ContactAsset;
 ContactAsset::register($this);
 ?>
+
+<?php Pjax::begin(['id' => 'pjax-grid','timeout' => 0, 'enablePushState' => false]); ?>
+<div id="loadingOverlay" class="loader-overlay" style="display: none;">
+    <div class="loader-content loader-center">
+        <div id="loading" class="loader"></div>
+    </div>
+</div>
 <main class="main">
 	<div class="contact-posts">
         <div class="contact-banner ">
@@ -79,30 +87,8 @@ ContactAsset::register($this);
 	        			<div class="contact-form">
 	    					<div class="title">Contact us</div>
 	    					<div class="box">
-	    						<form>
-								  	<div class="form-group row">
-									    <div class="col-sm-6">
-									      	<input type="text" class="form-control" id="inputPassword" placeholder="ชื่อ">
-									    </div>
-									    <div class="col-sm-6">
-									      	<input type="text" class="form-control" id="inputPassword" placeholder="นามสกุล">
-									    </div>
-									</div>
-								  	<div class="form-group row">
-									    <div class="col-sm-6">
-									      	<input type="text" class="form-control" id="inputPassword" placeholder="เบอร์โทรศัพท์">
-									    </div>
-									    <div class="col-sm-6">
-									      	<input type="text" class="form-control" id="inputPassword" placeholder="อีเมล">
-									    </div>
-									</div>
-									<div class="form-group row">
-								  		<div class="col-sm-12">
-								    		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ข้อความ"></textarea>
-								    	</div>
-								  	</div>
-								  	<button type="submit" class="btn btn-primary">ส่งข้อมูล</button>
-								</form>
+	    						<?= $this->render('_form', ['ContactForm'=> $ContactForm]); ?>
+	    						
 	    					</div>
 	    				</div>
 	        		</div>
@@ -111,3 +97,18 @@ ContactAsset::register($this);
         </div>
     </div>
 </main>
+<?php
+$script = <<<JS
+  $("document").ready(function(){
+
+    $("#pjax-grid").on("pjax:start", function() {
+      $('#loadingOverlay').show();
+    });
+    $("#pjax-grid").on("pjax:end", function() {
+      $('#loadingOverlay').hide();
+    });
+  });
+JS;
+$this->registerJs($script);
+?>
+<?php Pjax::end(); ?>
