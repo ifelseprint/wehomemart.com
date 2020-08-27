@@ -5,9 +5,24 @@ use Yii;
 use yii\web\Controller;
 use backend\models\Banner;
 use yii\helpers\Url;
+use yii\filters\AccessControl;
 class BannerController extends \yii\web\Controller
 {
-
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['delete'],
+                        'allow' => true,
+                        'roles' => ['@'], // @ = login, ? = no login
+                    ],
+                ],
+            ],
+        ];
+    }
     public function actionDelete()
     {
         $id = Yii::$app->request->queryParams['id'];

@@ -29,7 +29,7 @@ class SiteController extends Controller
                     [
                         'actions' => ['logout', 'index'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['@'], // @ = login, ? = guest
                     ],
                 ],
             ],
@@ -61,8 +61,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
-        return $this->render('index');
+        Yii::$app->response->redirect(['dashboard/index']);
+        // return $this->render('index');
     }
 
     /**

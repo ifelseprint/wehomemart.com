@@ -9,8 +9,24 @@ use common\models\ProductDetail;
 use yii\helpers\Url;
 use yii\web\UploadedFile;
 use yii\helpers\ArrayHelper;
+use yii\filters\AccessControl;
 class ProductController extends \yii\web\Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete'],
+                        'allow' => true,
+                        'roles' => ['@'], // @ = login, ? = no login
+                    ],
+                ],
+            ],
+        ];
+    }
     public function actionIndex()
     {
         $search = Yii::$app->request->queryParams;

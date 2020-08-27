@@ -41,7 +41,7 @@ AppAsset::register($this);
             <a href="<?=Url::base(true);?>/dashboard" class="nav-link">Dashboard</a>
           </li>
           <li class="nav-item <?php echo (Yii::$app->controller->id=="policy" ? 'active' : '' )?> dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Management</a>
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Content Management</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
               <li class="<?php echo (Yii::$app->controller->id=="product" ? 'active' : '' )?>">
                 <a href="<?=Url::base(true);?>/product" class="nav-link">Product / สินค้า</a>
@@ -59,7 +59,10 @@ AppAsset::register($this);
                 <a href="<?=Url::base(true);?>/promotion" class="nav-link">Promotion / โปรโมชั่น</a>
               </li>        
             </ul>
-          </li>              
+          </li>
+          <li class="nav-item">
+            <a href="<?=Url::base(true);?>/users" class="nav-link">Users Management</a>
+          </li>           
         </ul>
 
       </div>
@@ -105,15 +108,14 @@ AppAsset::register($this);
           <li class="user-header bg-info">
             <img src="<?=Url::base(true);?>/dist/img/user1-128x128.jpg" class="img-circle elevation-2" alt="User Image">
             <p>
-              Alexander Pierce - Web Developer
-              <small>Member since Nov. 2020</small>
+              Hi, Adminmistrator
+              <small><?=date("d/m/Y");?></small>
             </p>
           </li>
           <!-- Menu Body -->
           <!-- Menu Footer-->
           <li class="user-footer">
-            <a href="#" class="btn btn-default btn-flat btn-sm bg-gradient-white">Profile</a>
-            <a href="#" class="btn btn-default btn-flat float-right btn-sm">Sign out</a>
+            <a href="<?=Url::base(true);?>/logout" class="btn btn-default btn-flat float-right btn-sm">Sign out</a>
           </li>
         </ul>
       </li>        

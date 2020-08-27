@@ -22,9 +22,10 @@ return [
             'baseUrl' => $baseUrl.'/admin',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'backend\models\Users',
+            'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'loginUrl' => [ 'login/index' ],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
@@ -47,7 +48,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'dashboard/index',
+                // '' => 'dashboard/index',
                 '<controller:\w+>/' => '<controller>/index',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

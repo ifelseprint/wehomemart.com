@@ -5,8 +5,24 @@ use Yii;
 use yii\web\Controller;
 use backend\models\Jobs;
 use yii\helpers\Url;
+use yii\filters\AccessControl;
 class JobsController extends \yii\web\Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete'],
+                        'allow' => true,
+                        'roles' => ['@'], // @ = login, ? = no login
+                    ],
+                ],
+            ],
+        ];
+    }
     public function actionIndex()
     {
         $search = Yii::$app->request->queryParams;

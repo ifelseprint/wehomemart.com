@@ -5,9 +5,24 @@ use Yii;
 use yii\web\Controller;
 use yii\web\Request;
 use yii\helpers\Url;
-
+use yii\filters\AccessControl;
 class FilemanagerController extends \yii\web\Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['config','upload'],
+                        'allow' => true,
+                        'roles' => ['@'], // @ = login, ? = no login
+                    ],
+                ],
+            ],
+        ];
+    }
     public function actionConfig()
     {
         if(YII_ENV=="prod"){
