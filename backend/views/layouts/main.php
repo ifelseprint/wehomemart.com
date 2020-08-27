@@ -60,9 +60,17 @@ AppAsset::register($this);
               </li>        
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="<?=Url::base(true);?>/users" class="nav-link">Users Management</a>
-          </li>           
+          <li class="nav-item <?php echo (Yii::$app->controller->id=="policy" ? 'active' : '' )?> dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Data Result</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
+              <li class="<?php echo (Yii::$app->controller->id=="contact-form" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/contact-form" class="nav-link">Contact / ติดต่อเรา</a>
+              </li>
+              <li class="<?php echo (Yii::$app->controller->id=="jobs-form" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/jobs-form" class="nav-link">Jobs / สมัครงาน</a>
+              </li>       
+            </ul>
+          </li>         
         </ul>
 
       </div>
@@ -99,16 +107,16 @@ AppAsset::register($this);
         
         <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <img src="<?=Url::base(true);?>/dist/img/user1-128x128.jpg" class="user-image img-circle" alt="User Image">
-          <span class="d-none d-md-inline">Alexander Pierce</span>
+          <img src="<?=Url::base(true);?>/dist/img/guest.png" class="user-image img-circle" alt="User Image">
+          <span class="d-none d-md-inline">Administrator</span>
           <i class="ti-angle-down" style="font-size:11px;"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu dropdown-menu-right dropdown-menu-sm">
           <!-- User image -->
           <li class="user-header bg-info">
-            <img src="<?=Url::base(true);?>/dist/img/user1-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="<?=Url::base(true);?>/dist/img/guest.png" class="img-circle elevation-2" alt="User Image">
             <p>
-              Hi, Adminmistrator
+              Hi, Administrator
               <small><?=date("d/m/Y");?></small>
             </p>
           </li>

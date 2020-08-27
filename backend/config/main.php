@@ -49,6 +49,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 // '' => 'dashboard/index',
+                'contact-form/view/<id:\d+>' => 'contact-form/view',
+                
                 '<controller:\w+>/' => '<controller>/index',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
