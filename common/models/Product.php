@@ -12,6 +12,10 @@ use Yii;
  * @property string|null $product_name_en
  * @property string|null $product_icon
  * @property string|null $product_icon_path
+ * @property string|null $product_image
+ * @property string|null $product_image_path
+ * @property string|null $product_image_hover
+ * @property string|null $product_image_hover_path
  * @property int|null $is_active 0 = inactive, 1 = active
  * @property int|null $created_user
  * @property string|null $created_date
@@ -38,8 +42,8 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['is_active', 'created_user', 'modified_user'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
-            [['product_name_th', 'product_name_en', 'product_icon_path'], 'string', 'max' => 100],
-            [['product_icon'], 'string', 'max' => 50],
+            [['product_name_th', 'product_name_en', 'product_icon_path', 'product_image_path', 'product_image_hover_path'], 'string', 'max' => 100],
+            [['product_icon', 'product_image', 'product_image_hover'], 'string', 'max' => 50],
         ];
     }
 
@@ -54,6 +58,10 @@ class Product extends \yii\db\ActiveRecord
             'product_name_en' => 'Product Name En',
             'product_icon' => 'Product Icon',
             'product_icon_path' => 'Product Icon Path',
+            'product_image' => 'Product Image',
+            'product_image_path' => 'Product Image Path',
+            'product_image_hover' => 'Product Image Hover',
+            'product_image_hover_path' => 'Product Image Hover Path',
             'is_active' => '0 = inactive, 1 = active',
             'created_user' => 'Created User',
             'created_date' => 'Created Date',
