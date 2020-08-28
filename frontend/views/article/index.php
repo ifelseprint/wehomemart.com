@@ -41,7 +41,7 @@ ArticleAsset::register($this);
 	    				<div class="article-box">
 	    					<div class="article-box-header">
 			    				<div class="article-view">
-			    					<i class="fa fa-eye" aria-hidden="true"></i> 12,312 คนดูบทความนี้
+			    					<i class="fa fa-eye" aria-hidden="true"></i> <?=$value->pageview?> คนดูบทความนี้
 								</div>
 			    				<div class="article-created-date">
 			    					<i class="fa fa-clock-o"></i> 24 มิถุนายน 2563
