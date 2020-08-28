@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use frontend\widgets\ProductFooter;
 ?>
 <footer class="footer footer-2">
     <div class="icon-boxes-container">
@@ -50,18 +51,14 @@ use yii\helpers\Url;
     <div class="footer-middle">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-lg-4">
+                <div class="col-sm-2 col-lg-2">
                     <div class="widget">
                         <h4 class="widget-title">SC HOME MART</h4><!-- End .widget-title -->
                         <div class="row">
-                            <div class="col-sm-6 col-md-6">
+                            <div class="col-sm-12">
                                 <ul class="widget-list">
                                     <li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_about');?>"><?= Yii::t('app', 'menu_about');?></a></li>
                                     <li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_service');?>"><?= Yii::t('app', 'menu_service');?></a></li>
-                                </ul><!-- End .widget-list -->
-                            </div><!-- End .col-sm-6 -->
-                            <div class="col-sm-6 col-md-6">
-                                <ul class="widget-list">
                                     <li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>"><?= Yii::t('app', 'menu_join_us');?></a></li>
                                     <li><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>"><?= Yii::t('app', 'menu_article');?></a></li>
                                 </ul><!-- End .widget-list -->
@@ -70,31 +67,23 @@ use yii\helpers\Url;
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-3 col-lg-2 -->
 
-                <div class="col-sm-4 col-lg-4">
+                <div class="col-sm-12 col-lg-6">
                     <div class="widget">
                         <h4 class="widget-title"><?= Yii::t('app', 'menu_product');?></h4><!-- End .widget-title -->
 
                         <div class="row">
-                            <div class="col-sm-6 col-md-6">
-                                <ul class="widget-list">
-                                    <li><a href="#">Product 1</a></li>
-                                    <li><a href="#">Product 1</a></li>
-                                    <li><a href="#">Product 1</a></li>
-                                    <li><a href="#">Product 1</a></li>
-                                </ul><!-- End .widget-list -->
-                            </div><!-- End .col-sm-6 -->
-                            <div class="col-sm-6 col-md-6">
-                                <ul class="widget-list">
-                                    <li><a href="#">Product 1</a></li>
-                                    <li><a href="#">Product 1</a></li>
-                                    <li><a href="#">Product 1</a></li>
-                                    <li><a href="#">Product 1</a></li>
-                                </ul><!-- End .widget-list -->
-                            </div><!-- End .col-sm-6 -->
+                            <div class="col-sm-4 col-md-4">
+                                <?= ProductFooter::widget(array('offset'=>'0','limit'=>'4')); ?>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <?= ProductFooter::widget(array('offset'=>'4','limit'=>'4')); ?>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <?= ProductFooter::widget(array('offset'=>'8','limit'=>'4')); ?>
+                            </div>
                         </div><!-- End .row -->
                     </div><!-- End .widget -->
-                </div><!-- End .col-sm-3 col-lg-2 -->
-
+                </div>
 
                 <div class="col-sm-12 col-lg-4">
                     <div class="widget widget-about">
