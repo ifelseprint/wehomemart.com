@@ -118,10 +118,10 @@ $url = $action=='create'? $action : $action.'/'.$Promotion['promotion_id'];
         <div class="card-body" style="display: block;">
           <div class="form-group-sm row">
             <div class="col-sm-12">
-              <table border="1" width="100%" cellpadding="10" style="border: 1px solid #ccc;">
+              <table border="1" width="100%" cellpadding="10" style="border: 1px solid #17a2b8;background: #17a2b8;color: #fff;">
                 <tr>
                   <td colspan="2">
-                    <label class="col-form-label-sm">Status</label>
+                    <label class="col-form-label-sm">Status ( visible/invisible )</label>
                     <?php
                     $dataStatus=['1'=>'Active','0'=>'Inactive'];
                     ?>
