@@ -22,62 +22,7 @@ HomeAsset::register($this);
 
     <?= $this->render('_product', ['Product'=> $Product]); ?>
 
-	<div class="service-posts">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-xs-12 col-lg-4 service-posts-item">
-	    			<div class="entry entry-display">
-	                    <figure class="entry-media">
-	                        <a href="#">
-	                            <img src ="<?=Url::base(true);?>/img/homa-service.jpg" alt="image desc">
-	                        </a>
-	                    </figure><!-- End .entry-media -->
-	        		</div>
-	        	</div>
-
-	        	<div class="col-xs-12 col-lg-4 service-posts-item">
-	    			<div class="entry entry-display">
-	                    <figure class="entry-media">
-	                        <a href="#">
-	                             <img src ="<?=Url::base(true);?>/img/service-pic.jpg" alt="image desc">
-	                        </a>
-	                    </figure><!-- End .entry-media -->
-	                    <div class="entry-body text-center">
-	                        <h3 class="entry-title">
-	                            <a href="#">Lorem ipsum dolor sit amet</a>
-	                        </h3><!-- End .entry-title -->
-
-	                        <div class="entry-content">
-	                            <a href="#">
-	                            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt..</p>
-	                            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt..</p>
-	                            </a>
-	                        </div><!-- End .entry-content -->
-	                	</div>
-	        		</div>
-	        	</div>
-
-	        	<div class="col-xs-12 col-lg-4 service-posts-item">
-	    			<div class="entry entry-display">
-	                    <figure class="entry-media">
-	                        <a href="#">
-	                             <img src ="<?=Url::base(true);?>/img/service-pic.jpg" alt="image desc">
-	                        </a>
-	                    </figure><!-- End .entry-media -->
-	                    <div class="entry-body text-center">
-	                        <h3 class="entry-title">
-	                            <a href="#">Lorem ipsum dolor sit amet</a>
-	                        </h3><!-- End .entry-title -->
-
-	                        <div class="entry-content">
-	                            <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt..</a>
-	                        </div><!-- End .entry-content -->
-	                	</div>
-	        		</div>
-	        	</div>
-    		</div>
-    	</div>
-    </div>
+	<?= $this->render('_service', ['Service'=> $Service]); ?>
 
     <div class="idea-posts">
 

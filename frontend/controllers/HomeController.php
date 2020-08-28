@@ -10,7 +10,12 @@ class HomeController extends \yii\web\Controller
     {
     	$Promotion = Promotion::findAll(['is_active' => 1]);
     	$Product = Product::findAll(['is_active' => 1]);
-    	$Service = Service::findAll(['is_active' => 1]);
+    	$Service = Service::find()
+    	->where(['is_active' => 1])
+    	->orderBy(['service_id'=> SORT_ASC])
+    	->offset(0)
+        ->limit(2)
+    	->all();
         return $this->render('index', [
     		'Promotion' => $Promotion,
     		'Product' => $Product,

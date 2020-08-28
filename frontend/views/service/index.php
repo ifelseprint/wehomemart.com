@@ -30,113 +30,46 @@ ServiceAsset::register($this);
 	        			</div>
 	        		</div>
 	        	</div>
-	        	<div class="row">
-	    			<div class="col-lg-4">
-	    				<a href="javascript:void(0)" class="btn-modal-view" value="service/view">
-		    				<div class="service-box">
-			    				<div class="service-image">
-			    					<img src="<?=Url::base(true);?>/img/service1.jpg" width="100%">
-								</div>
-			    				<div class="service-title">
-			    					บริการต่อเติม
-			    				</div>
-			    				<div class="service-detail">
-			    					Lorem ipsum dolor sit amet, consectetur adipiscing elit nostrud exercitation
-			    				</div>
-			    			</div>
-			    		</a>
-	    			</div>
-	    			<div class="col-lg-4">
-	    				<a href="javascript:void(0)" class="btn-modal-view" value="service/view">
-		    				<div class="service-box">
-			    				<div class="service-image">
-			    					<img src="<?=Url::base(true);?>/img/service2.jpg" width="100%">
-								</div>
-			    				<div class="service-title">
-			    					บริการต่อเติม
-			    				</div>
-			    				<div class="service-detail">
-			    					Lorem ipsum dolor sit amet, consectetur adipiscing elit nostrud exercitation
-			    				</div>
-			    			</div>
-			    		</a>
-	    			</div>
-	    			<div class="col-lg-4">
-	    				<a href="javascript:void(0)" class="btn-modal-view" value="service/view">
-		    				<div class="service-box">
-			    				<div class="service-image">
-			    					<img src="<?=Url::base(true);?>/img/service3.jpg" width="100%">
-								</div>
-			    				<div class="service-title">
-			    					บริการต่อเติม
-			    				</div>
-			    				<div class="service-detail">
-			    					Lorem ipsum dolor sit amet, consectetur adipiscing elit nostrud exercitation
-			    				</div>
-			    			</div>
-			    		</a>
-	    			</div>
-	    		</div>
 
-	    		<div class="row">
-	    			<div class="col-lg-4">
-	    				<a href="javascript:void(0)" class="btn-modal-view" value="service/view">
+	        	<?php
+				//Columns must be a factor of 12 (1,2,3,4,6,12)
+				$numOfCols = 3;
+				$rowCount = 0;
+				$bootstrapColWidth = 12 / $numOfCols;
+				?>
+				<div class="row">
+				<?php
+				foreach ($Service as $value){
+					$service_name = 'service_name_'.Yii::$app->language;
+					$service_content = 'service_content_'.Yii::$app->language;
+				?>  
+			        <div class="col-md-<?php echo $bootstrapColWidth; ?>">
+			            <a href="javascript:void(0)" class="btn-modal-view" value="service/view/<?=$value->service_id;?>">
 		    				<div class="service-box">
 			    				<div class="service-image">
-			    					<img src="<?=Url::base(true);?>/img/service1.jpg" width="100%">
+			    					<img src="<?=Url::base(true);?>/uploads/<?=$value->service_image_path?>/<?=$value->service_image?>" width="100%">
 								</div>
 			    				<div class="service-title">
-			    					บริการต่อเติม
+			    					<?=$value->$service_name;?>
 			    				</div>
 			    				<div class="service-detail">
-			    					Lorem ipsum dolor sit amet, consectetur adipiscing elit nostrud exercitation
+			    					<?=$value->$service_content;?>
 			    				</div>
 			    			</div>
 			    		</a>
-	    			</div>
-	    			<div class="col-lg-4">
-	    				<a href="javascript:void(0)" class="btn-modal-view" value="service/view">
-		    				<div class="service-box">
-			    				<div class="service-image">
-			    					<img src="<?=Url::base(true);?>/img/service2.jpg" width="100%">
-								</div>
-			    				<div class="service-title">
-			    					บริการต่อเติม
-			    				</div>
-			    				<div class="service-detail">
-			    					Lorem ipsum dolor sit amet, consectetur adipiscing elit nostrud exercitation
-			    				</div>
-			    			</div>
-			    		</a>
-	    			</div>
-	    			<div class="col-lg-4">
-	    				<a href="javascript:void(0)" class="btn-modal-view" value="service/view">
-		    				<div class="service-box">
-			    				<div class="service-image">
-			    					<img src="<?=Url::base(true);?>/img/service3.jpg" width="100%">
-								</div>
-			    				<div class="service-title">
-			    					บริการต่อเติม
-			    				</div>
-			    				<div class="service-detail">
-			    					Lorem ipsum dolor sit amet, consectetur adipiscing elit nostrud exercitation
-			    				</div>
-			    			</div>
-			    		</a>
-	    			</div>
-	    		</div>
+			        </div>
+				<?php
+				    $rowCount++;
+				    if($rowCount % $numOfCols == 0) echo '</div><div class="row">';
+				}
+				?>
+				</div>
+
+	        	
 	        </div>
         </div>
     </div>
 </main>
-<?php
-$script = <<<JS
-$("document").ready(function(){
-
-});
-JS;
-$this->registerJs($script);
-?>
 <!-- Modal Popup View ##################### -->
 <div class="modal fade" id="modal-view">
     <div class="modal-dialog modal-xl">

@@ -7,25 +7,32 @@ class ServiceController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-    	$slug_id = Yii::$app->getRequest()->getQueryParam('slug_id');
-
-    	$models = \common\models\Service::find()
+    	$Service = \common\models\Service::find()
     	->joinWith('serviceDetails')
         ->where(['service.is_active' => 1])
-        ->andWhere(['service.service_id' => $slug_id])
         ->orderBy(['service.service_id' => SORT_ASC])
-        ->asArray()
-        ->one();
-
+        ->all();
         return $this->render('index', [
-            'service' => $models,
+            'Service' => $Service,
         ]);
     }
     public function actionView()
     {
+        $id = Yii::$app->request->get('id');
+        $Service = \common\models\Service::find()
+        ->joinWith('serviceDetails')
+        ->where(['service.is_active' => 1])
+        ->andWhere(['service.service_id' => $id])
+        ->orderBy(['service.service_id' => SORT_ASC])
+        ->one();
 
-        return $this->renderPartial('view', [
-            // 'service' => $models,
+        $Banner = \common\models\Banner::find()
+        ->where(['banner_page_id' => 2])
+        ->andWhere(['banner_mapping_id' => $id])
+        ->one();
+        return $this->renderAjax('view', [
+            'Service' => $Service,
+            'Banner' => $Banner
         ]);
     }
 }
