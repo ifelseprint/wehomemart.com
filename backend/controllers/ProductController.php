@@ -126,17 +126,41 @@ class ProductController extends \yii\web\Controller
     	$model->product_name_th = Yii::$app->request->post()['Product']['product_name_th'];
     	$model->product_name_en = Yii::$app->request->post()['Product']['product_name_en'];
     	$model->product_icon = UploadedFile::getInstance($model, 'product_icon');
-
     	if(!empty($model->product_icon)){
 		$product_icon_file  = $model->product_icon->baseName.'_'.time().'.'.$model->product_icon->extension;
-		$product_icon_Path  = $folder_upload."/".$path_folder."/".$product_icon_file;
-		$model->product_icon->saveAs($product_icon_Path);
+		$product_icon_path  = $folder_upload."/".$path_folder."/".$product_icon_file;
+		$model->product_icon->saveAs($product_icon_path);
 		$model->product_icon = $product_icon_file;
 		$model->product_icon_path = $path_folder;
 		}else{
 		$model->product_icon = $model->getOldAttribute('product_icon');
 		$model->product_icon_path = $model->getOldAttribute('product_icon_path');
 		}
+
+        $model->product_image = UploadedFile::getInstance($model, 'product_image');
+        if(!empty($model->product_image)){
+        $product_image_file  = $model->product_image->baseName.'_'.time().'.'.$model->product_image->extension;
+        $product_image_path  = $folder_upload."/".$path_folder."/".$product_image_file;
+        $model->product_image->saveAs($product_image_path);
+        $model->product_image = $product_image_file;
+        $model->product_image_path = $path_folder;
+        }else{
+        $model->product_image = $model->getOldAttribute('product_image');
+        $model->product_image_path = $model->getOldAttribute('product_image_path');
+        }
+
+        $model->product_image_hover = UploadedFile::getInstance($model, 'product_image_hover');
+        if(!empty($model->product_image_hover)){
+        $product_image_hover_file  = $model->product_image_hover->baseName.'_'.time().'.'.$model->product_image_hover->extension;
+        $product_image_hover_path  = $folder_upload."/".$path_folder."/".$product_image_hover_file;
+        $model->product_image_hover->saveAs($product_image_hover_path);
+        $model->product_image_hover = $product_image_hover_file;
+        $model->product_image_hover_path = $path_folder;
+        }else{
+        $model->product_image_hover = $model->getOldAttribute('product_image_hover');
+        $model->product_image_hover_path = $model->getOldAttribute('product_image_hover_path');
+        }
+
 		$model->is_active = Yii::$app->request->post()['Product']['is_active'];
 		$model->save();
 
@@ -147,8 +171,8 @@ class ProductController extends \yii\web\Controller
 
     	if(!empty($model2->product_detail_image)){
 		$product_detail_image_file  = $model2->product_detail_image->baseName.'_'.time().'.'.$model2->product_detail_image->extension;
-		$product_detail_image_Path  = $folder_upload."/".$path_folder."/".$product_detail_image_file;
-		$model2->product_detail_image->saveAs($product_detail_image_Path);
+		$product_detail_image_path  = $folder_upload."/".$path_folder."/".$product_detail_image_file;
+		$model2->product_detail_image->saveAs($product_detail_image_path);
 		$model2->product_detail_image = $product_detail_image_file;
 		$model2->product_detail_image_path = $path_folder;
 		}else{

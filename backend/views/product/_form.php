@@ -98,7 +98,7 @@ $url = $action=='create'? $action : $action.'/'.$Product['product_id'];
         </div>
         <!-- /.card-header -->
         <div class="card-body" style="display: block;">
-          <div class="form-group-sm row">
+          <div class="form-group-sm row" style="padding-bottom: 15px;">
             <div class="col-sm-4">
               <table border="1" width="100%" cellpadding="10" style="border: 1px solid #ccc;">
                 <tr>
@@ -116,11 +116,11 @@ $url = $action=='create'? $action : $action.'/'.$Product['product_id'];
               <table border="1" width="100%" cellpadding="10" style="border: 1px solid #ccc;">
                 <tr>
                   <td width="100">
-                    <img src="../uploads/<?=$ProductDetail->product_detail_image_path?>/<?=$ProductDetail->product_detail_image?>" width="100" height="70">
+                    <img src="../uploads/<?=$Product->product_image_path?>/<?=$Product->product_image?>" width="100" height="70">
                   </td>
                   <td>
-                    <label class="col-form-label-sm">Product image:</label>
-                    <?= $form->field($ProductDetail, 'product_detail_image')->fileInput(['class' => 'form-control form-control-sm']); ?>
+                    <label class="col-form-label-sm">Product Image:</label>
+                    <?= $form->field($Product, 'product_image')->fileInput(['class' => 'form-control form-control-sm']); ?>
                   </td>
                 </tr>
               </table>
@@ -128,8 +128,36 @@ $url = $action=='create'? $action : $action.'/'.$Product['product_id'];
             <div class="col-sm-4">
               <table border="1" width="100%" cellpadding="10" style="border: 1px solid #ccc;">
                 <tr>
+                  <td width="100">
+                    <img src="../uploads/<?=$Product->product_image_hover_path?>/<?=$Product->product_image_hover?>" width="100" height="70">
+                  </td>
+                  <td>
+                    <label class="col-form-label-sm">Product Image (Hover):</label>
+                    <?= $form->field($Product, 'product_image_hover')->fileInput(['class' => 'form-control form-control-sm']); ?>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-4">
+              <table border="1" width="100%" cellpadding="10" style="border: 1px solid #ccc;">
+                <tr>
+                  <td width="100">
+                    <img src="../uploads/<?=$ProductDetail->product_detail_image_path?>/<?=$ProductDetail->product_detail_image?>" width="100" height="70">
+                  </td>
+                  <td>
+                    <label class="col-form-label-sm">Product Detail image:</label>
+                    <?= $form->field($ProductDetail, 'product_detail_image')->fileInput(['class' => 'form-control form-control-sm']); ?>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-sm-4">
+              <table border="1" width="100%" cellpadding="10" style="border: 1px solid #17a2b8;background: #17a2b8;color: #fff;">
+                <tr>
                   <td colspan="2">
-                    <label class="col-form-label-sm">Status</label>
+                    <label class="col-form-label-sm">Status ( visible/invisible )</label>
                     <?php
                     $dataStatus=['1'=>'Active','0'=>'Inactive'];
                     ?>
