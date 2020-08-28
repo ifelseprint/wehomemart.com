@@ -3,6 +3,7 @@ namespace frontend\controllers;
 use common\models\Promotion;
 use common\models\Product;
 use common\models\Service;
+use common\models\Article;
 use yii;
 class HomeController extends \yii\web\Controller
 {
@@ -16,10 +17,12 @@ class HomeController extends \yii\web\Controller
     	->offset(0)
         ->limit(2)
     	->all();
+        $Article = Article::findAll(['is_active' => 1]);
         return $this->render('index', [
     		'Promotion' => $Promotion,
     		'Product' => $Product,
     		'Service' => $Service,
+            'Article' => $Article
     	]);
     }
 

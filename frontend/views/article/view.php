@@ -4,6 +4,11 @@ use yii\helpers\Url;
 use frontend\assets\ArticleAsset;
 ArticleAsset::register($this);
 ?>
+
+<?php
+$article_name = 'article_name_'.Yii::$app->language;
+$article_detail_content = 'article_detail_content_'.Yii::$app->language;
+?>
 <main class="main">
 	<div class="article-posts">
         <div class="article-block-view">
@@ -11,7 +16,7 @@ ArticleAsset::register($this);
 	    		<div class="row">
 	    			<div class="col-lg-12">
 	    				<div class="article-view-header">
-	    					<div class="article-view-title">ปลูกต้นไม้มงคล</div>
+	    					<div class="article-view-title"><?=$Article->$article_name?></div>
 	        				<div class="article-view-created-date">24 มิถุนายน 2563</div>
 	        			</div>
 	        		</div>
@@ -36,19 +41,11 @@ ArticleAsset::register($this);
 	        	<div class="row justify-content-md-center">
 	    			<div class="col-lg-9 col-lg-offset-2">
 	    				<div class="article-view-content">
-    						<p style="padding: 15px 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-    						<p><img src="https://picsum.photos/id/1/700/350" class="mx-auto d-block"></p>
-
-    						<p style="padding: 15px 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-    						<p><img src="https://picsum.photos/id/2/700/350" class="mx-auto d-block"></p>
-
-    						<p style="padding: 15px 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    						<?=$Article['articleDetails'][0]->$article_detail_content?>
 	    				</div>
 	    			</div>
 	    		</div>
-	    		<div class="row justify-content-md-center">
+<!-- 	    		<div class="row justify-content-md-center">
 	    			<div class="col-lg-10 col-lg-offset-2">
 	    				<div class="article-view-content-footer">
 	    					<div class="float-left"> << ก่อนหน้า </div>
@@ -56,7 +53,7 @@ ArticleAsset::register($this);
 	    					<div class="clearfix"></div>
 	    				</div>
 	    			</div>
-	    		</div>
+	    		</div> -->
 	        </div>
         </div>
     </div>
