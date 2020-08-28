@@ -26,13 +26,10 @@ $article_detail_content = 'article_detail_content_'.Yii::$app->language;
 	        			<div class="article-view-social">
 	        				<ul style="display: flex;align-items: center;">
 	        					<li>
-	        						<a href="#" class="icon facebook"><i class="fa fa-facebook"></i></a>
+	        						<a href="https://www.facebook.com/sharer.php?u=<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/<?=$Article->$article_name?>-<?=$Article->article_id?>" target="_blank" class="icon facebook"><i class="fa fa-facebook"></i></a>
 	        					</li>
 	        					<li>
-	        						<a href="#" class="icon twitter"><i class="fa fa-twitter"></a></i>
-	        					</li>
-	        					<li>
-	        						<a href="#" class="icon pinterest"><i class="fa fa-pinterest-p" ></i></a>
+	        						<a href="http://twitter.com/share?text=<?=$Article->$article_name?>&url=<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/<?=$Article->$article_name?>-<?=$Article->article_id?>" class="icon twitter" target="_blank"><i class="fa fa-twitter"></a></i>
 	        					</li>
 	        				</ul>
 	        			</div>
