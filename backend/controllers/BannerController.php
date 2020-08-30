@@ -30,6 +30,7 @@ class BannerController extends \yii\web\Controller
     {
         $pages = ArrayHelper::map(\common\models\Pages::find()
         ->andWhere(['<>', 'page_id', 2])
+        ->andWhere(['<>', 'page_id', 0])
         ->orderBy(['page_id' => SORT_ASC])
         ->all(), 'page_id', 'page_name_th');
 

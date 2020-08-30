@@ -21,6 +21,7 @@ class Pages extends \common\models\Pages
     public function search($params)
     { 
         $query = Pages::find();
+        $query->andWhere(['<>', 'page_id', 0]);
 
         $dataProvider = new ActiveDataProvider([
             'pagination' => [

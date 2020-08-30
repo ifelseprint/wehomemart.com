@@ -24,7 +24,7 @@ class Banner extends \common\models\Banner
     { 
         $query = Banner::find();
         $query->andWhere(['<>', 'banner_page_id', 2]);
-
+        $query->andWhere(['<>', 'banner_page_id', 0]);
         $dataProvider = new ActiveDataProvider([
             'pagination' => [
                 'pageSize' => $this->pageSize,

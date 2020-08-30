@@ -29,6 +29,7 @@ class PagesController extends \yii\web\Controller
     public function actionIndex()
     {
         $Pages = ArrayHelper::map(Pages::find()
+        ->andWhere(['<>', 'page_id', 0])
         ->orderBy(['page_id' => SORT_ASC])
         ->all(), 'page_id', 'page_name_th');
 
