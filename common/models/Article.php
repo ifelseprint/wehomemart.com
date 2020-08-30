@@ -20,6 +20,12 @@ use Yii;
  * @property int|null $modified_user
  * @property string|null $modified_date
  * @property int|null $pageview
+ * @property string|null $meta_tag_title_th
+ * @property string|null $meta_tag_title_en
+ * @property string|null $meta_tag_description_th
+ * @property string|null $meta_tag_description_en
+ * @property string|null $meta_tag_keywords_th
+ * @property string|null $meta_tag_keywords_en
  *
  * @property ArticleDetail[] $articleDetails
  */
@@ -41,6 +47,7 @@ class Article extends \yii\db\ActiveRecord
         return [
             [['is_active', 'created_user', 'modified_user', 'pageview'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
+            [['meta_tag_title_th', 'meta_tag_title_en', 'meta_tag_description_th', 'meta_tag_description_en', 'meta_tag_keywords_th', 'meta_tag_keywords_en'], 'string'],
             [['article_name_th', 'article_name_en'], 'string', 'max' => 100],
             [['article_content_th', 'article_content_en'], 'string', 'max' => 255],
             [['article_image', 'article_image_path'], 'string', 'max' => 50],
@@ -66,6 +73,12 @@ class Article extends \yii\db\ActiveRecord
             'modified_user' => 'Modified User',
             'modified_date' => 'Modified Date',
             'pageview' => 'Pageview',
+            'meta_tag_title_th' => 'Meta Tag Title Th',
+            'meta_tag_title_en' => 'Meta Tag Title En',
+            'meta_tag_description_th' => 'Meta Tag Description Th',
+            'meta_tag_description_en' => 'Meta Tag Description En',
+            'meta_tag_keywords_th' => 'Meta Tag Keywords Th',
+            'meta_tag_keywords_en' => 'Meta Tag Keywords En',
         ];
     }
 

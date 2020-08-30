@@ -21,6 +21,12 @@ use Yii;
  * @property string|null $created_date
  * @property int|null $modified_user
  * @property string|null $modified_date
+ * @property string|null $meta_tag_title_th
+ * @property string|null $meta_tag_title_en
+ * @property string|null $meta_tag_description_th
+ * @property string|null $meta_tag_description_en
+ * @property string|null $meta_tag_keywords_th
+ * @property string|null $meta_tag_keywords_en
  *
  * @property ProductDetail[] $productDetails
  */
@@ -42,6 +48,7 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['is_active', 'created_user', 'modified_user'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
+            [['meta_tag_title_th', 'meta_tag_title_en', 'meta_tag_description_th', 'meta_tag_description_en', 'meta_tag_keywords_th', 'meta_tag_keywords_en'], 'string'],
             [['product_name_th', 'product_name_en', 'product_icon_path', 'product_image_path', 'product_image_hover_path'], 'string', 'max' => 100],
             [['product_icon', 'product_image', 'product_image_hover'], 'string', 'max' => 50],
         ];
@@ -67,6 +74,12 @@ class Product extends \yii\db\ActiveRecord
             'created_date' => 'Created Date',
             'modified_user' => 'Modified User',
             'modified_date' => 'Modified Date',
+            'meta_tag_title_th' => 'Meta Tag Title Th',
+            'meta_tag_title_en' => 'Meta Tag Title En',
+            'meta_tag_description_th' => 'Meta Tag Description Th',
+            'meta_tag_description_en' => 'Meta Tag Description En',
+            'meta_tag_keywords_th' => 'Meta Tag Keywords Th',
+            'meta_tag_keywords_en' => 'Meta Tag Keywords En',
         ];
     }
 

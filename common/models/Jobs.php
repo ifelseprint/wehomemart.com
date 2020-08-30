@@ -18,6 +18,12 @@ use Yii;
  * @property int|null $modified_user
  * @property string|null $modified_date
  * @property int|null $pageview
+ * @property string|null $meta_tag_title_th
+ * @property string|null $meta_tag_title_en
+ * @property string|null $meta_tag_description_th
+ * @property string|null $meta_tag_description_en
+ * @property string|null $meta_tag_keywords_th
+ * @property string|null $meta_tag_keywords_en
  */
 class Jobs extends \yii\db\ActiveRecord
 {
@@ -35,7 +41,7 @@ class Jobs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['jobs_content_th', 'jobs_content_en'], 'string'],
+            [['jobs_content_th', 'jobs_content_en', 'meta_tag_title_th', 'meta_tag_title_en', 'meta_tag_description_th', 'meta_tag_description_en', 'meta_tag_keywords_th', 'meta_tag_keywords_en'], 'string'],
             [['is_active', 'created_user', 'modified_user', 'pageview'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
             [['jobs_name_th', 'jobs_name_en'], 'string', 'max' => 100],
@@ -59,6 +65,12 @@ class Jobs extends \yii\db\ActiveRecord
             'modified_user' => 'Modified User',
             'modified_date' => 'Modified Date',
             'pageview' => 'Pageview',
+            'meta_tag_title_th' => 'Meta Tag Title Th',
+            'meta_tag_title_en' => 'Meta Tag Title En',
+            'meta_tag_description_th' => 'Meta Tag Description Th',
+            'meta_tag_description_en' => 'Meta Tag Description En',
+            'meta_tag_keywords_th' => 'Meta Tag Keywords Th',
+            'meta_tag_keywords_en' => 'Meta Tag Keywords En',
         ];
     }
 }

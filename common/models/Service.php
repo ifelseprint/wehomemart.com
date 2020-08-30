@@ -19,6 +19,12 @@ use Yii;
  * @property string|null $created_date
  * @property int|null $modified_user
  * @property string|null $modified_date
+ * @property string|null $meta_tag_title_th
+ * @property string|null $meta_tag_title_en
+ * @property string|null $meta_tag_description_th
+ * @property string|null $meta_tag_description_en
+ * @property string|null $meta_tag_keywords_th
+ * @property string|null $meta_tag_keywords_en
  *
  * @property ServiceDetail[] $serviceDetails
  */
@@ -40,6 +46,7 @@ class Service extends \yii\db\ActiveRecord
         return [
             [['is_active', 'created_user', 'modified_user'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
+            [['meta_tag_title_th', 'meta_tag_title_en', 'meta_tag_description_th', 'meta_tag_description_en', 'meta_tag_keywords_th', 'meta_tag_keywords_en'], 'string'],
             [['service_name_th', 'service_name_en'], 'string', 'max' => 100],
             [['service_content_th', 'service_content_en'], 'string', 'max' => 255],
             [['service_image', 'service_image_path'], 'string', 'max' => 50],
@@ -64,6 +71,12 @@ class Service extends \yii\db\ActiveRecord
             'created_date' => 'Created Date',
             'modified_user' => 'Modified User',
             'modified_date' => 'Modified Date',
+            'meta_tag_title_th' => 'Meta Tag Title Th',
+            'meta_tag_title_en' => 'Meta Tag Title En',
+            'meta_tag_description_th' => 'Meta Tag Description Th',
+            'meta_tag_description_en' => 'Meta Tag Description En',
+            'meta_tag_keywords_th' => 'Meta Tag Keywords Th',
+            'meta_tag_keywords_en' => 'Meta Tag Keywords En',
         ];
     }
 
