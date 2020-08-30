@@ -37,12 +37,15 @@ AppAsset::register($this);
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item <?php echo (Yii::$app->controller->id=="dashboard" ? 'active' : '' )?>">
             <a href="<?=Url::base(true);?>/dashboard" class="nav-link">Dashboard</a>
           </li>
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="policy" ? 'active' : '' )?> dropdown">
+          <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Content Management</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
+              <li class="<?php echo (Yii::$app->controller->id=="banner" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/banner" class="nav-link">Banner / แบนเนอร์</a>
+              </li>
               <li class="<?php echo (Yii::$app->controller->id=="product" ? 'active' : '' )?>">
                 <a href="<?=Url::base(true);?>/product" class="nav-link">Product / สินค้า</a>
               </li>
@@ -60,7 +63,7 @@ AppAsset::register($this);
               </li>        
             </ul>
           </li>
-          <li class="nav-item <?php echo (Yii::$app->controller->id=="policy" ? 'active' : '' )?> dropdown">
+          <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Data Result</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
               <li class="<?php echo (Yii::$app->controller->id=="contact-form" ? 'active' : '' )?>">
@@ -70,7 +73,18 @@ AppAsset::register($this);
                 <a href="<?=Url::base(true);?>/jobs-form" class="nav-link">Jobs / สมัครงาน</a>
               </li>       
             </ul>
-          </li>         
+          </li>   
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Setting</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
+              <li class="<?php echo (Yii::$app->controller->id=="pages" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/pages" class="nav-link">หน้า / Pages</a>
+              </li>
+              <li class="<?php echo (Yii::$app->controller->id=="translate" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/translate" class="nav-link">แปลงภาษา / Translate</a>
+              </li>       
+            </ul>
+          </li>    
         </ul>
 
       </div>

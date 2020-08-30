@@ -125,6 +125,14 @@ class ArticleController extends \yii\web\Controller
         $model->article_name_en = Yii::$app->request->post()['Article']['article_name_en'];
         $model->article_content_th = Yii::$app->request->post()['Article']['article_content_th'];
         $model->article_content_en = Yii::$app->request->post()['Article']['article_content_en'];
+
+        $model->meta_tag_title_th = Yii::$app->request->post()['Article']['meta_tag_title_th'];
+        $model->meta_tag_title_en = Yii::$app->request->post()['Article']['meta_tag_title_en'];
+        $model->meta_tag_description_th = Yii::$app->request->post()['Article']['meta_tag_description_th'];
+        $model->meta_tag_description_en = Yii::$app->request->post()['Article']['meta_tag_description_en'];
+        $model->meta_tag_keywords_th = Yii::$app->request->post()['Article']['meta_tag_keywords_th'];
+        $model->meta_tag_keywords_en = Yii::$app->request->post()['Article']['meta_tag_keywords_en'];
+
         $model->article_image = UploadedFile::getInstance($model, 'article_image');
 
         if(!empty($model->article_image)){

@@ -45,6 +45,20 @@ class ArticleController extends \yii\web\Controller
         ->andWhere(['article.article_id' => $slug_id])
         ->orderBy(['article.article_id' => SORT_ASC])
         ->one();
+
+        $meta_tag_title = "meta_tag_title_".Yii::$app->language;
+        $meta_tag_description = "meta_tag_description_".Yii::$app->language;
+        $meta_tag_keywords = "meta_tag_keywords_".Yii::$app->language;
+        Yii::$app->view->title = $Article->$meta_tag_title;
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $Article->$meta_tag_description
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $Article->$meta_tag_keywords
+        ]);
+
         return $this->render('view', [
             'Article' => $Article,
         ]);
