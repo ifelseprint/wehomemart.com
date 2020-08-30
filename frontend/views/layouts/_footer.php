@@ -12,7 +12,7 @@ use frontend\widgets\ProductFooter;
                             <i class="icon-user"></i>
                         </span>
                         <div class="icon-box-content">
-                            <h2 class="icon-box-title">ร่วมงานกับเรา</h2><!-- End .icon-box-title -->
+                            <h2 class="icon-box-title"><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_join_us');?>"><?= Yii::t('app', 'menu_join_us');?></a></h2><!-- End .icon-box-title -->
                         </div><!-- End .icon-box-content -->
                     </div><!-- End .icon-box -->
                 </div><!-- End .col-sm-12 col-lg-4 -->
@@ -87,7 +87,7 @@ use frontend\widgets\ProductFooter;
 
                 <div class="col-sm-12 col-lg-4">
                     <div class="widget widget-about">
-                        <h4 class="widget-title">ติดต่อเรา</h4><!-- End .widget-title -->
+                        <h4 class="widget-title"><?= Yii::t('app', 'menu_contact_us');?></h4><!-- End .widget-title -->
                         <div class="widget-about-info">
                             <div class="row">
                                 <div class="col-sm-6 col-md-5">

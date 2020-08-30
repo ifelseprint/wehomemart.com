@@ -6,7 +6,7 @@ use yii\helpers\Url;
     <div class="container">
 
     	<div class="block-title">
-            <h2 class="title text-center">โปรโมชั่นออนไลน์</h2><!-- End .title-lg text-center -->
+            <h2 class="title text-center"><?=Yii::$app->translated->get(3);?></h2><!-- End .title-lg text-center -->
         </div>
 
         <div class="promotion-posts-slide">

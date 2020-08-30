@@ -12,5 +12,8 @@ return [
         'slug' => [
             'class' => 'common\components\slug',
         ],
+        'translated' => [
+            'class' => 'common\components\translated',
+        ],
     ],
 ];

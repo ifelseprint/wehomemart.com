@@ -12,11 +12,11 @@ use yii\helpers\Url;
                 <div class="block-desc">
                     <div>
                         <img src ="<?=Url::base(true);?>/img/homeofidea.png" alt="image desc" width="250">
-                        <h2 class="title text-left">แต่งบ้านแนวบ้านปูนเปือย</h2>
-                        <p class="text-left">บ้านที่ดีคือบ้านที่อยู่แล้วเป็นสุข ซึ่งก็คือ การออกแบบสภาพแวดล้อมให้มีความใกล้ชิดกับ “ธรรมชาติของตัวเรา” มากที่สุด</p>
+                        <h2 class="title text-left"><?=Yii::$app->translated->get(6);?></h2>
+                        <p class="text-left"><?=Yii::$app->translated->get(7);?></p>
 
                         <div>
-                            <a href="#" class="btn-readmore">อ่านต่อ</a>
+                            <a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>" class="btn-readmore"><?=Yii::$app->translated->get(8);?></a>
                         </div>
                     </div>
                 </div>

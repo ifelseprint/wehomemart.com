@@ -5,8 +5,8 @@ use yii\helpers\Url;
 <div class="product-posts">
 	<div class="container">
 		<div class="block-title">
-            <h2 class="title text-center">WEHOME ศูนย์รวมจำหน่ายวัสดุก่อสร้าง เครื่องมือช่าง ครบวงจร</h2><!-- End .title-lg text-center -->
-           	<p class="text-center">วัสดุก่อสร้าง เครื่องมือช่าง อุปกรณ์ฮาร์ดแวร์ เหล็กเส้น เหล็กรูปพรรณ กระเบื้องเซรามิค สุขภัณฑ์ เฟอร์นิเจอร์ และสินค้าตกแต่งบ้าน</p>
+            <h2 class="title text-center"><?=Yii::$app->translated->get(4);?></h2><!-- End .title-lg text-center -->
+           	<p class="text-center"><?=Yii::$app->translated->get(5);?></p>
         </div>
 		<div class="row"> 
 			<?php

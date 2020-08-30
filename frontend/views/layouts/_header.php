@@ -133,7 +133,7 @@ use frontend\widgets\ProductMenu;
             <div class="header-right">
                 <div class="icon">
                     <i class="icon-clock-o" style="color: #fff;"></i>
-                     เวลาทำการ ทุกวัน 08.30 น. - 20.00 น.
+                    <?=Yii::$app->translated->get(1);?> <?=Yii::$app->translated->get(2);?> 08.30 น. - 20.00 น.
                 </div>
                 <div class="icon">
                     <i class="icon-phone" style="color: #fff;"></i>
