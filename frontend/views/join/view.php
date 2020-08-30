@@ -1,9 +1,16 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\Pjax;
 use frontend\assets\JoinAsset;
 JoinAsset::register($this);
 ?>
+<?php Pjax::begin(['id' => 'pjax-grid','timeout' => 0, 'enablePushState' => false]); ?>
+<div id="loadingOverlay" class="loader-overlay" style="display: none;">
+    <div class="loader-content loader-center">
+        <div id="loading" class="loader"></div>
+    </div>
+</div>
 <main class="main">
 	<div class="join-posts">
 		<div class="container">
@@ -40,6 +47,8 @@ JoinAsset::register($this);
 					</div>
 				</div>
 				<div class="col-xs-12 col-lg-8 box-right">
+
+					<?php if($Action=='view'){ ?>
 					<!--Accordion wrapper-->
 					<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
 						<!-- Accordion card -->
@@ -48,7 +57,10 @@ JoinAsset::register($this);
 							<div class="card-header" role="tab" id="heading1">
 								<a aria-expanded="true" aria-controls="collapse1">
 									<h5 >
-										พนักงานขาย
+										<?php
+										$jobs_name = 'jobs_name_'.Yii::$app->language;
+										echo $Jobs->$jobs_name;
+										?>
 									</h5>
 								</a>
 							</div>
@@ -57,90 +69,68 @@ JoinAsset::register($this);
 							data-parent="#accordionEx">
 								<div class="card-body">
 									<div style="padding: 15px 0px;">
-										<form>
-											<div class="form-group row">
-												<div class="col-sm-1">
-													<label>Title <span class="require">*</span></label>
-												</div>
-											    <div class="col-sm-11">
-													<div class="form-check form-check-inline">
-													  	<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-													  	<label class="form-check-label" for="inlineRadio1">Mr.</label>
-													</div>
-													<div class="form-check form-check-inline">
-													  	<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-													  	<label class="form-check-label" for="inlineRadio2">Mrs.</label>
-													</div>
-													<div class="form-check form-check-inline">
-													  	<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-													  	<label class="form-check-label" for="inlineRadio3">Ms.</label>
-													</div>
-												</div>
-											</div>
-										  	<div class="form-group row">
-											    <div class="col-sm-6">
-											    	<label>First name <span class="require">*</span></label>
-											      	<input type="text" class="form-control" id="inputPassword">
-											    </div>
-											    <div class="col-sm-6">
-											    	<label>Last name <span class="require">*</span></label>
-											      	<input type="text" class="form-control" id="inputPassword">
-											    </div>
-											</div>
-										  	<div class="form-group row">
-											    <div class="col-sm-6">
-											      	<label>Date of birth <span class="require">*</span></label>
-											      	<input type="text" class="form-control" id="inputPassword">
-											    </div>
-											    <div class="col-sm-6">
-											      	<label>Nationality <span class="require">*</span></label>
-											      	<input type="text" class="form-control" id="inputPassword">
-											    </div>
-											</div>
-											<div class="form-group row">
-											    <div class="col-sm-6">
-											      	<label>Mobile phone <span class="require">*</span></label>
-											      	<input type="text" class="form-control" id="inputPassword">
-											    </div>
-											    <div class="col-sm-6">
-											      	<label>Email <span class="require">*</span></label>
-											      	<input type="text" class="form-control" id="inputPassword">
-											    </div>
-											</div>
-											<div class="form-group row">
-										  		<div class="col-sm-12">
-										  			<label>Address </label>
-										    		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-										    	</div>
-										  	</div>
-										  	<div class="form-group row">
-										  		<div class="col-sm-12">
-										  			<div style="background: #f5f5f5;padding: 20px;">
-										  				<table style="width: 100%" cellpadding="5">
-										  					<tr>
-										  						<td style="width: 40%; text-align: right;">Resume</td>
-										  						<td style="width: 60%; text-align: left;"><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
-										  					</tr>
-										  					<tr>
-										  						<td colspan="2" style="text-align: center;font-size: 14px; font-weight: 200;">Attach file (Maximun file: 2MB The .doc, .docx and .pdf are allowed.)</td>
-										  					</tr>
-										  				</table>
-										  			</div>
-										    	</div>
-										  	</div>
-										  	<button type="submit" class="btn btn-primary">ส่งข้อมูล</button>
-										</form>
+
+										<?= $this->render('_form', ['JobsForm'=> $JobsForm,'JobView'=>$JobView]); ?>
+										
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- Accordion card -->
-
 					</div>
 					<!-- Accordion wrapper -->
+
+					<?php }else{ ?>
+					<div>
+						<div>Thank you for your submission</div>
+						<div>Send data successfully.</div>
+					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
 	</div>
 
 </main>
+<?php
+$script = <<<JS
+  $("document").ready(function(){
+
+    $("#pjax-grid").on("pjax:start", function() {
+      $('#loadingOverlay').show();
+    });
+    $("#pjax-grid").on("pjax:end", function() {
+      $('#loadingOverlay').hide();
+    });
+    $('.datepicker').daterangepicker({
+      singleDatePicker: true,
+      autoUpdateInput: false,
+      locale: {
+          "format": "DD/MM/YYYY",
+          "separator": " - ",
+          "applyLabel": "Apply",
+          "cancelLabel": "Cancel",
+          "fromLabel": "From",
+          "toLabel": "To",
+          "customRangeLabel": "Custom",
+          "weekLabel": "W",
+          "firstDay": 1
+      },
+      maxDate: new Date(),
+      drops: "up",
+      showDropdowns: true,
+    },function(start, end, label) {
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
+    $('.datepicker').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('DD/MM/YYYY'));
+    });
+    $('.datepicker').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+
+  });
+JS;
+$this->registerJs($script);
+?>
+<?php Pjax::end(); ?>

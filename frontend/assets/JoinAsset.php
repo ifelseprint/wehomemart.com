@@ -13,10 +13,14 @@ class JoinAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/join.css',
+        'plugins/daterangepicker/daterangepicker.css',
+        
     ];
     public $js = [
+    	'plugins/moment/moment.min.js',
+    	'plugins/daterangepicker/daterangepicker.js',
     ];
     public $depends = [
-
+    	'frontend\assets\AppAsset'
     ];
 }
