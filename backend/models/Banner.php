@@ -16,6 +16,30 @@ class Banner extends \common\models\Banner
             [['pageSize'], 'integer'],
         ]);
     }
+    public function getPages()
+    {
+        return $this->hasOne(Pages::className(), ['page_id' => 'banner_page_id']);
+    }
+    public function search($params)
+    { 
+        $query = Banner::find();
+        $query->andWhere(['<>', 'banner_page_id', 2]);
+
+        $dataProvider = new ActiveDataProvider([
+            'pagination' => [
+                'pageSize' => $this->pageSize,
+            ],
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['banner_page_id' => SORT_DESC]]
+        ]);
+
+        if (!($this->load($params))) {
+            return $dataProvider;
+        }
+        $query->andFilterWhere(['=', 'banner_page_id', $this->banner_page_id]);
+
+        return $dataProvider;
+    }
     public function upload($field)
     {
 

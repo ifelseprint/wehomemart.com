@@ -6,15 +6,7 @@ AboutAsset::register($this);
 ?>
 <main class="main">
 	<div class="about-posts">
-        <div class="about-banner">
-        	<div class="container">
-	    		<div class="row">
-	    			<div class="col-lg-12">
-            			<img src="<?=Url::base(true);?>/img/banner-about.jpg">
-            		</div>
-            	</div>
-            </div>
-        </div>
+        <?= $this->render('_banner', ['Banner'=> $Banner]); ?>
         <div class="about-block">
         	<div class="container">
 	    		<div class="row">

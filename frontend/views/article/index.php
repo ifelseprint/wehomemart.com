@@ -6,15 +6,9 @@ ArticleAsset::register($this);
 ?>
 <main class="main">
 	<div class="article-posts">
-        <div class="article-banner">
-        	<div class="container">
-	    		<div class="row">
-	    			<div class="col-lg-12">
-            			<img src="<?=Url::base(true);?>/img/banner-article.jpg">
-            		</div>
-            	</div>
-            </div>
-        </div>
+
+		<?= $this->render('_banner', ['Banner'=> $Banner]); ?>
+        
         <div class="article-block">
         	<div class="container">
 	    		<div class="row">

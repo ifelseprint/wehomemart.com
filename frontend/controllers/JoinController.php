@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 use Yii;
 use common\models\Jobs;
+use common\models\Banner;
 use frontend\models\JobsForm;
 use yii\web\UploadedFile;
 use yii\web\Request;
@@ -10,9 +11,26 @@ class JoinController extends \yii\web\Controller
 {
     public function actionIndex()
     {
+        $Pages = \common\models\Pages::findOne(['is_active' => 1,'page_id' => 6]);
+        $meta_tag_title = "meta_tag_title_".Yii::$app->language;
+        $meta_tag_description = "meta_tag_description_".Yii::$app->language;
+        $meta_tag_keywords = "meta_tag_keywords_".Yii::$app->language;
+
+        Yii::$app->view->title = $Pages->$meta_tag_title;
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $Pages->$meta_tag_description
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $Pages->$meta_tag_keywords
+        ]);
+
+        $Banner = Banner::findOne(['is_active' => 1,'banner_page_id' => 6,'banner_mapping_id' => 1]);
     	$Jobs = Jobs::findAll(['is_active' => 1]);
         return $this->render('index', [
     		'Jobs' => $Jobs,
+            'Banner' => $Banner
     	]);
     }
     public function actionView()

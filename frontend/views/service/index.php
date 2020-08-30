@@ -12,15 +12,7 @@ ServiceAsset::register($this);
 
 <main class="main">
 	<div class="service-posts">
-        <div class="service-banner">
-        	<div class="container">
-	    		<div class="row">
-	    			<div class="col-lg-12">
-            			<img src="<?=Url::base(true);?>/img/bannerservice.jpg" width="100%">
-            		</div>
-            	</div>
-            </div>
-        </div>
+        <?= $this->render('_banner', ['Banner'=> $Banner]); ?>
         <div class="service-block">
         	<div class="container">
 	    		<div class="row">

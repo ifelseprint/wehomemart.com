@@ -7,7 +7,7 @@ JoinAsset::register($this);
 <main class="main">
 	<div class="join-posts">
 		<div class="container">
-			<?php echo $this->render('_banner'); ?>
+			<?= $this->render('_banner', ['Banner'=> $Banner]); ?>
 			<div class="row">
 				<div class="col-xs-12 col-lg-4 box-left">
 					<div class="join-content">
