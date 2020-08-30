@@ -50,6 +50,7 @@ return [
             'rules' => [
                 // '' => 'dashboard/index',
                 'contact-form/view/<id:\d+>' => 'contact-form/view',
+                'jobs-form/view/<id:\d+>' => 'jobs-form/view',
                 
                 '<controller:\w+>/' => '<controller>/index',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',

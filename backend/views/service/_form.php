@@ -154,7 +154,7 @@ $url = $action=='create'? $action : $action.'/'.$Service['service_id'];
                     <?= $form->field($Banner, 'banner_image_1')->fileInput(['class' => 'form-control form-control-sm','accept' => 'image/*']); ?>
                   </td>
                   <td width="85">
-                    <a class="bannerDelete" href="javascript:void(0)" data-id="1" data-banner="<?=$Service->service_id;?>" value="banner/delete/1"><span class="fas fa-trash-alt" style="padding:0px 2px;"></span> Clear</a>
+                    <a class="bannerDelete" href="javascript:void(0)" data-id="1" data-mapping="<?=$Service->service_id;?>" value="banner/delete/2"><span class="fas fa-trash-alt" style="padding:0px 2px;"></span> Clear</a>
                   </td>
                 </tr>
               </table>
@@ -170,7 +170,7 @@ $url = $action=='create'? $action : $action.'/'.$Service['service_id'];
                     <?= $form->field($Banner, 'banner_image_2')->fileInput(['class' => 'form-control form-control-sm','accept' => 'image/*']); ?>
                   </td>
                   <td width="85">
-                    <a class="bannerDelete" href="javascript:void(0)" data-id="2" data-banner="<?=$Service->service_id;?>" value="banner/delete/2"><span class="fas fa-trash-alt" style="padding:0px 2px;"></span> Clear</a>
+                    <a class="bannerDelete" href="javascript:void(0)" data-id="2" data-mapping="<?=$Service->service_id;?>" value="banner/delete/2"><span class="fas fa-trash-alt" style="padding:0px 2px;"></span> Clear</a>
                   </td>
                 </tr>
               </table>
@@ -188,7 +188,7 @@ $url = $action=='create'? $action : $action.'/'.$Service['service_id'];
                     <?= $form->field($Banner, 'banner_image_3')->fileInput(['class' => 'form-control form-control-sm','accept' => 'image/*']); ?>
                   </td>
                   <td width="85">
-                    <a class="bannerDelete" href="javascript:void(0)" data-id="3" data-banner="<?=$Service->service_id;?>" value="banner/delete/3"><span class="fas fa-trash-alt" style="padding:0px 2px;"></span> Clear</a>
+                    <a class="bannerDelete" href="javascript:void(0)" data-id="3" data-mapping="<?=$Service->service_id;?>" value="banner/delete/2"><span class="fas fa-trash-alt" style="padding:0px 2px;"></span> Clear</a>
                   </td>
                 </tr>
               </table>
@@ -204,7 +204,7 @@ $url = $action=='create'? $action : $action.'/'.$Service['service_id'];
                     <?= $form->field($Banner, 'banner_image_4')->fileInput(['class' => 'form-control form-control-sm','accept' => 'image/*']); ?>
                   </td>
                   <td width="85">
-                    <a class="bannerDelete" href="javascript:void(0)" data-id="4" data-banner="<?=$Service->service_id;?>" value="banner/delete/4"><span class="fas fa-trash-alt" style="padding:0px 2px;"></span> Clear</a>
+                    <a class="bannerDelete" href="javascript:void(0)" data-id="4" data-mapping="<?=$Service->service_id;?>" value="banner/delete/2"><span class="fas fa-trash-alt" style="padding:0px 2px;"></span> Clear</a>
                   </td>
                 </tr>
               </table>
@@ -221,15 +221,17 @@ $script = <<<JS
 $("document").ready(function(){
   $(".bannerDelete").click(function() {
     $('#loadingOverlay').show();
-    var banner_id = $(this).attr('data-banner');
-    var id = $(this).attr('data-id');
+    var mapping_id = $(this).attr('data-mapping');
+    var image_id = $(this).attr('data-id');
     $.ajax({
     url: $(this).attr('value'),
     method: "POST",
-    data: {banner_id: banner_id},
+    data: {mapping_id: mapping_id,image_id:image_id},
     }).done(function(response) {
-      $('.banner_preview_'+id).attr('src', '');
+      $('.banner_preview_'+image_id).attr('src', '');
       $('#loadingOverlay').hide();
+      $.pjax.reload({container:"#pjax-grid"});  //Reload GridView
+      $('#modal-update').modal('hide');
     }).fail(function( jqXHR, textStatus ) {
       
     });
