@@ -17,28 +17,28 @@ use yii\bootstrap\ActiveForm;
 
 <div class="form-group-sm row">
   <div class="col-sm-6">
-    <?= $form->field($ContactForm, 'contact_form_first_name')->textInput(['placeholder'=>'ชื่อ'])?>
+    <?= $form->field($ContactForm, 'contact_form_first_name')->textInput(['placeholder'=>Yii::$app->translated->get(42)])?>
   </div>
   <div class="col-sm-6">
-    <?= $form->field($ContactForm, 'contact_form_last_name')->textInput(['placeholder'=>'นามสกุล'])?>
+    <?= $form->field($ContactForm, 'contact_form_last_name')->textInput(['placeholder'=>Yii::$app->translated->get(43)])?>
   </div>
 </div>
 <div class="form-group-sm row">
   <div class="col-sm-6">
-    <?= $form->field($ContactForm, 'contact_form_tel')->textInput(['placeholder'=>'เบอร์โทรศัพท์'])?>
+    <?= $form->field($ContactForm, 'contact_form_tel')->textInput(['placeholder'=> Yii::$app->translated->get(38)])?>
   </div>
   <div class="col-sm-6">
-    <?= $form->field($ContactForm, 'contact_form_email')->textInput(['placeholder'=>'อีเมล'])?>
-  </div>
-</div>
-<div class="form-group-sm row">
-  <div class="col-sm-12">
-    <?= $form->field($ContactForm, 'contact_form_message')->textArea(['class' => 'form-control', 'placeholder'=>'ข้อความ']) ?>
+    <?= $form->field($ContactForm, 'contact_form_email')->textInput(['placeholder'=>Yii::$app->translated->get(39)])?>
   </div>
 </div>
 <div class="form-group-sm row">
   <div class="col-sm-12">
-    <?= Html::submitButton('ส่งข้อความ', ['class' => 'btn btn-primary']) ?>
+    <?= $form->field($ContactForm, 'contact_form_message')->textArea(['class' => 'form-control', 'placeholder'=>Yii::$app->translated->get(44)]) ?>
+  </div>
+</div>
+<div class="form-group-sm row">
+  <div class="col-sm-12">
+    <?= Html::submitButton(Yii::$app->translated->get(45), ['class' => 'btn btn-primary']) ?>
   </div>
 </div>
 <?php ActiveForm::end(); ?>

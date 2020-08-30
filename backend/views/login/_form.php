@@ -21,6 +21,7 @@ $this->title = 'Login';
   ],
 ]);
 ?>
+<label class="col-form-label-sm">Username :</label>
 <div class="input-group mb-3">
     <?= $form->field($model, 'login_username', ['options' => ['tag' => false]]); ?>
     <div class="input-group-append">
@@ -29,6 +30,7 @@ $this->title = 'Login';
         </div>
     </div>
 </div>
+<label class="col-form-label-sm">Password :</label>
 <div class="input-group mb-3">
     <?= $form->field($model, 'login_password', ['options' => ['tag' => false]])->passwordInput(); ?>
     <div class="input-group-append">

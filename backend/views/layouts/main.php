@@ -38,10 +38,10 @@ AppAsset::register($this);
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item <?php echo (Yii::$app->controller->id=="dashboard" ? 'active' : '' )?>">
-            <a href="<?=Url::base(true);?>/dashboard" class="nav-link">Dashboard</a>
+            <a href="<?=Url::base(true);?>/dashboard" class="nav-link"><i class="ti-home"></i> Dashboard</a>
           </li>
           <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Content Management</a>
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><i class="ti-clipboard"></i> Content Management</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
               <li class="<?php echo (Yii::$app->controller->id=="banner" ? 'active' : '' )?>">
                 <a href="<?=Url::base(true);?>/banner" class="nav-link">Banner / แบนเนอร์</a>
@@ -64,7 +64,7 @@ AppAsset::register($this);
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Data Result</a>
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><i class="ti-view-list-alt"></i> Data Result</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
               <li class="<?php echo (Yii::$app->controller->id=="contact-form" ? 'active' : '' )?>">
                 <a href="<?=Url::base(true);?>/contact-form" class="nav-link">Contact / ติดต่อเรา</a>
@@ -75,7 +75,7 @@ AppAsset::register($this);
             </ul>
           </li>   
           <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Setting</a>
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><i class="ti-settings"></i> Setting</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
               <li class="<?php echo (Yii::$app->controller->id=="pages" ? 'active' : '' )?>">
                 <a href="<?=Url::base(true);?>/pages" class="nav-link">หน้า / Pages</a>
@@ -91,33 +91,6 @@ AppAsset::register($this);
 
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item text-sm">
-              <i class="fas fa-star text-warning"></i> 4 Waiting for Approved
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-star text-danger"></i> 8 Payment not Match
-              <span class="float-right text-muted text-sm">12 hrs.</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-star text-primary"></i> 3 new GCL
-              <span class="float-right text-muted text-sm">2 Days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-          </div>
-        </li>
         
         <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">

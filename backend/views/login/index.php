@@ -14,23 +14,17 @@ use yii\bootstrap\ActiveForm;
 </div>
 <div class="wrapper">
   <div class="login-main-box">
-    <div class="row">
-      <div class="col-6 text-left">
-        <div class="login-logo text-left">
-          <a href="#">
-            <img src="../dist/img/Alliance_Assistance_Logo_positive.png" alt="">
-          </a>
-        </div>
-      </div>
+    <div class="row" style="padding-bottom: 10px;">
+      <div class="col-6 text-left"></div>
       <div class="col-6 text-right" style="padding-top:10px">
         <div class="appname-header">
-          <i class="fa fa-heartbeat" style="color:#009482"></i>  MEDNET <small>4.0</small>
+          <i class="ti-settings"></i>  Management System <small>4.0</small>
         </div>
       </div>
     </div>
     <div class="card">                           
       <div class="row">
-        <div class="col-6" style="background: url(../dist/img/GettyImages-696136671_super.jpg) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;background-size: cover;"></div>
+        <div class="col-6" style="background: url(<?=Url::base(true);?>/dist/img/login.jpg) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;background-size: cover;background-position: top;"></div>
         <div class="col-6 p-3">
           <div class="card-body login-card-body">
             <?= $this->render('_form', ['model'=> $model]); ?>

@@ -14,7 +14,7 @@ ArticleAsset::register($this);
 	    		<div class="row">
 	    			<div class="col-lg-12">
 	    				<div class="article-header">
-	        				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	    					<?=Yii::$app->translated->get(30);?>
 	        			</div>
 	        		</div>
 	        	</div>
@@ -35,7 +35,7 @@ ArticleAsset::register($this);
 	    				<div class="article-box">
 	    					<div class="article-box-header">
 			    				<div class="article-view">
-			    					<i class="fa fa-eye" aria-hidden="true"></i> <?=$value->pageview?> คนดูบทความนี้
+			    					<i class="fa fa-eye" aria-hidden="true"></i> <?=$value->pageview?> <?=Yii::$app->translated->get(31);?>
 								</div>
 			    				<div class="article-created-date">
 			    					<i class="fa fa-clock-o"></i> 24 มิถุนายน 2563
@@ -47,14 +47,14 @@ ArticleAsset::register($this);
 							</div>
 							<div class="article-box-image">
 								<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/<?=$value->$article_name?>-<?=$value->article_id?>">
-				    				<img src="<?=Url::base(true);?>/uploads/<?=$value->article_image_path?>/<?=$value->article_image?>" alt="image desc">
+				    				<img src="<?=Url::base(true);?>/uploads/<?=$value->article_image_path?>/<?=$value->article_image?>" alt="<?=$value->$article_name?>">
 				    			</a>
 							</div>
 							<div class="article-box-detail">
 								<?=$value->$article_content?>
 							</div>
 							<div class="article-box-readmore">
-								<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/<?=$value->$article_name?>-<?=$value->article_id?>">อ่านต่อ</a>
+								<a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>/<?=$value->$article_name?>-<?=$value->article_id?>"><?=Yii::$app->translated->get(8);?></a>
 							</div>
 		    			</div>
 	    			</div>

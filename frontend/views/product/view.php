@@ -11,7 +11,7 @@ ProductAsset::register($this);
     		<div class="row">
     			<div class="col-xs-12 col-lg-4 box-left">
     				<div class="proudct-list">
-    					<div class="list-header">รายการสินค้า </div>
+    					<div class="list-header"><?=Yii::$app->translated->get(29);?> </div>
     					<nav class="list-nav">
 		                    <ul class="list-menu">
 		                        <?= ProductMenu::widget(array('action'=>'link-list-icon')); ?>

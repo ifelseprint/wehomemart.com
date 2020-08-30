@@ -4,12 +4,13 @@ namespace backend\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\web\Request;
+use backend\models\Translate;
 use backend\models\Pages;
 use yii\helpers\Url;
 use yii\web\UploadedFile;
 use yii\helpers\ArrayHelper;
 use yii\filters\AccessControl;
-class PagesController extends \yii\web\Controller
+class TranslateController extends \yii\web\Controller
 {
     public function behaviors()
     {
@@ -33,7 +34,7 @@ class PagesController extends \yii\web\Controller
         ->all(), 'page_id', 'page_name_th');
 
         $search = Yii::$app->request->queryParams;
-    	$model = new Pages();
+    	$model = new Translate();
         $dataProvider = $model->search($search);
         if(Yii::$app->request->isPjax){
 
@@ -59,21 +60,17 @@ class PagesController extends \yii\web\Controller
     public function actionUpdate()
     {
     	$id = Yii::$app->request->get('id');
-        $Pages = Pages::findOne(['page_id' => $id]);
+        $Translate = Translate::findOne(['translate_id' => $id]);
     	if (Yii::$app->request->isAjax) {
             if(Yii::$app->request->isPost){
 
-                $Pages->meta_tag_title_th = Yii::$app->request->post()['Pages']['meta_tag_title_th'];
-                $Pages->meta_tag_title_en = Yii::$app->request->post()['Pages']['meta_tag_title_en'];
-                $Pages->meta_tag_description_th = Yii::$app->request->post()['Pages']['meta_tag_description_th'];
-                $Pages->meta_tag_description_en = Yii::$app->request->post()['Pages']['meta_tag_description_en'];
-                $Pages->meta_tag_keywords_th = Yii::$app->request->post()['Pages']['meta_tag_keywords_th'];
-                $Pages->meta_tag_keywords_en = Yii::$app->request->post()['Pages']['meta_tag_keywords_en'];
-            	$Pages->save();
+                $Translate->translate_th = Yii::$app->request->post()['Translate']['translate_th'];
+                $Translate->translate_en = Yii::$app->request->post()['Translate']['translate_en'];
+            	$Translate->save();
             }
         }
     	return $this->renderAjax('update', [
-            'Pages' => $Pages,
+            'Translate' => $Translate,
 		]);
     }
 

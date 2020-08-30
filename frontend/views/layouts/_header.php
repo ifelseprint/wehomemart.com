@@ -23,7 +23,7 @@ use frontend\widgets\ProductMenu;
                     <form action="#" method="get">
                         <div class="header-search-wrapper search-wrapper-wide">
                             <label for="q" class="sr-only">Search</label>
-                            <input type="search" class="form-control" name="q" id="q" placeholder="ค้นหาสินค้าที่ต้องการ.." required>
+                            <input type="search" class="form-control" name="q" id="q" placeholder="<?=Yii::$app->translated->get(12);?>" required>
                             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
                         </div><!-- End .header-search-wrapper -->
                     </form>
@@ -133,7 +133,7 @@ use frontend\widgets\ProductMenu;
             <div class="header-right">
                 <div class="icon">
                     <i class="icon-clock-o" style="color: #fff;"></i>
-                    <?=Yii::$app->translated->get(1);?> <?=Yii::$app->translated->get(2);?> 08.30 น. - 20.00 น.
+                    <?=Yii::$app->translated->get(11);?>
                 </div>
                 <div class="icon">
                     <i class="icon-phone" style="color: #fff;"></i>

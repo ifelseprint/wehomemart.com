@@ -17,7 +17,7 @@ use frontend\widgets\ProductMenu;
 
         <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab" role="tab" aria-controls="mobile-menu-tab" aria-selected="true">เมนู</a>
+                <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab" role="tab" aria-controls="mobile-menu-tab" aria-selected="true"><?=Yii::$app->translated->get(15);?></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="mobile-cats-link" data-toggle="tab" href="#mobile-cats-tab" role="tab" aria-controls="mobile-cats-tab" aria-selected="false"><?= Yii::t('app', 'menu_product');?></a>

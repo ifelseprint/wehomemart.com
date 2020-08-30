@@ -30,7 +30,7 @@ ContactAsset::register($this);
 		        					<table>
 		        						<tr>
 		        							<td class="icon"><i class="fa fa-map-marker"></i></td>
-		        							<td class="text"><b>บริษัท เอสซี โฮมมาร์ท จํากัด (สํานักงานใหญ่)</b></td>
+		        							<td class="text"><b><?=Yii::$app->translated->get(41);?></b></td>
 		        						</tr>
 		        					</table>
 		        				</div>
@@ -38,7 +38,7 @@ ContactAsset::register($this);
 		        					<table>
 		        						<tr>
 		        							<td class="icon"></td>
-		        							<td class="text">989/1-5 หมู่ 4 ตําบลปลวกแดง อ.ปลวกแดง จ.ระยอง 21140</td>
+		        							<td class="text"><?=Yii::$app->translated->get(40);?></td>
 		        						</tr>
 		        					</table>
 		        				</div>
@@ -47,7 +47,7 @@ ContactAsset::register($this);
 		        					<table>
 		        						<tr>
 		        							<td class="icon"><i class="fa fa-mobile"></i></td>
-		        							<td class="text"><b>Tel :</b> 081-8391818</td>
+		        							<td class="text"><b><?=Yii::$app->translated->get(38);?> :</b> 081-8391818</td>
 		        						</tr>
 		        					</table>
 		        				</div>
@@ -55,7 +55,7 @@ ContactAsset::register($this);
 		        					<table>
 		        						<tr>
 		        							<td class="icon"><i class="fa fa-envelope-o" style="font-size: 12px;"></i></td>
-		        							<td class="text"><b>Email :</b> hr@wehomemart.com</td>
+		        							<td class="text"><b><?=Yii::$app->translated->get(39);?> :</b> hr@wehomemart.com</td>
 		        						</tr>
 		        					</table>
 		        				</div>
@@ -75,7 +75,7 @@ ContactAsset::register($this);
 		        					<table>
 		        						<tr>
 		        							<td class="icon"><i class="fa fa-clock-o"></i></td>
-		        							<td class="text"><b>จ.-อ. ช่วงเวลา 08.00-18.00 น.</b></td>
+		        							<td class="text"><b><?=Yii::$app->translated->get(13);?></b></td>
 		        						</tr>
 		        					</table>
 		        				</div>

@@ -39,7 +39,7 @@ use frontend\widgets\ProductFooter;
                         <div class="icon-box-content">
                             <p style="letter-spacing: 5px;">CONTACT CENTER</p>
                             <h3 class="icon-box-title"> 08-1839-1818</h3><!-- End .icon-box-title -->
-                            <p style="font-size: 15px;">จ.-อ. ช่วงเวลา 08.00-18.00 น.</p>
+                            <p style="font-size: 15px;"><?=Yii::$app->translated->get(13);?></p>
                         </div><!-- End .icon-box-content -->
                     </div><!-- End .icon-box -->
                 </div><!-- End .col-sm-12 col-lg-4 -->
@@ -91,11 +91,11 @@ use frontend\widgets\ProductFooter;
                         <div class="widget-about-info">
                             <div class="row">
                                 <div class="col-sm-6 col-md-5">
-                                    <span class="widget-about-title">บริษัท เอสซี โฮมมาร์ท จํากัด (สํานักงานใหญ่)</span>
+                                    <span class="widget-about-title"><?=Yii::$app->translated->get(41);?></span>
                                 </div><!-- End .col-sm-6 -->
                                 <div class="col-sm-6 col-md-7">
                                     <figure class="footer-address">
-                                        989/1-5 หมู่ 4 ตําบลปลวกแดง อ.ปลวกแดง จ.ระยอง 21140 
+                                        <?=Yii::$app->translated->get(40);?>
                                     </figure><!-- End .footer-payments -->
                                 </div><!-- End .col-sm-6 -->
                             </div><!-- End .row -->
@@ -105,7 +105,7 @@ use frontend\widgets\ProductFooter;
                                 </div><!-- End .col-sm-6 -->
                                 <div class="col-sm-6 col-md-7">
                                     <figure class="footer-address">
-                                        จ. - ส. ช่วงเวลา 08.00-17.00 น.
+                                        <?=Yii::$app->translated->get(13);?>
                                     </figure><!-- End .footer-payments -->
                                 </div><!-- End .col-sm-6 -->
                             </div><!-- End .row -->

@@ -29,8 +29,8 @@ use yii\helpers\Url;
         <div class="container">
 
             <div class="block-title">
-                <h2 class="title text-center">บทความเรื่องบ้าน</h2><!-- End .title-lg text-center -->
-                <p class="text-center"><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>">ดูบทความทั้งหมด >></a></p>
+                <h2 class="title text-center"><?=Yii::$app->translated->get(9);?></h2><!-- End .title-lg text-center -->
+                <p class="text-center"><a href="<?=Url::base(true);?>/<?= Yii::t('app', 'menu_article');?>"><?=Yii::$app->translated->get(10);?> >></a></p>
             </div>
 
             <div class="owl-carousel owl-simple carousel-with-shadow owl-loaded owl-drag" data-toggle="owl" data-owl-options='{
