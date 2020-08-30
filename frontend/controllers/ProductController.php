@@ -21,6 +21,19 @@ class ProductController extends \yii\web\Controller
         ->asArray()
         ->one();
 
+        $meta_tag_title = "meta_tag_title_".Yii::$app->language;
+        $meta_tag_description = "meta_tag_description_".Yii::$app->language;
+        $meta_tag_keywords = "meta_tag_keywords_".Yii::$app->language;
+        Yii::$app->view->title = $models[$meta_tag_title];
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $models[$meta_tag_description]
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $models[$meta_tag_keywords]
+        ]);
+
         return $this->render('view', [
             'product' => $models,
         ]);

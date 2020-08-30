@@ -40,6 +40,19 @@ class JoinController extends \yii\web\Controller
         $JobsForm = new JobsForm();
         $Jobs = Jobs::findOne(['is_active' => 1,'jobs_id'=>$slug_id]);
 
+        $meta_tag_title = "meta_tag_title_".Yii::$app->language;
+        $meta_tag_description = "meta_tag_description_".Yii::$app->language;
+        $meta_tag_keywords = "meta_tag_keywords_".Yii::$app->language;
+        Yii::$app->view->title = $Jobs->$meta_tag_title;
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $Jobs->$meta_tag_description
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $Jobs->$meta_tag_keywords
+        ]);
+
         if(Yii::$app->request->isPjax){
 
             $JobsForm->jobs_form_position = $submitForm['JobsForm']['jobs_form_view'];

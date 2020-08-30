@@ -123,6 +123,14 @@ class ServiceController extends \yii\web\Controller
         $model->service_name_en = Yii::$app->request->post()['Service']['service_name_en'];
         $model->service_content_th = Yii::$app->request->post()['Service']['service_content_th'];
         $model->service_content_en = Yii::$app->request->post()['Service']['service_content_en'];
+
+        $model->meta_tag_title_th = Yii::$app->request->post()['Service']['meta_tag_title_th'];
+        $model->meta_tag_title_en = Yii::$app->request->post()['Service']['meta_tag_title_en'];
+        $model->meta_tag_description_th = Yii::$app->request->post()['Service']['meta_tag_description_th'];
+        $model->meta_tag_description_en = Yii::$app->request->post()['Service']['meta_tag_description_en'];
+        $model->meta_tag_keywords_th = Yii::$app->request->post()['Service']['meta_tag_keywords_th'];
+        $model->meta_tag_keywords_en = Yii::$app->request->post()['Service']['meta_tag_keywords_en'];
+        
         $model->service_image = UploadedFile::getInstance($model, 'service_image');
         $service_image = $model->upload();
         if(!empty($service_image)){

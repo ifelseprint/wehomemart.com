@@ -48,6 +48,25 @@ $url = $action=='create'? $action : $action.'/'.$Jobs['jobs_id'];
               <?= $form->field($Jobs, 'jobs_content_th')->textArea(['class' => 'form-control form-control-sm editor']) ?>
             </div>
           </div>
+          <hr>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Title):</label>
+              <?= $form->field($Jobs, 'meta_tag_title_th')->textInput()?>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Description):</label>
+              <?= $form->field($Jobs, 'meta_tag_description_th')->textInput() ?>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Keywords):</label>
+              <?= $form->field($Jobs, 'meta_tag_keywords_th')->textInput() ?>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -74,6 +93,25 @@ $url = $action=='create'? $action : $action.'/'.$Jobs['jobs_id'];
             <div class="col-sm-12">
               <label class="col-form-label-sm">Jobs Description:</label>
               <?= $form->field($Jobs, 'jobs_content_en')->textArea(['class' => 'form-control form-control-sm editor']) ?>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Title):</label>
+              <?= $form->field($Jobs, 'meta_tag_title_en')->textInput()?>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Description):</label>
+              <?= $form->field($Jobs, 'meta_tag_description_en')->textInput() ?>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Keywords):</label>
+              <?= $form->field($Jobs, 'meta_tag_keywords_en')->textInput() ?>
             </div>
           </div>
         </div>

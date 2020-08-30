@@ -125,6 +125,14 @@ class ProductController extends \yii\web\Controller
     	// product
     	$model->product_name_th = Yii::$app->request->post()['Product']['product_name_th'];
     	$model->product_name_en = Yii::$app->request->post()['Product']['product_name_en'];
+
+        $model->meta_tag_title_th = Yii::$app->request->post()['Product']['meta_tag_title_th'];
+        $model->meta_tag_title_en = Yii::$app->request->post()['Product']['meta_tag_title_en'];
+        $model->meta_tag_description_th = Yii::$app->request->post()['Product']['meta_tag_description_th'];
+        $model->meta_tag_description_en = Yii::$app->request->post()['Product']['meta_tag_description_en'];
+        $model->meta_tag_keywords_th = Yii::$app->request->post()['Product']['meta_tag_keywords_th'];
+        $model->meta_tag_keywords_en = Yii::$app->request->post()['Product']['meta_tag_keywords_en'];
+
     	$model->product_icon = UploadedFile::getInstance($model, 'product_icon');
     	if(!empty($model->product_icon)){
 		$product_icon_file  = $model->product_icon->baseName.'_'.time().'.'.$model->product_icon->extension;

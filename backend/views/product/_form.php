@@ -50,6 +50,25 @@ $url = $action=='create'? $action : $action.'/'.$Product['product_id'];
               <?= $form->field($ProductDetail, 'product_detail_content_th')->textArea(['class' => 'form-control form-control-sm editor']) ?>
             </div>
           </div>
+          <hr>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Title):</label>
+              <?= $form->field($Product, 'meta_tag_title_th')->textInput()?>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Description):</label>
+              <?= $form->field($Product, 'meta_tag_description_th')->textInput() ?>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Keywords):</label>
+              <?= $form->field($Product, 'meta_tag_keywords_th')->textInput() ?>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -78,6 +97,25 @@ $url = $action=='create'? $action : $action.'/'.$Product['product_id'];
             <div class="col-sm-12">
               <label class="col-form-label-sm">Product Description:</label>
               <?= $form->field($ProductDetail, 'product_detail_content_en')->textArea(['class' => 'form-control form-control-sm editor']) ?>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Title):</label>
+              <?= $form->field($Product, 'meta_tag_title_en')->textInput()?>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Description):</label>
+              <?= $form->field($Product, 'meta_tag_description_en')->textInput() ?>
+            </div>
+          </div>
+          <div class="form-group-sm row">
+            <div class="col-sm-12">
+              <label class="col-form-label-sm">Meta tag (Keywords):</label>
+              <?= $form->field($Product, 'meta_tag_keywords_en')->textInput() ?>
             </div>
           </div>
         </div>

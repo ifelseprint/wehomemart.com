@@ -98,6 +98,14 @@ class JobsController extends \yii\web\Controller
         $model->jobs_name_en = Yii::$app->request->post()['Jobs']['jobs_name_en'];
         $model->jobs_content_th = Yii::$app->request->post()['Jobs']['jobs_content_th'];
         $model->jobs_content_en = Yii::$app->request->post()['Jobs']['jobs_content_en'];
+
+        $model->meta_tag_title_th = Yii::$app->request->post()['Jobs']['meta_tag_title_th'];
+        $model->meta_tag_title_en = Yii::$app->request->post()['Jobs']['meta_tag_title_en'];
+        $model->meta_tag_description_th = Yii::$app->request->post()['Jobs']['meta_tag_description_th'];
+        $model->meta_tag_description_en = Yii::$app->request->post()['Jobs']['meta_tag_description_en'];
+        $model->meta_tag_keywords_th = Yii::$app->request->post()['Jobs']['meta_tag_keywords_th'];
+        $model->meta_tag_keywords_en = Yii::$app->request->post()['Jobs']['meta_tag_keywords_en'];
+
         $model->is_active = Yii::$app->request->post()['Jobs']['is_active'];
         $model->save();
     }
