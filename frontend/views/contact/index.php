@@ -87,8 +87,14 @@ ContactAsset::register($this);
 	        			<div class="contact-form">
 	    					<div class="title">Contact us</div>
 	    					<div class="box">
+	    						<?php if($Action=='view'){ ?>
 	    						<?= $this->render('_form', ['ContactForm'=> $ContactForm]); ?>
-	    						
+	    						<?php }else{ ?>
+								<div>
+									<div>Thank you for your submission</div>
+									<div>Send data successfully.</div>
+								</div>
+								<?php } ?>
 	    					</div>
 	    				</div>
 	        		</div>

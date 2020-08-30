@@ -22,10 +22,12 @@ class ContactController extends \yii\web\Controller
 
         	return $this->renderPartial('index', [
         		'ContactForm' => $ContactForm,
+                'Action' => 'insert'
         	]);
         }else{
         	return $this->render('index', [
         		'ContactForm' => $ContactForm,
+                'Action' => 'view'
         	]);
 
         }
