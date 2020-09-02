@@ -18,6 +18,14 @@ use Yii;
  * @property string|null $banner_image_3_path
  * @property string|null $banner_image_4
  * @property string|null $banner_image_4_path
+ * @property string|null $banner_mobile_image_1
+ * @property string|null $banner_mobile_image_1_path
+ * @property string|null $banner_mobile_image_2
+ * @property string|null $banner_mobile_image_2_path
+ * @property string|null $banner_mobile_image_3
+ * @property string|null $banner_mobile_image_3_path
+ * @property string|null $banner_mobile_image_4
+ * @property string|null $banner_mobile_image_4_path
  * @property int|null $is_active 0 = inactive, 1 = active
  * @property int|null $created_user
  * @property string|null $created_date
@@ -43,8 +51,8 @@ class Banner extends \yii\db\ActiveRecord
         return [
             [['banner_page_id', 'banner_mapping_id', 'is_active', 'created_user', 'modified_user', 'pageview'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
-            [['banner_image_1', 'banner_image_2', 'banner_image_3', 'banner_image_4'], 'string', 'max' => 50],
-            [['banner_image_1_path', 'banner_image_2_path', 'banner_image_3_path', 'banner_image_4_path'], 'string', 'max' => 100],
+            [['banner_image_1', 'banner_image_2', 'banner_image_3', 'banner_image_4', 'banner_mobile_image_1', 'banner_mobile_image_2', 'banner_mobile_image_3', 'banner_mobile_image_4'], 'string', 'max' => 50],
+            [['banner_image_1_path', 'banner_image_2_path', 'banner_image_3_path', 'banner_image_4_path', 'banner_mobile_image_1_path', 'banner_mobile_image_2_path', 'banner_mobile_image_3_path', 'banner_mobile_image_4_path'], 'string', 'max' => 100],
         ];
     }
 
@@ -65,6 +73,14 @@ class Banner extends \yii\db\ActiveRecord
             'banner_image_3_path' => 'Banner Image 3 Path',
             'banner_image_4' => 'Banner Image 4',
             'banner_image_4_path' => 'Banner Image 4 Path',
+            'banner_mobile_image_1' => 'Banner Mobile Image 1',
+            'banner_mobile_image_1_path' => 'Banner Mobile Image 1 Path',
+            'banner_mobile_image_2' => 'Banner Mobile Image 2',
+            'banner_mobile_image_2_path' => 'Banner Mobile Image 2 Path',
+            'banner_mobile_image_3' => 'Banner Mobile Image 3',
+            'banner_mobile_image_3_path' => 'Banner Mobile Image 3 Path',
+            'banner_mobile_image_4' => 'Banner Mobile Image 4',
+            'banner_mobile_image_4_path' => 'Banner Mobile Image 4 Path',
             'is_active' => '0 = inactive, 1 = active',
             'created_user' => 'Created User',
             'created_date' => 'Created Date',

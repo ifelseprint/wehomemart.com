@@ -77,8 +77,9 @@ class BannerController extends \yii\web\Controller
         $id = Yii::$app->request->queryParams['id'];
         $mapping_id = Yii::$app->request->post()['mapping_id'];
         $image_id = Yii::$app->request->post()['image_id'];
-        $field_image = 'banner_image_'.$image_id;
-        $field_path = 'banner_image_'.$image_id.'_path';
+
+        $field_image = $image_id;
+        $field_path = $image_id.'_path';
         $Banner = Banner::findOne(['banner_page_id' => $id,'banner_mapping_id' => $mapping_id]);
         $Banner->$field_image = null;
         $Banner->$field_path = null;
@@ -92,10 +93,18 @@ class BannerController extends \yii\web\Controller
         $banner->banner_image_2 = UploadedFile::getInstance($banner, 'banner_image_2');
         $banner->banner_image_3 = UploadedFile::getInstance($banner, 'banner_image_3');
         $banner->banner_image_4 = UploadedFile::getInstance($banner, 'banner_image_4');
+        $banner->banner_mobile_image_1 = UploadedFile::getInstance($banner, 'banner_mobile_image_1');
+        $banner->banner_mobile_image_2 = UploadedFile::getInstance($banner, 'banner_mobile_image_2');
+        $banner->banner_mobile_image_3 = UploadedFile::getInstance($banner, 'banner_mobile_image_3');
+        $banner->banner_mobile_image_4 = UploadedFile::getInstance($banner, 'banner_mobile_image_4');
         $banner_image_1 = $banner->upload('banner_image_1');
         $banner_image_2 = $banner->upload('banner_image_2');
         $banner_image_3 = $banner->upload('banner_image_3');
         $banner_image_4 = $banner->upload('banner_image_4');
+        $banner_mobile_image_1 = $banner->upload('banner_mobile_image_1');
+        $banner_mobile_image_2 = $banner->upload('banner_mobile_image_2');
+        $banner_mobile_image_3 = $banner->upload('banner_mobile_image_3');
+        $banner_mobile_image_4 = $banner->upload('banner_mobile_image_4');
      
         if(!empty($banner_image_1)){
             $banner->banner_image_1 = $banner_image_1['fileName'];
@@ -124,6 +133,35 @@ class BannerController extends \yii\web\Controller
         }else{
             $banner->banner_image_4 = $banner->getOldAttribute('banner_image_4');
             $banner->banner_image_4_path = $banner->getOldAttribute('banner_image_4_path');
+        }
+
+        if(!empty($banner_mobile_image_1)){
+            $banner->banner_mobile_image_1 = $banner_mobile_image_1['fileName'];
+            $banner->banner_mobile_image_1_path = $banner_mobile_image_1['filePath'];
+        }else{
+            $banner->banner_mobile_image_1 = $banner->getOldAttribute('banner_mobile_image_1');
+            $banner->banner_mobile_image_1_path = $banner->getOldAttribute('banner_mobile_image_1_path');
+        }
+        if(!empty($banner_mobile_image_2)){
+            $banner->banner_mobile_image_2 = $banner_mobile_image_2['fileName'];
+            $banner->banner_mobile_image_2_path = $banner_mobile_image_2['filePath'];
+        }else{
+            $banner->banner_mobile_image_2 = $banner->getOldAttribute('banner_mobile_image_2');
+            $banner->banner_mobile_image_2_path = $banner->getOldAttribute('banner_mobile_image_2_path');
+        }
+        if(!empty($banner_mobile_image_3)){
+            $banner->banner_mobile_image_3 = $banner_mobile_image_3['fileName'];
+            $banner->banner_mobile_image_3_path = $banner_mobile_image_3['filePath'];
+        }else{
+            $banner->banner_mobile_image_3 = $banner->getOldAttribute('banner_mobile_image_3');
+            $banner->banner_mobile_image_3_path = $banner->getOldAttribute('banner_mobile_image_3_path');
+        }
+        if(!empty($banner_mobile_image_4)){
+            $banner->banner_mobile_image_4 = $banner_mobile_image_4['fileName'];
+            $banner->banner_mobile_image_4_path = $banner_mobile_image_4['filePath'];
+        }else{
+            $banner->banner_mobile_image_4 = $banner->getOldAttribute('banner_mobile_image_4');
+            $banner->banner_mobile_image_4_path = $banner->getOldAttribute('banner_mobile_image_4_path');
         }
         $banner->save();
         return true;

@@ -64,6 +64,20 @@
 .banner-group {
     margin-bottom: 3rem;
 }
+.mobile{
+    display: none !important;
+}
+.desktop{
+    display: block !important;
+}
+@media screen and (max-width: 768px) {
+    .mobile{
+        display: block !important;
+    }
+    .desktop{
+        display: none !important;
+    }
+}
 @media screen and (min-width: 992px) {
     .banner-group .col-lg-3 {
         -ms-flex: 0 0 26.05%;
