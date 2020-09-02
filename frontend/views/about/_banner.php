@@ -33,7 +33,6 @@ use yii\helpers\Url;
 							<img src="<?=Url::base(true);?>/uploads/<?=$Banner->banner_mobile_image_4_path?>/<?=$Banner->banner_mobile_image_4?>" class="mobile">
 						</div>
 						<?php } ?>
-						<?php } ?>
 					</div><!-- End .owl-carousel owl-simple -->
 					<span class="slider-loader text-white"></span><!-- End .slider-loader -->
 				</div><!-- End .intro-slider-container -->
