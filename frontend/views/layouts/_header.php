@@ -32,10 +32,10 @@ use frontend\widgets\ProductMenu;
 
             <div class="header-right">
                 <div class="phone">
-                    <a href="#" title="038-029889">
+                    <a href="tel:0818391818" title="081-839-1818">
                         <div class="icon">
                             <i class="icon-phone" style="color: #2670bf;"></i>
-                            038-029889
+                            081-839-1818
                         </div>
                     </a>
                 </div>
@@ -137,7 +137,7 @@ use frontend\widgets\ProductMenu;
                 </div>
                 <div class="icon">
                     <i class="icon-phone" style="color: #fff;"></i>
-                     038-029889
+                     081-839-1818
                 </div>
             </div>
         </div><!-- End .container -->
