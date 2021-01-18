@@ -22,9 +22,10 @@ return [
             'baseUrl' => $baseUrl,
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'frontend\models\Users',
+            'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'loginUrl' => [ 'member/index' ],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
@@ -53,6 +54,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '' => 'home/index',
+                'member/index' => 'member/index',
+                'quotation/index/<id>' => 'quotation/index',
                 // about
                 '<about_index:(about us|เกี่ยวกับเรา)>' => 'about/index',
                 // product

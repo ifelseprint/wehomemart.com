@@ -2,7 +2,14 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\widgets\ProductMenu;
+$session = Yii::$app->session;
 ?>
+<div id="loadingOverlay" class="loader-overlay" style="display: none;">
+    <div class="loader-content loader-center">
+        <div id="loading" class="loader"></div>
+    </div>
+</div>
+
 <header class="header header-2 header-intro-clearance">
     <div class="header-middle">
         <div class="container">
@@ -68,6 +75,16 @@ use frontend\widgets\ProductMenu;
                         </div><!-- End .header-menu -->
                     </div>
                 </div>
+
+                <div class="register-login">
+                    <?php
+                    if (empty($session['users'])){
+                    ?>
+                    <a href="#" class="btn-modal-member" value='<?=Url::base(true);?>/<?=Yii::$app->language?>/member/index'><?= Yii::t('app', 'txt_register');?> / <?= Yii::t('app', 'txt_login');?></a>
+                    <?php }else{ ?>
+                    <div>Hi, <?=$session['users']->user_firstname?> <?=$session['users']->user_lastname?> <a href="<?=Url::base(true);?>/<?=Yii::$app->language?>/member/logout"><?= Yii::t('app', 'txt_logout');?></a></div>
+                    <?php } ?>   
+                </div>
             </div><!-- End .header-right -->
         </div><!-- End .container -->
     </div><!-- End .header-middle -->
@@ -128,6 +145,7 @@ use frontend\widgets\ProductMenu;
                         </li> -->
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
+
             </div><!-- End .header-center -->
 
             <div class="header-right">

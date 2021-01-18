@@ -34,7 +34,7 @@ class Users extends \common\models\Users implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['login_username' => $username, 'is_active' => self::STATUS_ACTIVE]);
+        return static::findOne(['login_username' => $username, 'user_type' => 1, 'is_active' => self::STATUS_ACTIVE]);
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
-use yii\helpers\Url;
 use frontend\widgets\ProductFooter;
+use yii\helpers\Html;
+use yii\helpers\Url;
 ?>
 <footer class="footer footer-2">
     <div class="icon-boxes-container">
@@ -122,3 +123,35 @@ use frontend\widgets\ProductFooter;
         </div><!-- End .container -->
     </div><!-- End .footer-bottom -->
 </footer><!-- End .footer -->
+
+<!-- Modal Popup Member ##################### -->
+<div class="modal fade" id="modal-member">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><i class="icofont icofont-plus-circle"></i> Member</h4>
+                <button type="button" class="close" data-dismiss="modal" style="font-size: 30px;">&times;</button>
+            </div>
+            <div class="modal-body" style="padding-bottom: 0px;">
+                <div id='modal-content-member'></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Popup Member ##################### -->
+
+<!-- Modal Popup Quotation ##################### -->
+<div class="modal fade" id="modal-quotation">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><i class="icofont icofont-plus-circle"></i> Request quotation</h4>
+                <button type="button" class="close" data-dismiss="modal" style="font-size: 30px;">&times;</button>
+            </div>
+            <div class="modal-body" style="padding-bottom: 0px;">
+                <div id='modal-content-quotation' style="padding: 5px 10px 20px 10px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Popup Quotation ##################### -->

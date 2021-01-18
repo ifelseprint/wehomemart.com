@@ -1398,6 +1398,15 @@ blockquote.text-white cite span {
     padding-left: 15px;
 }
 
+.register-login{
+    position: absolute;
+    right: 0;
+    margin-top: 70px;
+}
+.register-login a{
+    padding: 0px 10px;
+}
+
 @media screen and (min-width: 992px) {
     .mobile-menu-toggler {
         display: none;
@@ -8407,9 +8416,19 @@ p {
     background-color: #fafafa;
     border: 1px solid #ebebeb;
     border-radius: 0;
-    margin-bottom: 2rem;
-    transition: all 0.3s;
+    margin-bottom: 15px;
+    /*transition: all 0.3s;*/
     box-shadow: none;
+}
+div.help-block{
+    position: relative;
+    top: -7px;
+}
+div.help-block div.invalid-feedback {
+    font-size: 100% !important;
+}
+.swal2-popup {
+    font-size: 100% !important;
 }
 select.form-control:not([size]):not([multiple]) {
     height: 40px;
@@ -8445,9 +8464,11 @@ textarea.form-control {
 }
 label {
     color: #666;
-    font-weight: 300;
+    font-weight: 600;
     font-size: 1.4rem;
-    margin: 0 0 1.1rem;
+}
+.field_required{
+    color: #f00;
 }
 .form-text {
     color: #999;
@@ -8461,6 +8482,62 @@ label {
 small.form-text {
     font-size: 85%;
 }
+
+input[readonly],select[readonly] {
+    pointer-events: none;
+}
+.select2-container--default.select2-container--disabled .select2-selection--single {
+    background-color: #e9ecef;
+    cursor: default;
+}
+.form-control.is-invalid + .select2-container--default .select2-selection--single{
+    border-color: #dc3545 !important;
+}
+.form-control.is-invalid + .select2-container--default .select2-selection--single .select2-selection__arrow b{
+    display: none;
+}
+.form-control.is-invalid + .select2-container--default .select2-selection--single .select2-selection__arrow:before {
+    background-repeat: no-repeat;
+    background-size: calc(.75em + .3rem) calc(.75em + .3rem);
+    width: 16px;
+    content: " ";
+    background-image: url(../img/close.svg);
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    height: 16px;
+}
+input[type=radio].form-control.is-invalid:before {
+    background-repeat: no-repeat;
+    background-size: calc(.75em + .3rem) calc(.75em + .3rem);
+    width: 16px;
+    content: " ";
+    /* background-image: url(../../img/close.svg); */
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    height: 16px;
+    border: 3px solid #f00;
+    border-radius: 50%;
+}
+input[type=checkbox].form-control.is-invalid:before,
+input[type=checkbox].is-invalid:before {
+    background-repeat: no-repeat;
+    background-size: calc(.75em + .3rem) calc(.75em + .3rem);
+    width: 15px;
+    content: " ";
+    /* background-image: url(../../img/close.svg); */
+    position: absolute;
+    left: 8px;
+    height: 14px;
+    border: 3px solid #f00;
+    border-radius: 20%;
+}
+.form-control[readonly] + .select2-container--default .select2-selection--single {
+    background-color: #e9ecef !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+}
 .required-field > label::after {
     content: "*";
     color: #e02b27;
@@ -8469,7 +8546,7 @@ small.form-text {
 }
 .required {
     color: #e02b27;
-    font-size: 1.2rem;
+    /*font-size: 1.2rem;*/
 }
 .required + .form-footer {
     margin-top: 0.8rem;

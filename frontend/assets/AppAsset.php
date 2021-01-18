@@ -15,6 +15,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'icon/font-awesome/css/font-awesome.min.css',
         'css/bootstrap.min.css',
+        'plugins/sweetalert2/sweetalert2.min.css',
         'css/owl.carousel.css',
         'css/magnific-popup.css',
         'css/jquery.countdown.css',
@@ -23,7 +24,8 @@ class AppAsset extends AssetBundle
         'css/theme.css',
     ];
     public $js = [
-        'js/bootstrap.bundle.min.js',
+        'plugins/bootstrap/js/bootstrap.bundle.min.js',
+        'plugins/sweetalert2/sweetalert2.min.js',
         'js/jquery.hoverIntent.min.js',
         'js/jquery.waypoints.min.js',
         'js/superfish.min.js',
@@ -31,6 +33,9 @@ class AppAsset extends AssetBundle
         'js/jquery.plugin.min.js',
         'js/jquery.magnific-popup.min.js',
         'js/jquery.countdown.min.js',
+        'plugins/moment/moment.min.js',
+        'plugins/jquery-validation/jquery.validate.js',
+        'plugins/jquery-validation/additional-methods.min.js',
         'js/main.js',
         'js/demo-2.js',
         'js/App.js',
