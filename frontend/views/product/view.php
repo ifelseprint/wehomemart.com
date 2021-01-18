@@ -26,6 +26,9 @@ ProductAsset::register($this);
     				<div class="proudct-img">
     					<img src="<?=Url::base(true);?>/uploads/<?=$product['productDetails'][0]['product_detail_image_path'];?>/<?=$product['productDetails'][0]['product_detail_image'];?>">
     				</div>
+                    <div class="product-button">
+                        <a href="#" class="btn-modal-quotation" value="<?=Url::base(true);?>/<?=Yii::$app->language?>/quotation/index/<?=$product['product_id']?>"><?= Yii::t('app', 'txt_request_quotation');?></a>
+                    </div>
     			</div>
     		</div>
     	</div>
