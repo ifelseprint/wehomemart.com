@@ -40,7 +40,7 @@ $form = ActiveForm::begin([
 <div class="form-group-sm row">
   <div class="col-sm-12">
     <label><?=$Users->getAttributeLabel('user_telephone')?></label> <span class="field_required">*</span>
-    <?= $form->field($Users, 'user_telephone')->textInput(['placeholder'=> $Users->getAttributeLabel('user_telephone'),'required' => true,'data-msg'=> Yii::t('app', 'validate_telephone')])?>
+    <?= $form->field($Users, 'user_telephone')->textInput(['placeholder'=> $Users->getAttributeLabel('user_telephone'),'required' => true,'onkeypress' =>'return appWEHOME.App.OnlyNumbers(event)','pattern'=> '^0[0-9]{8,10}','maxlength' =>'10','data-msg'=> Yii::t('app', 'validate_telephone')])?>
   </div>
 </div>
 <div class="form-group-sm row">
