@@ -17,12 +17,12 @@ use Yii;
  * @property string|null $user_email
  * @property string|null $user_firstname
  * @property string|null $user_lastname
- * @property int|null $user_telephone
+ * @property string|null $user_telephone
  * @property int|null $user_age
  * @property string|null $user_career
  * @property string|null $user_location
  * @property string|null $user_company
- * @property int|null $user_tax_id
+ * @property string|null $user_tax_id
  * @property string|null $user_address
  * @property string|null $user_building
  * @property string|null $user_moo
@@ -53,10 +53,11 @@ class Users extends \yii\db\ActiveRecord
     {
         return [
             [['login_username', 'login_password'], 'required'],
-            [['is_active', 'user_telephone', 'user_age', 'user_tax_id', 'user_postal_code', 'created_user', 'modified_user', 'user_type'], 'integer'],
+            [['is_active', 'user_age', 'user_postal_code', 'created_user', 'modified_user', 'user_type'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
             [['login_username', 'password_reset_token', 'auth_key', 'verification_token', 'user_email', 'user_firstname', 'user_lastname', 'user_location', 'user_company', 'user_address'], 'string', 'max' => 255],
             [['login_password', 'user_career', 'user_building', 'user_moo', 'user_district', 'user_amphur', 'user_province'], 'string', 'max' => 100],
+            [['user_telephone', 'user_tax_id'], 'string', 'max' => 20],
         ];
     }
 
