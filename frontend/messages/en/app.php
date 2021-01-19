@@ -19,6 +19,9 @@ return [
     'txt_pick_up_branch' => 'Pick up at the branch',
     'txt_delivery_destination' => 'Delivery destination',
 
+    'txt_ref_no' => 'Ref no.',
+    'txt_date' => 'Date',
+
     'note' => 'Note',
     'amount' => 'Amount',
     'username' => 'Username',

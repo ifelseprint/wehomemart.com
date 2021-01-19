@@ -129,7 +129,7 @@ use yii\helpers\Url;
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title"><i class="icofont icofont-plus-circle"></i> Member</h4>
+                <h4 class="modal-title" style="width: 100%;"><i class="icofont icofont-plus-circle"></i> <img class="mx-auto d-block" src ="<?=Url::base(true);?>/img/logo_center.png" width="120"></h4>
                 <button type="button" class="close" data-dismiss="modal" style="font-size: 30px;">&times;</button>
             </div>
             <div class="modal-body" style="padding-bottom: 0px;">

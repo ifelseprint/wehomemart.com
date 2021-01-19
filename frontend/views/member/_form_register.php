@@ -28,6 +28,13 @@ $form = ActiveForm::begin([
   </div>
 </div>
 <div class="form-group-sm row">
+  <div class="col-sm-12">
+    <label><?=$Users->getAttributeLabel('login_password')?></label> <span class="field_required">*</span>
+    <?= $form->field($Users, 'login_password')->textInput(['placeholder'=> $Users->getAttributeLabel('login_password'),'required' => true,'data-msg'=> Yii::t('app', 'validate_password')])?>
+  </div>
+</div>
+<hr style="margin: 10px 0px;">
+<div class="form-group-sm row">
   <div class="col-sm-6">
     <label><?=$Users->getAttributeLabel('user_firstname')?></label> <span class="field_required">*</span>
     <?= $form->field($Users, 'user_firstname')->textInput(['placeholder'=> $Users->getAttributeLabel('user_firstname'), 'required' => true,'data-msg'=> Yii::t('app', 'validate_firstname')])?>
@@ -44,12 +51,6 @@ $form = ActiveForm::begin([
   </div>
 </div>
 <div class="form-group-sm row">
-  <div class="col-sm-12">
-    <label><?=$Users->getAttributeLabel('login_password')?></label> <span class="field_required">*</span>
-    <?= $form->field($Users, 'login_password')->textInput(['placeholder'=> $Users->getAttributeLabel('login_password'),'required' => true,'data-msg'=> Yii::t('app', 'validate_password')])?>
-  </div>
-</div>
-<div class="form-group-sm row">
   <div class="col-sm-6">
     <label><?=$Users->getAttributeLabel('user_age')?></label> <span class="field_required">*</span>
     <?= $form->field($Users, 'user_age')->textInput(['placeholder'=> $Users->getAttributeLabel('user_age'),'required' => true,'onkeypress' =>'return appWEHOME.App.OnlyNumbers(event)','pattern' => '[0-9]+','data-msg'=> Yii::t('app', 'validate_age')])?>
@@ -59,6 +60,7 @@ $form = ActiveForm::begin([
     <?= $form->field($Users, 'user_career')->textInput(['placeholder'=> $Users->getAttributeLabel('user_career'),'required' => true,'data-msg'=> Yii::t('app', 'validate_career')])?>
   </div>
 </div>
+<hr style="margin: 10px 0px;">
 <div class="form-group-sm row">
   <div class="col-sm-12">
     <label><?=$Users->getAttributeLabel('user_location')?></label> <span class="field_required">*</span>

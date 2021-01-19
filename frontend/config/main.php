@@ -1,5 +1,6 @@
 <?php
 use yii\web\Request;
+use kartik\mpdf\Pdf;
 $baseUrl = str_replace('/frontend/web', '', (new Request)->getBaseUrl());
 
 $params = array_merge(
@@ -39,6 +40,17 @@ return [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'pdf' => [
+            'class' => Pdf::classname(),
+            'format' => Pdf::FORMAT_A4,
+            'mode' => Pdf::MODE_UTF8,
+            'orientation' => Pdf::ORIENT_PORTRAIT,
+            // 'destination' => Pdf::DEST_BROWSER,
+            'marginTop' => 5,
+            'marginBottom' => 5,
+            'marginLeft' => 5,
+            'marginRight' => 5,
         ],
         'errorHandler' => [
             'errorAction' => 'error/404',

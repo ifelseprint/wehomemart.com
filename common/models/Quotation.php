@@ -15,7 +15,7 @@ use Yii;
  * @property string|null $quotation_email
  * @property int|null $quotation_telephone
  * @property string|null $quotation_company
- * @property int|null $quotation_tax_id
+ * @property string|null $quotation_tax_id
  * @property string|null $quotation_address
  * @property string|null $quotation_building
  * @property string|null $quotation_moo
@@ -60,12 +60,13 @@ class Quotation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['quotation_type', 'quotation_telephone', 'quotation_tax_id', 'quotation_postal_code', 'quotation_project_category_id', 'quotation_product_amount', 'quotation_delivery_telephone', 'quotation_delivery_postal_code', 'created_user', 'modified_user'], 'integer'],
+            [['quotation_type', 'quotation_telephone', 'quotation_postal_code', 'quotation_project_category_id', 'quotation_product_amount', 'quotation_delivery_telephone', 'quotation_delivery_postal_code', 'created_user', 'modified_user'], 'integer'],
             [['quotation_delivery_note'], 'string'],
             [['created_date', 'modified_date'], 'safe'],
             [['quotation_code', 'quotation_building', 'quotation_moo', 'quotation_district', 'quotation_amphur', 'quotation_province', 'quotation_delivery_building', 'quotation_delivery_moo', 'quotation_delivery_district', 'quotation_delivery_amphur', 'quotation_delivery_province'], 'string', 'max' => 100],
             [['quotation_firstname', 'quotation_lastname', 'quotation_email', 'quotation_delivery_firstname', 'quotation_delivery_lastname'], 'string', 'max' => 150],
             [['quotation_company', 'quotation_address', 'quotation_product_name', 'quotation_delivery_address'], 'string', 'max' => 255],
+            [['quotation_tax_id'], 'string', 'max' => 20],
             [['quotation_product_image'], 'string', 'max' => 200],
             [['quotation_product_image_path'], 'string', 'max' => 10],
         ];
