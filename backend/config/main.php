@@ -11,6 +11,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'language' => 'th',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -45,6 +46,11 @@ return [
         ],
         
         'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['th','en'],
+            'enableLanguageDetection' => false,
+            'enableDefaultLanguageUrlCode' => true,
+            'enableLanguagePersistence' => true,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [

@@ -66,6 +66,9 @@ AppAsset::register($this);
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><i class="ti-view-list-alt"></i> Data Result</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow-sm">
+              <li class="<?php echo (Yii::$app->controller->id=="quotation" ? 'active' : '' )?>">
+                <a href="<?=Url::base(true);?>/quotation" class="nav-link">Quotation / ใบเสนอราคา</a>
+              </li>
               <li class="<?php echo (Yii::$app->controller->id=="contact-form" ? 'active' : '' )?>">
                 <a href="<?=Url::base(true);?>/contact-form" class="nav-link">Contact / ติดต่อเรา</a>
               </li>
