@@ -21,6 +21,7 @@ return [
 
     'txt_ref_no' => 'Ref no.',
     'txt_date' => 'Date',
+    'txt_select' => 'Select',
 
     'note' => 'Note',
     'amount' => 'Amount',

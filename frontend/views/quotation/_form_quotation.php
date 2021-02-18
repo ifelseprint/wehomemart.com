@@ -90,7 +90,7 @@ $form = ActiveForm::begin([
 <div class="form-group-sm row">
   <div class="col-sm-6">
     <label><?=$Quotation->getAttributeLabel('quotation_province')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_province')->dropDownList($dataProvinces,['prompt'=> ': : : เลือก : : :','class'=>'form-control form-control-sm select2','id' => 'quotation_province','required' => true, 'data-msg'=> Yii::t('app', 'validate_province'), 'onchange'=>'
+    <?= $form->field($Quotation, 'quotation_province')->dropDownList($dataProvinces,['prompt'=> ': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2','id' => 'quotation_province','required' => true, 'data-msg'=> Yii::t('app', 'validate_province'), 'onchange'=>'
       var value = $(this).val();
       $("#quotation_postal_code").val("");
 
@@ -102,14 +102,14 @@ $form = ActiveForm::begin([
         $("#quotation_district").find("option:not(:first-child)").remove();
 
         $.each(result.data, function(k, v) {
-          $("<option>").val(v.id).text(v.name_th).appendTo("#quotation_amphur");
+          $("<option>").val(v.id).text(v.name_'.Yii::$app->language.').appendTo("#quotation_amphur");
         });
       });
     ']); ?>
   </div>
   <div class="col-sm-6">
     <label><?=$Quotation->getAttributeLabel('quotation_amphur')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_amphur')->dropDownList($dataAmphures,['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list','id' => 'quotation_amphur','required' => true, 'data-msg'=> Yii::t('app', 'validate_amphur'), 'onchange'=>'
+    <?= $form->field($Quotation, 'quotation_amphur')->dropDownList($dataAmphures,['prompt'=>': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2 list','id' => 'quotation_amphur','required' => true, 'data-msg'=> Yii::t('app', 'validate_amphur'), 'onchange'=>'
       var value = $(this).val();
       $.get("'.Url::toRoute('quotation/district-list').'",{
         id: value
@@ -117,7 +117,7 @@ $form = ActiveForm::begin([
         $("#quotation_district").find("option:not(:first-child)").remove();
         $("#quotation_postal_code").val("");
         $.each(result.data, function(k, v) {
-          $("<option>").val(v.id).text(v.name_th).appendTo("#quotation_district");
+          $("<option>").val(v.id).text(v.name_'.Yii::$app->language.').appendTo("#quotation_district");
         });
 
       });
@@ -127,7 +127,7 @@ $form = ActiveForm::begin([
 <div class="form-group-sm row">
   <div class="col-sm-6">
     <label><?=$Quotation->getAttributeLabel('quotation_district')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_district')->dropDownList($dataDistricts,['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list','id' => 'quotation_district','required' => true, 'data-msg'=> Yii::t('app', 'validate_district'), 'onchange'=>'
+    <?= $form->field($Quotation, 'quotation_district')->dropDownList($dataDistricts,['prompt'=>': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2 list','id' => 'quotation_district','required' => true, 'data-msg'=> Yii::t('app', 'validate_district'), 'onchange'=>'
       var value = $(this).val();
       $.get("'.Url::toRoute('quotation/zipcode-list').'",{
         id: value
@@ -214,7 +214,7 @@ $form = ActiveForm::begin([
   <div class="form-group-sm row">
     <div class="col-sm-6">
       <label><?=$Quotation->getAttributeLabel('quotation_province')?></label> <span class="field_required">*</span>
-      <?= $form->field($Quotation, 'quotation_delivery_province')->dropDownList($dataProvinces,['prompt'=> ': : : เลือก : : :','class'=>'form-control form-control-sm select2 required','id' => 'quotation_delivery_province', 'data-msg'=> Yii::t('app', 'validate_province'), 'onchange'=>'
+      <?= $form->field($Quotation, 'quotation_delivery_province')->dropDownList($dataProvinces,['prompt'=> ': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2 required','id' => 'quotation_delivery_province', 'data-msg'=> Yii::t('app', 'validate_province'), 'onchange'=>'
       var value = $(this).val();
       $("#quotation_delivery_postal_code").val("");
 
@@ -234,7 +234,7 @@ $form = ActiveForm::begin([
     </div>
     <div class="col-sm-6">
       <label><?=$Quotation->getAttributeLabel('quotation_amphur')?></label> <span class="field_required">*</span>
-      <?= $form->field($Quotation, 'quotation_delivery_amphur')->dropDownList([],['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list required','id' => 'quotation_delivery_amphur', 'data-msg'=> Yii::t('app', 'validate_amphur'), 'onchange'=>'
+      <?= $form->field($Quotation, 'quotation_delivery_amphur')->dropDownList([],['prompt'=>': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2 list required','id' => 'quotation_delivery_amphur', 'data-msg'=> Yii::t('app', 'validate_amphur'), 'onchange'=>'
       var value = $(this).val();
       $.get("'.Url::toRoute('quotation/district-list').'",{
         id: value
@@ -253,7 +253,7 @@ $form = ActiveForm::begin([
   <div class="form-group-sm row">
     <div class="col-sm-6">
       <label><?=$Quotation->getAttributeLabel('quotation_district')?></label> <span class="field_required">*</span>
-      <?= $form->field($Quotation, 'quotation_delivery_district')->dropDownList([],['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list required','id' => 'quotation_delivery_district','data-msg'=> Yii::t('app', 'validate_district'), 'onchange'=>'
+      <?= $form->field($Quotation, 'quotation_delivery_district')->dropDownList([],['prompt'=>': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2 list required','id' => 'quotation_delivery_district','data-msg'=> Yii::t('app', 'validate_district'), 'onchange'=>'
       var value = $(this).val();
       $.get("'.Url::toRoute('quotation/zipcode-list').'",{
         id: value

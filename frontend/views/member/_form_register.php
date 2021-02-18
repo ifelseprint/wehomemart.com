@@ -110,7 +110,7 @@ $form = ActiveForm::begin([
   <div class="col-sm-6">
     <label><?=$Users->getAttributeLabel('user_province')?></label>
 
-    <?= $form->field($Users, 'user_province')->dropDownList($dataProvinces,['prompt'=> ': : : เลือก : : :','class'=>'form-control form-control-sm select2','id' => 'user_province', 'data-msg'=> Yii::t('app', 'validate_province'), 'onchange'=>'
+    <?= $form->field($Users, 'user_province')->dropDownList($dataProvinces,['prompt'=> ': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2','id' => 'user_province', 'data-msg'=> Yii::t('app', 'validate_province'), 'onchange'=>'
       var value = $(this).val();
       $("#user_postal_code").val("");
       $("select.list").find("option:not(:first-child)").remove();
@@ -123,14 +123,14 @@ $form = ActiveForm::begin([
         $("#user_district").find("option:not(:first-child)").remove();
 
         $.each(result.data, function(k, v) {
-          $("<option>").val(v.id).text(v.name_th).appendTo("#user_amphur");
+          $("<option>").val(v.id).text(v.name_'.Yii::$app->language.').appendTo("#user_amphur");
         });
       });
     ']); ?>
   </div>
   <div class="col-sm-6">
     <label><?=$Users->getAttributeLabel('user_amphur')?></label>
-    <?= $form->field($Users, 'user_amphur')->dropDownList([],['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list','id' => 'user_amphur', 'data-msg'=> Yii::t('app', 'validate_amphur'), 'onchange'=>'
+    <?= $form->field($Users, 'user_amphur')->dropDownList([],['prompt'=>': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2 list','id' => 'user_amphur', 'data-msg'=> Yii::t('app', 'validate_amphur'), 'onchange'=>'
       var value = $(this).val();
       $.get("'.Url::toRoute('member/district-list').'",{
         id: value
@@ -138,7 +138,7 @@ $form = ActiveForm::begin([
         $("#user_district").find("option:not(:first-child)").remove();
         $("#user_postal_code").val("");
         $.each(result.data, function(k, v) {
-          $("<option>").val(v.id).text(v.name_th).appendTo("#user_district");
+          $("<option>").val(v.id).text(v.name_'.Yii::$app->language.').appendTo("#user_district");
         });
 
       });
@@ -149,7 +149,7 @@ $form = ActiveForm::begin([
 <div class="form-group-sm row">
   <div class="col-sm-6">
     <label><?=$Users->getAttributeLabel('user_district')?></label>
-    <?= $form->field($Users, 'user_district')->dropDownList([],['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list','id' => 'user_district', 'data-msg'=> Yii::t('app', 'validate_district'), 'onchange'=>'
+    <?= $form->field($Users, 'user_district')->dropDownList([],['prompt'=>': : : '.Yii::t('app', 'txt_select').' : : :','class'=>'form-control form-control-sm select2 list','id' => 'user_district', 'data-msg'=> Yii::t('app', 'validate_district'), 'onchange'=>'
       var value = $(this).val();
       $.get("'.Url::toRoute('member/zipcode-list').'",{
         id: value

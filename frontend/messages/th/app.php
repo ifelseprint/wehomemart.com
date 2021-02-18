@@ -21,6 +21,7 @@ return [
 
     'txt_ref_no' => 'เลขที่อ้างอิง',
     'txt_date' => 'วันที่',
+    'txt_select' => 'เลือก',
 
     'note' => 'หมายเหตุ',
     'amount' => 'จำนวน',
