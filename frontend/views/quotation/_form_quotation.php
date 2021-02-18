@@ -226,7 +226,7 @@ $form = ActiveForm::begin([
         $("#quotation_delivery_district").find("option:not(:first-child)").remove();
 
         $.each(result.data, function(k, v) {
-          $("<option>").val(v.id).text(v.name_th).appendTo("#quotation_delivery_amphur");
+          $("<option>").val(v.id).text(v.name_'.Yii::$app->language.').appendTo("#quotation_delivery_amphur");
         });
       });
     ']); ?>
@@ -242,7 +242,7 @@ $form = ActiveForm::begin([
         $("#quotation_delivery_district").find("option:not(:first-child)").remove();
         $("#quotation_delivery_postal_code").val("");
         $.each(result.data, function(k, v) {
-          $("<option>").val(v.id).text(v.name_th).appendTo("#quotation_delivery_district");
+          $("<option>").val(v.id).text(v.name_'.Yii::$app->language.').appendTo("#quotation_delivery_district");
         });
 
       });
