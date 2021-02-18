@@ -16,8 +16,8 @@ return [
     'txt_type_registration' => 'Type of registration',
     'txt_juristic_person' => 'Juristic person',
     'txt_company' => 'Company',
-    'txt_pick_up_branch' => 'Pick up at the branch',
-    'txt_delivery_destination' => 'Delivery destination',
+    'txt_pick_up_branch' => 'At current address',
+    'txt_delivery_destination' => 'At quotation address',
 
     'txt_ref_no' => 'Ref no.',
     'txt_date' => 'Date',
@@ -34,6 +34,7 @@ return [
     'career' => 'Career',
     'location' => 'Location',
     'company' => 'Company',
+    'address_tax' => 'Tax address',
     'tax_id' => 'Tax Id',
     'address' => 'Address',
     'building' => 'Building',
@@ -42,6 +43,17 @@ return [
     'amphur' => 'Amphur',
     'province' => 'Province',
     'postal_code' => 'Postal Code',
+    'checked_customer' => 'Is a SC REALESTAE project customer',
+
+    'career_1' => 'General staff',
+    'career_2' => 'State employees / state enterprises',
+    'career_3' => 'Employees',
+    'career_4' => 'Automotive staff',
+    'career_5' => 'Project owner',
+    'career_6' => 'Business owner',
+    'career_7' => 'Contractor',
+    'career_8' => 'Hire',
+    'career_9' => 'Other',
 
     'validate_amount' => 'Please enter amount',
     'validate_username' => 'Please enter username',
@@ -54,6 +66,7 @@ return [
     'validate_career' => 'Please enter career',
     'validate_location' => 'Please enter location',
     'validate_company' => 'Please enter company',
+    'validate_tax_address' => 'Please enter tax invoice address',
     'validate_tax_id' => 'Please enter tax Id or information is incorrect.',
     'validate_address' => 'Please enter address',
     'validate_building' => 'Please enter building',
@@ -72,7 +85,7 @@ return [
     'validate_product_image' => 'Please enter product image or information is incorrect.',
 
     // response message
-    'response_quotation_success' => 'You have successfully submitted a request for quotation. Your quotation number is {quotation_code} Contact us for more information, call 038-XXXXXX',
+    'response_quotation_success' => 'You have successfully submitted a request for quotation. Your quotation number is {quotation_code} Contact us for more information, call 038-659-951',
     'response_register_success' => 'You have successfully registered a member.',
     'response_login_success' => 'Login successfully',
     'response_login_unsuccess' => 'Login is not successful',

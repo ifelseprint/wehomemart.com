@@ -17,7 +17,7 @@ use yii\helpers\Url;
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <?= $this->render('_form_register', ['Users'=> $Users]); ?>
+            <?= $this->render('_form_register', ['Users'=> $Users,'dataProvinces'=>$dataProvinces]); ?>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <?= $this->render('_form_login', ['Users'=> $Users]); ?>
@@ -29,6 +29,7 @@ use yii\helpers\Url;
 <?php
 $script = <<<JS
   $("document").ready(function(){
+
     appWEHOME.App.initializeInPjax();
   });
 JS;

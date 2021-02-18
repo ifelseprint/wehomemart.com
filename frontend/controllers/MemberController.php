@@ -1,11 +1,12 @@
 <?php
 
 namespace frontend\controllers;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use frontend\models\Users;
 use frontend\models\LoginForm;
+use frontend\models\Users;
 use yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 class MemberController extends \yii\web\Controller
 {
@@ -55,8 +56,12 @@ class MemberController extends \yii\web\Controller
             }
         }
 
+        $provinces_name = "name_".Yii::$app->language;
         return $this->renderAjax('index', [
             'Users' => $Users,
+            'dataProvinces' => ArrayHelper::map(\common\models\Provinces::find()
+                ->orderBy([$provinces_name => SORT_ASC])
+                ->all(), 'id', $provinces_name),
         ]);
     }
     public function actionLogin()
@@ -86,4 +91,57 @@ class MemberController extends \yii\web\Controller
         return $this->redirect(['home/index']);
     }
     
+    public function actionAmphurList($id)
+    {
+        $amphures_name = "name_".Yii::$app->language;
+        $models = \common\models\Amphures::find()
+        ->where(['province_id'=> $id])
+        ->orderBy(['name_th' => SORT_ASC])
+        ->asArray()
+        ->all();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return [
+            'data' => $models
+        ];
+    }
+
+    public function actionDistrictList($id)
+    {
+        $amphures_name = "name_".Yii::$app->language;
+        $models = \common\models\Districts::find()
+        ->where(['amphure_id'=> $id])
+        ->andWhere(['!=','zip_code', 0])
+        ->orderBy(['name_th' => SORT_ASC])
+        ->asArray()
+        ->all();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return [
+            'data' => $models
+        ];
+    }
+
+    public function actionZipcodeList($id)
+    {
+        $amphures_name = "name_".Yii::$app->language;
+        $models = \common\models\Districts::find()
+        ->where(['id'=> $id,])
+        ->andWhere(['!=','zip_code', 0])
+        ->orderBy(['zip_code' => SORT_ASC])
+        ->asArray()
+        ->all();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return [
+            'data' => $models
+        ];
+    }
+    public function convert($model,$id)
+    {
+        $name = "name_".Yii::$app->language;
+        $models = $model::find()
+        ->where(['id'=> $id])
+        ->asArray()
+        ->one();
+
+        return $models[$name];
+    }
 }

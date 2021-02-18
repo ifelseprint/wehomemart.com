@@ -7,7 +7,7 @@ use yii\helpers\Url;
 // ProductAsset::register($this);
 ?>
 <main class="main">
-    <?= $this->render('_form_quotation', ['Quotation'=> $Quotation,'dataProjectCategory'=>$dataProjectCategory,'dataProduct'=>$dataProduct,'id'=>$id]); ?>
+    <?= $this->render('_form_quotation', ['Quotation'=> $Quotation,'dataProvinces'=>$dataProvinces,'dataAmphures'=>$dataAmphures,'dataDistricts'=>$dataDistricts,'dataProjectCategory'=>$dataProjectCategory,'dataProduct'=>$dataProduct,'id'=>$id]); ?>
 </main>
 
 <?php

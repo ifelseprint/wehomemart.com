@@ -18,6 +18,7 @@ class QuotationController extends \yii\web\Controller
         $Quotation = new Quotation();
 
         $session = Yii::$app->session;
+        $post = Yii::$app->request->post();
 
         if (!empty($session['users'])){
         $Quotation->quotation_firstname = $session['users']->user_firstname;
@@ -37,6 +38,7 @@ class QuotationController extends \yii\web\Controller
 
         if(Yii::$app->request->isPost){
             $post = Yii::$app->request->post();
+
             if ($Quotation->load($post)){
 
                 $parameter = \common\models\Parameter::find()
@@ -70,11 +72,13 @@ class QuotationController extends \yii\web\Controller
                 $path_folder = $year."/".$month;
 
                 $Quotation->quotation_product_image = UploadedFile::getInstance($Quotation, 'quotation_product_image');
+                if(!empty($Quotation->quotation_product_image)){
                 $quotation_product_image  = 'quotation_'.time().'.'.$Quotation->quotation_product_image->extension;
                 $quotation_product_image_path  = $folder_upload."/".$path_folder."/".$quotation_product_image;
                 $Quotation->quotation_product_image->saveAs($quotation_product_image_path);
                 $Quotation->quotation_product_image = $quotation_product_image;
                 $Quotation->quotation_product_image_path = $path_folder;
+                }
 
                 $Quotation->quotation_code = 'WH'.date('Y').sprintf('%05d',$parameter->parameter_count);
                 $Quotation->created_date = new \yii\db\Expression('NOW()');
@@ -109,19 +113,53 @@ class QuotationController extends \yii\web\Controller
 
         $project_category_name = 'project_category_name_'.Yii::$app->language;
         $product_name = 'product_name_'.Yii::$app->language;
+        $provinces_name = "name_".Yii::$app->language;
+        $amphure_name = "name_".Yii::$app->language;
+        $districts_name = "name_".Yii::$app->language;
+        if (!empty($session['users'])){
+            return $this->renderAjax('index', [
+                'Quotation' => $Quotation,
+                'dataProvinces' => ArrayHelper::map(\common\models\Provinces::find()
+                    ->orderBy([$provinces_name => SORT_ASC])
+                    ->all(), 'id', $provinces_name),
+                'dataAmphures' => ArrayHelper::map(\common\models\Amphures::find()
+                    ->where(['province_id' => $session['users']->user_province])
+                    ->orderBy([$amphure_name => SORT_ASC])
+                    ->all(), 'id', $amphure_name),
+                'dataDistricts' => ArrayHelper::map(\common\models\Districts::find()
+                    ->where(['amphure_id' => $session['users']->user_amphur])
+                    ->orderBy([$districts_name => SORT_ASC])
+                    ->all(), 'id', $districts_name),
+                'dataProjectCategory' => ArrayHelper::map(\common\models\ProjectCategory::find()
+                    ->where(['is_active' => '1'])
+                    ->orderBy([$project_category_name => SORT_ASC])
+                    ->all(), 'project_category_id', $project_category_name),
+                'dataProduct' => ArrayHelper::map(\common\models\Product::find()
+                    ->where(['is_active' => '1'])
+                    ->orderBy(['product_id' => SORT_ASC])
+                    ->all(), 'product_id', $product_name),
+                'id' => $id
+            ]);
 
-        return $this->renderAjax('index', [
-            'Quotation' => $Quotation,
-            'dataProjectCategory' => ArrayHelper::map(\common\models\ProjectCategory::find()
-                ->where(['is_active' => '1'])
-                ->orderBy([$project_category_name => SORT_ASC])
-                ->all(), 'project_category_id', $project_category_name),
-            'dataProduct' => ArrayHelper::map(\common\models\Product::find()
-                ->where(['is_active' => '1'])
-                ->orderBy(['product_id' => SORT_ASC])
-                ->all(), 'product_id', $product_name),
-            'id' => $id
-        ]);
+        }else{
+            return $this->renderAjax('index', [
+                'Quotation' => $Quotation,
+                'dataProvinces' => ArrayHelper::map(\common\models\Provinces::find()
+                    ->orderBy([$provinces_name => SORT_ASC])
+                    ->all(), 'id', $provinces_name),
+                'dataAmphures' => [],
+                'dataDistricts' => [],
+                'dataProjectCategory' => ArrayHelper::map(\common\models\ProjectCategory::find()
+                    ->where(['is_active' => '1'])
+                    ->orderBy([$project_category_name => SORT_ASC])
+                    ->all(), 'project_category_id', $project_category_name),
+                'dataProduct' => ArrayHelper::map(\common\models\Product::find()
+                    ->where(['is_active' => '1'])
+                    ->orderBy(['product_id' => SORT_ASC])
+                    ->all(), 'product_id', $product_name),
+                'id' => $id
+            ]);
+        }
     }
 
     public function generatePDF($quotation_id)
@@ -129,6 +167,14 @@ class QuotationController extends \yii\web\Controller
         $Quotation = Quotation::find()
         ->where(['quotation_id'=> $quotation_id])
         ->one();
+
+        $Quotation->quotation_district = $this->convert('\common\models\Districts',$Quotation->quotation_district);
+        $Quotation->quotation_amphur = $this->convert('\common\models\Amphures',$Quotation->quotation_amphur);
+        $Quotation->quotation_province = $this->convert('\common\models\Provinces',$Quotation->quotation_province);
+
+        $Quotation->quotation_delivery_district = $this->convert('\common\models\Districts',$Quotation->quotation_delivery_district);
+        $Quotation->quotation_delivery_amphur = $this->convert('\common\models\Amphures',$Quotation->quotation_delivery_amphur);
+        $Quotation->quotation_delivery_province = $this->convert('\common\models\Provinces',$Quotation->quotation_delivery_province);
 
         $ProjectCategory = \common\models\ProjectCategory::find()
         ->where(['project_category_id'=> $Quotation->quotation_project_category_id])
@@ -172,7 +218,7 @@ class QuotationController extends \yii\web\Controller
             'quotation'    => $quotation,
         ]);
         $mail->setFrom('noreply.wehomemart@gmail.com');
-        $mail->setTo('dekcomgigkok@gmail.com');
+        $mail->setTo('sales@sch.co.th');
         $mail->setSubject('Request quotation from wehomemart.com');
 
         if(!empty($generatePDF)){
@@ -181,5 +227,60 @@ class QuotationController extends \yii\web\Controller
 
         $mail->send();
         return $mail;
+    }
+    
+    public function actionAmphurList($id)
+    {
+        $amphures_name = "name_".Yii::$app->language;
+        $models = \common\models\Amphures::find()
+        ->where(['province_id'=> $id])
+        ->orderBy(['name_th' => SORT_ASC])
+        ->asArray()
+        ->all();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return [
+            'data' => $models
+        ];
+    }
+
+    public function actionDistrictList($id)
+    {
+        $amphures_name = "name_".Yii::$app->language;
+        $models = \common\models\Districts::find()
+        ->where(['amphure_id'=> $id])
+        ->andWhere(['!=','zip_code', 0])
+        ->orderBy(['name_th' => SORT_ASC])
+        ->asArray()
+        ->all();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return [
+            'data' => $models
+        ];
+    }
+
+    public function actionZipcodeList($id)
+    {
+        $amphures_name = "name_".Yii::$app->language;
+        $models = \common\models\Districts::find()
+        ->where(['id'=> $id,])
+        ->andWhere(['!=','zip_code', 0])
+        ->orderBy(['zip_code' => SORT_ASC])
+        ->asArray()
+        ->all();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return [
+            'data' => $models
+        ];
+    }
+
+    public function convert($model,$id)
+    {
+        $name = "name_".Yii::$app->language;
+        $models = $model::find()
+        ->where(['id'=> $id])
+        ->asArray()
+        ->one();
+
+        return $models[$name];
     }
 }

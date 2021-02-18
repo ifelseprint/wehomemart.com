@@ -52,14 +52,14 @@ $form = ActiveForm::begin([
     <?php
     $Quotation->quotation_type = 1;
     ?>
-    <label><?=$Quotation->getAttributeLabel('quotation_type')?></label> <span class="field_required">*</span>
+    <label><?=$Quotation->getAttributeLabel('quotation_type')?></label>
     <?= $form->field($Quotation, 'quotation_type')->radioList( [1 => Yii::t('app', 'txt_juristic_person'), 2 => Yii::t('app', 'txt_company')], ['unselect' => null]); ?>
   </div>
   <div class="col-sm-6">
     <?php
     $Quotation->quotation_project_category_id = 1;
     ?>
-    <label><?=$Quotation->getAttributeLabel('quotation_project_category_id')?></label> <span class="field_required">*</span>
+    <label><?=$Quotation->getAttributeLabel('quotation_project_category_id')?></label>
     <?= $form->field($Quotation, 'quotation_project_category_id')->radioList( $dataProjectCategory, ['unselect' => null]); ?>
   </div>
 </div>
@@ -89,22 +89,56 @@ $form = ActiveForm::begin([
 </div>
 <div class="form-group-sm row">
   <div class="col-sm-6">
-    <label><?=$Quotation->getAttributeLabel('quotation_district')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_district')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_district'),'required' => true,'data-msg'=> Yii::t('app', 'validate_district')])?>
+    <label><?=$Quotation->getAttributeLabel('quotation_province')?></label> <span class="field_required">*</span>
+    <?= $form->field($Quotation, 'quotation_province')->dropDownList($dataProvinces,['prompt'=> ': : : เลือก : : :','class'=>'form-control form-control-sm select2','id' => 'quotation_province','required' => true, 'data-msg'=> Yii::t('app', 'validate_province'), 'onchange'=>'
+      var value = $(this).val();
+      $("#quotation_postal_code").val("");
+
+      $.get("'.Url::toRoute('quotation/amphur-list').'",{
+        id: value
+      }).done(function(result){
+
+        $("#quotation_amphur").find("option:not(:first-child)").remove();
+        $("#quotation_district").find("option:not(:first-child)").remove();
+
+        $.each(result.data, function(k, v) {
+          $("<option>").val(v.id).text(v.name_th).appendTo("#quotation_amphur");
+        });
+      });
+    ']); ?>
   </div>
   <div class="col-sm-6">
     <label><?=$Quotation->getAttributeLabel('quotation_amphur')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_amphur')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_amphur'),'required' => true,'data-msg'=> Yii::t('app', 'validate_amphur')])?>
+    <?= $form->field($Quotation, 'quotation_amphur')->dropDownList($dataAmphures,['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list','id' => 'quotation_amphur','required' => true, 'data-msg'=> Yii::t('app', 'validate_amphur'), 'onchange'=>'
+      var value = $(this).val();
+      $.get("'.Url::toRoute('quotation/district-list').'",{
+        id: value
+      }).done(function(result){
+        $("#quotation_district").find("option:not(:first-child)").remove();
+        $("#quotation_postal_code").val("");
+        $.each(result.data, function(k, v) {
+          $("<option>").val(v.id).text(v.name_th).appendTo("#quotation_district");
+        });
+
+      });
+    ']); ?>
   </div>
 </div>
 <div class="form-group-sm row">
   <div class="col-sm-6">
-    <label><?=$Quotation->getAttributeLabel('quotation_province')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_province')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_province'),'required' => true,'data-msg'=> Yii::t('app', 'validate_province')])?>
+    <label><?=$Quotation->getAttributeLabel('quotation_district')?></label> <span class="field_required">*</span>
+    <?= $form->field($Quotation, 'quotation_district')->dropDownList($dataDistricts,['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list','id' => 'quotation_district','required' => true, 'data-msg'=> Yii::t('app', 'validate_district'), 'onchange'=>'
+      var value = $(this).val();
+      $.get("'.Url::toRoute('quotation/zipcode-list').'",{
+        id: value
+      }).done(function(result){
+        $("#quotation_postal_code").val(result.data[0].zip_code);
+      });
+    ']); ?>
   </div>
   <div class="col-sm-6">
     <label><?=$Quotation->getAttributeLabel('quotation_postal_code')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_postal_code')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_postal_code'),'required' => true,'onkeypress' =>'return appWEHOME.App.OnlyNumbers(event)','pattern'=> '[0-9]{5}','data-msg'=>Yii::t('app', 'validate_postal_code')])?>
+    <?= $form->field($Quotation, 'quotation_postal_code')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_postal_code'),'id'=>'quotation_postal_code','readonly' => true,'onkeypress' =>'return appWEHOME.App.OnlyNumbers(event)','pattern'=> '[0-9]{5}','data-msg'=>Yii::t('app', 'validate_postal_code')])?>
   </div>
 </div>
 
@@ -112,7 +146,7 @@ $form = ActiveForm::begin([
 <hr style="margin: 10px 0px;">
 <div class="form-group-sm row" style="padding-bottom: 10px;">
   <div class="col-sm-12">
-    <label><?=$Quotation->getAttributeLabel('quotation_project_category_id')?></label> <span class="field_required">*</span>
+    <label><?=$Quotation->getAttributeLabel('quotation_project_category_id')?></label>
     <div class="row">
     <?php
     $Quotation->quotation_product[] = $id;
@@ -129,18 +163,18 @@ $form = ActiveForm::begin([
 </div>
 <div class="form-group-sm row">
   <div class="col-sm-6">
-    <label><?=$Quotation->getAttributeLabel('quotation_product_name')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_product_name')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_product_name'),'required' => true,'data-msg'=>Yii::t('app', 'validate_product_name')])?>
+    <label><?=$Quotation->getAttributeLabel('quotation_product_name')?></label>
+    <?= $form->field($Quotation, 'quotation_product_name')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_product_name'),'data-msg'=>Yii::t('app', 'validate_product_name')])?>
   </div>
   <div class="col-sm-6">
-    <label><?=$Quotation->getAttributeLabel('quotation_product_amount')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_product_amount')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_product_amount'),'required' => true,'onkeypress' =>'return appWEHOME.App.OnlyNumbers(event)','pattern'=> '[0-9]{1,20}','data-msg'=>Yii::t('app', 'validate_amount')])?>
+    <label><?=$Quotation->getAttributeLabel('quotation_product_amount')?></label>
+    <?= $form->field($Quotation, 'quotation_product_amount')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_product_amount'),'onkeypress' =>'return appWEHOME.App.OnlyNumbers(event)','pattern'=> '[0-9]{1,20}','data-msg'=>Yii::t('app', 'validate_amount')])?>
   </div>
 </div>
 <div class="form-group-sm row" style="padding-bottom: 10px;">
   <div class="col-sm-12">
-    <label><?=$Quotation->getAttributeLabel('quotation_product_image')?></label> <span class="field_required">*</span>
-    <?= $form->field($Quotation, 'quotation_product_image')->fileInput(['required'=> true,'pattern' => '^.+\.(jpg|png|jpeg)$','data-msg'=>Yii::t('app', 'validate_product_image')])?>
+    <label><?=$Quotation->getAttributeLabel('quotation_product_image')?></label>
+    <?= $form->field($Quotation, 'quotation_product_image')->fileInput(['pattern' => '^.+\.(jpg|png|jpeg)$','data-msg'=>Yii::t('app', 'validate_product_image')])?>
   </div>
 </div>
 
@@ -179,22 +213,58 @@ $form = ActiveForm::begin([
   </div>
   <div class="form-group-sm row">
     <div class="col-sm-6">
-      <label><?=$Quotation->getAttributeLabel('quotation_district')?></label> <span class="field_required">*</span>
-      <?= $form->field($Quotation, 'quotation_delivery_district')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_district'),'class'=>'form-control required','data-msg'=> Yii::t('app', 'validate_district')])?>
+      <label><?=$Quotation->getAttributeLabel('quotation_province')?></label> <span class="field_required">*</span>
+      <?= $form->field($Quotation, 'quotation_delivery_province')->dropDownList($dataProvinces,['prompt'=> ': : : เลือก : : :','class'=>'form-control form-control-sm select2 required','id' => 'quotation_delivery_province', 'data-msg'=> Yii::t('app', 'validate_province'), 'onchange'=>'
+      var value = $(this).val();
+      $("#quotation_delivery_postal_code").val("");
+
+      $.get("'.Url::toRoute('quotation/amphur-list').'",{
+        id: value
+      }).done(function(result){
+
+        $("#quotation_delivery_amphur").find("option:not(:first-child)").remove();
+        $("#quotation_delivery_district").find("option:not(:first-child)").remove();
+
+        $.each(result.data, function(k, v) {
+          $("<option>").val(v.id).text(v.name_th).appendTo("#quotation_delivery_amphur");
+        });
+      });
+    ']); ?>
+
     </div>
     <div class="col-sm-6">
       <label><?=$Quotation->getAttributeLabel('quotation_amphur')?></label> <span class="field_required">*</span>
-      <?= $form->field($Quotation, 'quotation_delivery_amphur')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_amphur'),'class'=>'form-control required', 'data-msg'=> Yii::t('app', 'validate_amphur')])?>
+      <?= $form->field($Quotation, 'quotation_delivery_amphur')->dropDownList([],['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list required','id' => 'quotation_delivery_amphur', 'data-msg'=> Yii::t('app', 'validate_amphur'), 'onchange'=>'
+      var value = $(this).val();
+      $.get("'.Url::toRoute('quotation/district-list').'",{
+        id: value
+      }).done(function(result){
+        $("#quotation_delivery_district").find("option:not(:first-child)").remove();
+        $("#quotation_delivery_postal_code").val("");
+        $.each(result.data, function(k, v) {
+          $("<option>").val(v.id).text(v.name_th).appendTo("#quotation_delivery_district");
+        });
+
+      });
+    ']); ?>
+
     </div>
   </div>
   <div class="form-group-sm row">
     <div class="col-sm-6">
-      <label><?=$Quotation->getAttributeLabel('quotation_province')?></label> <span class="field_required">*</span>
-      <?= $form->field($Quotation, 'quotation_delivery_province')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_province'),'class'=>'form-control required','data-msg'=> Yii::t('app', 'validate_province')])?>
+      <label><?=$Quotation->getAttributeLabel('quotation_district')?></label> <span class="field_required">*</span>
+      <?= $form->field($Quotation, 'quotation_delivery_district')->dropDownList([],['prompt'=>': : : เลือก : : :','class'=>'form-control form-control-sm select2 list required','id' => 'quotation_delivery_district','data-msg'=> Yii::t('app', 'validate_district'), 'onchange'=>'
+      var value = $(this).val();
+      $.get("'.Url::toRoute('quotation/zipcode-list').'",{
+        id: value
+      }).done(function(result){
+        $("#quotation_delivery_postal_code").val(result.data[0].zip_code);
+      });
+    ']); ?>
     </div>
     <div class="col-sm-6">
       <label><?=$Quotation->getAttributeLabel('quotation_postal_code')?></label> <span class="field_required">*</span>
-      <?= $form->field($Quotation, 'quotation_delivery_postal_code')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_postal_code'),'class'=>'form-control required','onkeypress' =>'return appWEHOME.App.OnlyNumbers(event)','pattern' => '[0-9]{5}','data-msg'=>Yii::t('app', 'validate_postal_code')])?>
+      <?= $form->field($Quotation, 'quotation_delivery_postal_code')->textInput(['placeholder'=> $Quotation->getAttributeLabel('quotation_postal_code'),'id'=>'quotation_delivery_postal_code','class'=>'form-control','readonly'=>true,'onkeypress' =>'return appWEHOME.App.OnlyNumbers(event)','pattern' => '[0-9]{5}','data-msg'=>Yii::t('app', 'validate_postal_code')])?>
     </div>
   </div>
   <div class="form-group-sm row">

@@ -33,6 +33,7 @@ class Users extends \common\models\Users implements IdentityInterface
             'user_career' => Yii::t('app', 'career'),
             'user_location' => Yii::t('app', 'location'),
             'user_company' => Yii::t('app', 'company'),
+            'user_address_tax' => Yii::t('app', 'address_tax'),
             'user_tax_id' => Yii::t('app', 'tax_id'),
             'user_address' => Yii::t('app', 'address'),
             'user_building' => Yii::t('app', 'building'),
@@ -40,7 +41,8 @@ class Users extends \common\models\Users implements IdentityInterface
             'user_district' => Yii::t('app', 'district'),
             'user_amphur' => Yii::t('app', 'amphur'),
             'user_province' => Yii::t('app', 'province'),
-            'user_postal_code' => Yii::t('app', 'postal_code')
+            'user_postal_code' => Yii::t('app', 'postal_code'),
+            'user_customer' => Yii::t('app', 'checked_customer'),
         ]);
     }
 

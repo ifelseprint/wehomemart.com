@@ -16,8 +16,8 @@ return [
     'txt_type_registration' => 'ประเภทการจดทะเบียน',
     'txt_juristic_person' => 'นิติบุคคล',
     'txt_company' => 'บริษัท',
-    'txt_pick_up_branch' => 'รับเองที่สาขา',
-    'txt_delivery_destination' => 'จัดส่งปลายทาง',
+    'txt_pick_up_branch' => 'ตามที่อยู่ปัจจุบัน',
+    'txt_delivery_destination' => 'ตามที่อยู่ออกใบเสนอราคา',
 
     'txt_ref_no' => 'เลขที่อ้างอิง',
     'txt_date' => 'วันที่',
@@ -34,6 +34,7 @@ return [
     'career' => 'อาชีพ',
     'location' => 'ที่อยู่ปัจจุบัน',
     'company' => 'ชื่อบริษัท',
+    'address_tax' => 'ที่อยู่ออกใบกำกับภาษี',
     'tax_id' => 'เลขประจำตัวผู้เสียภาษี',
     'address' => 'ที่อยู่เลขที่',
     'building' => 'ชื่ออาคาร/หมู่บ้าน',
@@ -42,6 +43,17 @@ return [
     'amphur' => 'อําเภอ/เขต',
     'province' => 'จังหวัด',
     'postal_code' => 'รหัสไปรษณีย์',
+    'checked_customer' => 'เป็นลูกค้าโครงการ SC REALESTAE',
+
+    'career_1' => 'พนักงานทั่วไป',
+    'career_2' => 'พนักงานรัฐ/รัฐวิสาหกิจ',
+    'career_3' => 'พนักงานบริษัท',
+    'career_4' => 'พนักงานออโตโมทีฟ',
+    'career_5' => 'เจ้าของโครงการ',
+    'career_6' => 'เจ้าของกิจการ',
+    'career_7' => 'ผู้รับเหมา',
+    'career_8' => 'รับจ้างทั่วไป',
+    'career_9' => 'อื่นๆ',
 
     'validate_amount' => 'คุณยังไม่ได้ระบุจำนวน',
     'validate_username' => 'คุณยังไม่ได้ระบุชื่อผู้ใช้งาน',
@@ -54,6 +66,7 @@ return [
     'validate_career' => 'คุณยังไม่ได้ระบุอาชีพ',
     'validate_location' => 'คุณยังไม่ได้ระบุที่อยู่ปัจจุบัน',
     'validate_company' => 'คุณยังไม่ได้ระบุชื่อบริษัท',
+    'validate_tax_address' => 'คุณยังไม่ได้ระบุที่อยู่ออกใบกำกับภาษี',
     'validate_tax_id' => 'คุณยังไม่ได้ระบุเลขประจำตัวผู้เสียภาษี หรือ เลขประจำตัวผู้เสียภาษีไม่ถูกต้อง',
     'validate_address' => 'คุณยังไม่ได้ระบุที่อยู่เลขที่',
     'validate_building' => 'คุณยังไม่ได้ระบุชื่ออาคาร/หมู่บ้าน',
@@ -72,7 +85,7 @@ return [
     'validate_product_image' => 'คุณยังไม่ได้ระบุรูปภาพสินค้า หรือ รูปภาพสินค้าไม่ถูกต้อง',
 
     // response message
-    'response_quotation_success' => 'ท่านส่งขอใบเสนอราคาสําเร็จแล้ว ลําดับใบเสนอราคาของท่านคือ {quotation_code} ติดต่อสอบถามเพิ่มเติมโทร 038-XXXXXX',
+    'response_quotation_success' => 'ท่านส่งขอใบเสนอราคาสําเร็จแล้ว ลําดับใบเสนอราคาของท่านคือ {quotation_code} ติดต่อสอบถามเพิ่มเติมโทร 038-659-951',
     'response_register_success' => 'ท่านได้ทำการสมัครสมาชิกเรียบร้อยแล้ว',
     'response_login_success' => 'เข้าสู่ระบบสำเร็จ',
     'response_login_unsuccess' => 'เข้าสู่ระบบไม่สำเร็จ',

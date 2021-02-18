@@ -22,6 +22,7 @@ use Yii;
  * @property string|null $user_career
  * @property string|null $user_location
  * @property string|null $user_company
+ * @property string|null $user_address_tax
  * @property string|null $user_tax_id
  * @property string|null $user_address
  * @property string|null $user_building
@@ -30,6 +31,7 @@ use Yii;
  * @property string|null $user_amphur
  * @property string|null $user_province
  * @property int|null $user_postal_code
+ * @property int|null $user_customer
  * @property int|null $created_user
  * @property string|null $created_date
  * @property int|null $modified_user
@@ -53,9 +55,9 @@ class Users extends \yii\db\ActiveRecord
     {
         return [
             [['login_username', 'login_password'], 'required'],
-            [['is_active', 'user_age', 'user_postal_code', 'created_user', 'modified_user', 'user_type'], 'integer'],
+            [['is_active', 'user_age', 'user_postal_code', 'user_customer', 'created_user', 'modified_user', 'user_type'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
-            [['login_username', 'password_reset_token', 'auth_key', 'verification_token', 'user_email', 'user_firstname', 'user_lastname', 'user_location', 'user_company', 'user_address'], 'string', 'max' => 255],
+            [['login_username', 'password_reset_token', 'auth_key', 'verification_token', 'user_email', 'user_firstname', 'user_lastname', 'user_location', 'user_company', 'user_address_tax', 'user_address'], 'string', 'max' => 255],
             [['login_password', 'user_career', 'user_building', 'user_moo', 'user_district', 'user_amphur', 'user_province'], 'string', 'max' => 100],
             [['user_telephone', 'user_tax_id'], 'string', 'max' => 20],
         ];
@@ -82,6 +84,7 @@ class Users extends \yii\db\ActiveRecord
             'user_career' => 'User Career',
             'user_location' => 'User Location',
             'user_company' => 'User Company',
+            'user_address_tax' => 'User Address Tax',
             'user_tax_id' => 'User Tax ID',
             'user_address' => 'User Address',
             'user_building' => 'User Building',
@@ -90,6 +93,7 @@ class Users extends \yii\db\ActiveRecord
             'user_amphur' => 'User Amphur',
             'user_province' => 'User Province',
             'user_postal_code' => 'User Postal Code',
+            'user_customer' => 'User Customer',
             'created_user' => 'Created User',
             'created_date' => 'Created Date',
             'modified_user' => 'Modified User',
