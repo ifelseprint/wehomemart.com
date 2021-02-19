@@ -178,3 +178,11 @@ $form = ActiveForm::begin([
   </div>
 </div>
 <?php ActiveForm::end(); ?>
+<?php
+$script = <<<JS
+  $("document").ready(function(){
+    $('.select2').select2();
+  });
+JS;
+$this->registerJs($script);
+?>

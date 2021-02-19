@@ -314,6 +314,6 @@
 	// DEFINE NAMESPACE
 	// =========================================================================
 
-	window.appWEHOME = window.appRI || {};
+	window.appWEHOME = window.appWEHOME || {};
 	window.appWEHOME.App = new App;
 }(jQuery)); // pass in (jQuery):

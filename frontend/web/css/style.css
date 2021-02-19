@@ -8483,6 +8483,35 @@ small.form-text {
     font-size: 85%;
 }
 
+
+.select2-container--default .select2-selection--single {
+    height: 40px;
+    padding: 5px;
+    font-weight: 300;
+    color: #777;
+    background-color: #fafafa;
+    border: 1px solid #ebebeb;
+    border-radius: 0;
+    margin-bottom: 15px;
+    /* transition: all 0.3s; */
+    box-shadow: none;
+
+}
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 40px;
+}
+
+.invalid-feedback {
+    font-size: 100%; 
+}
 input[readonly],select[readonly] {
     pointer-events: none;
 }
@@ -8503,8 +8532,8 @@ input[readonly],select[readonly] {
     content: " ";
     background-image: url(../img/close.svg);
     position: absolute;
-    left: -6px;
-    top: 6px;
+    left: -1px;
+    top: 12px;
     height: 16px;
 }
 input[type=radio].form-control.is-invalid:before {
