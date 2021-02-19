@@ -19,6 +19,7 @@
 		this._eventCreate();
         this._eventUpdate();
         this._enableEvents();
+        this._enableExcel();
         // this._tinymce();
     };
 
@@ -198,6 +199,45 @@
             });
         });
     }
+
+    p._enableExcel = function () {
+
+        $(document).on("click",'#download-excel-button', function(e){
+            var form = $('#formSearch');
+
+            $('#loadingOverlay').show();
+            $('#download-excel-button').attr('disabled','disabled').find("i").removeClass('icofont icofont-download').addClass('fa fa-spin fa-spinner');
+
+            $.ajax({
+                url    : $(this).attr('url'),
+                type   : 'post',
+                data   : form.serialize(),
+                dataType:'json',
+                success: function (response) 
+                {
+
+                    console.log(response);
+
+                    if(response.status==true){
+                        var $a = $("<a>");
+                        $a.attr("href",response.file);
+                        $("body").append($a);
+                        $a.attr("download",response.filename);
+                        $a[0].click();
+                        $a.remove();
+                    }
+
+                    $('#download-excel-button').removeAttr('disabled').find("i").removeClass('fa fa-spin fa-spinner').addClass('icofont icofont-download');
+                    $('#loadingOverlay').hide();
+                },
+                error  : function () 
+                {
+                    console.log('internal server error');
+                }
+            });
+
+        });
+    };
 	// =========================================================================
 	// DEFINE NAMESPACE
 	// =========================================================================

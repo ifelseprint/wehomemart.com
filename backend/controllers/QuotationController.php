@@ -17,7 +17,7 @@ class QuotationController extends \yii\web\Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','view'],
+                        'actions' => ['index','view','excel'],
                         'allow' => true,
                         'roles' => ['@'], // @ = login, ? = no login
                     ],
@@ -62,13 +62,13 @@ class QuotationController extends \yii\web\Controller
         $id = Yii::$app->request->get('id');
         $Quotation = Quotation::findOne(['quotation_id' => $id]);
 
-        $Quotation->quotation_district = $this->convert('\common\models\Districts',$Quotation->quotation_district);
-        $Quotation->quotation_amphur = $this->convert('\common\models\Amphures',$Quotation->quotation_amphur);
-        $Quotation->quotation_province = $this->convert('\common\models\Provinces',$Quotation->quotation_province);
+        $Quotation->quotation_district = $this->convert('\common\models\Districts','name_'.Yii::$app->language,'id',$Quotation->quotation_district);
+        $Quotation->quotation_amphur = $this->convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$Quotation->quotation_amphur);
+        $Quotation->quotation_province = $this->convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$Quotation->quotation_province);
 
-        $Quotation->quotation_delivery_district = $this->convert('\common\models\Districts',$Quotation->quotation_delivery_district);
-        $Quotation->quotation_delivery_amphur = $this->convert('\common\models\Amphures',$Quotation->quotation_delivery_amphur);
-        $Quotation->quotation_delivery_province = $this->convert('\common\models\Provinces',$Quotation->quotation_delivery_province);
+        $Quotation->quotation_delivery_district = $this->convert('\common\models\Districts','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_district);
+        $Quotation->quotation_delivery_amphur = $this->convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_amphur);
+        $Quotation->quotation_delivery_province = $this->convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_province);
 
         $ProjectCategory = \common\models\ProjectCategory::find()
         ->where(['project_category_id'=> $Quotation->quotation_project_category_id])
@@ -85,14 +85,43 @@ class QuotationController extends \yii\web\Controller
         ]);
     }
 
-    public function convert($model,$id)
+    public function actionExcel()
     {
-        $name = "name_".Yii::$app->language;
+        set_time_limit(0);
+        $post = Yii::$app->request->post();
+
+        if(Yii::$app->request->isPost){
+
+            $searchModel = new Quotation();
+            $dataExcel = $searchModel->search($post);
+
+            if(!empty($post['Quotation'])){
+                $dataExcel->pagination->pageSize = $post['Quotation']['pageSize'];
+            }
+
+            if(empty($dataExcel->models)){
+                return json_encode([
+                    "status" => false,
+                    "result" => 'No data generate report.'
+                ]);
+                exit;
+            }
+            return $this->render('excel-report', [
+                "status" => true,
+                "result" => 'Generate report successfully.',
+                'search' => $post['Quotation'],
+                'dataExcel' => $dataExcel->models,
+            ]);
+        }
+    }
+
+    public function convert($model,$return_field,$where_field,$id)
+    {
+
         $models = $model::find()
-        ->where(['id'=> $id])
+        ->where([''.$where_field.'' => $id])
         ->asArray()
         ->one();
-
-        return $models[$name];
+        return $models[$return_field];
     }
 }

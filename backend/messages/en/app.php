@@ -34,6 +34,7 @@ return [
     'career' => 'Career',
     'location' => 'Location',
     'company' => 'Company',
+    'address_tax' => 'Tax address',
     'tax_id' => 'Tax Id',
     'address' => 'Address',
     'building' => 'Building',

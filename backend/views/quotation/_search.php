@@ -62,7 +62,7 @@ use yii\helpers\Url;
                 <div class="col-sm-3">
                     <label class="col-form-label-sm">Page size</label>
                     <?php
-                    $dataPageSize=['15'=>'15 Record','25'=>'25 Record','50'=>'50 Record','75'=>'75 Record','100'=>'100 Record'];
+                    $dataPageSize=['15'=>'15 Record','25'=>'25 Record','50'=>'50 Record','75'=>'75 Record','100'=>'100 Record','10000'=>'All'];
                     ?>
                     <?= $form->field($model, 'pageSize')->dropDownList($dataPageSize,['class'=>'form-control form-control-sm select2']); ?>
                 </div>
@@ -71,6 +71,7 @@ use yii\helpers\Url;
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
+            <button type="button" class="btn btn-success btn-sm" id="download-excel-button" url="<?=Url::toRoute(['quotation/excel'])?>"><i class="fa fa-file-excel"></i> Export</button>
             <div class=" float-right">
                 <?= Html::submitButton(Yii::t('app', '<i class="icofont icofont-search"></i> Search'), ['class' => 'btn btn-info btn-sm']) ?>
                 <?= Html::resetButton(Yii::t('app', '<i class="icofont icofont-close"></i> Cancel'), ['class' => 'btn btn-secondary btn-sm']) ?>
