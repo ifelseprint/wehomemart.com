@@ -7,12 +7,63 @@ use yii\base\NotSupportedException;
 use yii\db\ActiveRecord;
 use yii\helpers\Security;
 use yii\web\IdentityInterface;
+use yii\data\ActiveDataProvider;
 
 class Users extends \common\models\Users implements IdentityInterface
 {
     const STATUS_DELETED = 2;
     const STATUS_INACTIVE = 0;
     const STATUS_ACTIVE = 1;
+
+    public $pageSize = 25;
+    public $searchFirstName;
+    public $searchLastName;
+    public $searchTel;
+    public $searchEmail;
+    public $searchFromDate;
+    public $searchToDate;
+
+    public function rules()
+    {
+        return array_merge(parent::rules(), [
+            [['searchFirstName', 'searchLastName', 'searchEmail'], 'string', 'max' => 100],
+            [['searchTel'], 'string', 'max' => 20],
+            [['searchFromDate','searchToDate'], 'safe'],
+            [['pageSize'], 'integer'],
+        ]);
+    }
+    public function search($params)
+    {
+
+        $query = Users::find();
+        $query->andWhere(['=', 'user_type', 2]);
+        $dataProvider = new ActiveDataProvider([
+            'pagination' => [
+                'pageSize' => $this->pageSize,
+            ],
+            'query' => $query,
+            'sort'=> [
+                'defaultOrder' => ['created_date' => SORT_DESC]
+            ]
+        ]);
+
+        if (!($this->load($params))) {
+            return $dataProvider;
+        }
+        if(!empty($this->searchFromDate)){
+        $query->andFilterWhere(['>=', 'created_date',date('Y-m-d', strtotime(str_replace('/', '-', $this->searchFromDate)))]);
+        }
+        if(!empty($this->searchToDate)){
+        $query->andFilterWhere(['<=', 'created_date',date('Y-m-d', strtotime(str_replace('/', '-', $this->searchToDate)))]);
+        }
+        $query->andFilterWhere(['like', 'user_firstname', $this->searchFirstName]);
+        $query->andFilterWhere(['like', 'user_lastname', $this->searchLastName]);
+        $query->andFilterWhere(['like', 'user_telephone', $this->searchTel]);
+        $query->andFilterWhere(['like', 'user_email', $this->searchEmail]);
+
+        return $dataProvider;
+    }
+
     public static function findIdentity($id)
     {
         return static::findOne(['login_id' => $id, 'is_active' => self::STATUS_ACTIVE]);
