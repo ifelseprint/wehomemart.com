@@ -35,6 +35,9 @@ class MemberController extends \yii\web\Controller
                     $LoginForm->login_password = $post['Users']['login_password'];
 
                     if($LoginForm->login()){
+
+                        $sendmail = $this->sendmail($Users,$post['Users']['login_password']);
+
                         return json_encode([
                             "status" => true,
                             "response" => Yii::t('app', 'response_register_success')
@@ -90,7 +93,21 @@ class MemberController extends \yii\web\Controller
 
         return $this->redirect(['home/index']);
     }
-    
+
+    public function sendmail($users=null,$password=null)
+    {
+
+        $mail = Yii::$app->mailer->compose('layouts/member',[
+            'users'    => $users,
+            'password' => $password
+        ]);
+        $mail->setFrom('noreply.wehomemart@gmail.com');
+        $mail->setTo($users->user_email);
+        $mail->setSubject('Member from wehomemart.com');
+
+        $mail->send();
+        return $mail;
+    }
     public function actionAmphurList($id)
     {
         $amphures_name = "name_".Yii::$app->language;
