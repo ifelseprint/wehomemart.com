@@ -39,10 +39,10 @@ $session = Yii::$app->session;
 
             <div class="header-right">
                 <div class="phone">
-                    <a href="tel:0818391818" title="081-839-1818">
+                    <a href="tel:038659951" title="038659951">
                         <div class="icon">
                             <i class="icon-phone" style="color: #2670bf;"></i>
-                            081-839-1818
+                            038659951
                         </div>
                     </a>
                 </div>

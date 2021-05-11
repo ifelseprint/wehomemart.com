@@ -39,7 +39,7 @@ use yii\helpers\Url;
 
                         <div class="icon-box-content">
                             <p style="letter-spacing: 5px;">CONTACT CENTER</p>
-                            <h3 class="icon-box-title"> 08-1839-1818</h3><!-- End .icon-box-title -->
+                            <h3 class="icon-box-title"> 038-659-951</h3><!-- End .icon-box-title -->
                             <p style="font-size: 15px;"><?=Yii::$app->translated->get(13);?></p>
                         </div><!-- End .icon-box-content -->
                     </div><!-- End .icon-box -->
@@ -102,7 +102,7 @@ use yii\helpers\Url;
                             </div><!-- End .row -->
                             <div class="row" style="padding-top: 10px;">
                                 <div class="col-sm-6 col-md-5">
-                                    Contact Center <p><a href="tel:0818391818">081-8391818</a></p>
+                                    Contact Center <p><a href="tel:038659951">038659951</a></p>
                                 </div><!-- End .col-sm-6 -->
                                 <div class="col-sm-6 col-md-7">
                                     <figure class="footer-address">
