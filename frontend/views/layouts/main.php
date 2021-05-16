@@ -1,8 +1,19 @@
 <?php
+use frontend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use frontend\assets\AppAsset;
+use yii\web\View;
 AppAsset::register($this);
+
+$options = [
+	'baseUrl' => Yii::$app->request->baseUrl,
+	'language' => (Yii::$app->language == 'th-TH') ? 'th' : 'en',
+];
+$this->registerJs(
+	"var yiiOptions = " . \yii\helpers\Json::htmlEncode($options) . ";",
+	View::POS_HEAD,
+	'yiiOptions'
+);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

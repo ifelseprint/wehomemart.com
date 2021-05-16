@@ -69,34 +69,6 @@
             }
         });
 
-        $("input,select").change(function() {
-            if ($(this).attr('required') == 'required') {
-                var form = $('#formMember');
-                form.validate({
-                    errorElement: 'div',
-                    errorPlacement: function (error, element) {
-                        error.addClass('invalid-feedback');
-                        if(element.attr('type')=='checkbox'){
-                            element.parent().next().append(error);
-                        }else if(element.attr('type')=='radio'){
-                             element.parent().parent().next().append(error);
-                        }else{
-                            element.next().append(error);
-                        }
-                    },
-                    highlight: function (element, errorClass, validClass) {
-                        $(element).addClass('is-invalid');
-                    },
-                    unhighlight: function (element, errorClass, validClass) {
-                        $(element).removeClass('is-invalid');
-                    }
-                });
-                
-
-                if(form.valid()){ }
-            }
-        });
-
         $('.submit-member').click(function (e){
 
             var form = $('#formMember');
@@ -241,18 +213,39 @@
 
     	$(".checked_delivery").click(function() {
     		var checked_delivery = $(this).val();
-    		if(checked_delivery=='2'){
-    			$("#box-delivery").show();
-    			$("#box-delivery input.required").attr('required',true);
-    		}else{
-    			$("#box-delivery").hide();
-    			$("#box-delivery input").attr('required',false);
-                $("#box-tax input").val('');
-                $('#quotation_delivery_province').val($('#quotation_delivery_province option:eq(0)').val()).trigger('change');
-                $("#quotation_delivery_amphur").find("option:not(:first-child)").remove();
-                $("#quotation_delivery_district").find("option:not(:first-child)").remove();
+
+            $("#box-delivery-tax").hide();
+            $("#box-delivery-tax input").attr('required',false);
+            $("#box-delivery-other").hide();
+            $("#box-delivery-other input").attr('required',false);
+            $("#box-delivery-other input").val('');
+
+            $('#quotation_delivery_other_province').val($('#quotation_delivery_other_province option:eq(0)').val()).trigger('change');
+            $("#quotation_delivery_other_amphur").find("option:not(:first-child)").remove();
+            $("#quotation_delivery_other_district").find("option:not(:first-child)").remove();
+
+    		if(checked_delivery=='2'){ // Tax
+    			$("#box-delivery-tax").show();
+    			$("#box-delivery-tax input.required").attr('required',true);
+
+                $.get(yiiOptions.baseUrl+'/'+yiiOptions.language+'/quotation/tax',{
+                    id: 1
+                }).done(function(result){
+                    var tax_province = result.data.tax_province;
+                    $('#quotation_delivery_tax_province').val(tax_province).trigger('change');
+                    
+                });
+
+            }else if(checked_delivery=='3'){ // Other
+                $("#box-delivery-other").show();
+                $("#box-delivery-other input.required").attr('required',true);
     		}
     	});
+
+        $(".show-more-product a").click(function() {
+            $('.product_more_box').show();
+            $('.show-more-product').hide();
+        });
 
     	$(".btn-modal-quotation").click(function() {
             $('#loadingOverlay').show();

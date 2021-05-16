@@ -16,11 +16,15 @@ return [
     'txt_type_registration' => 'ประเภทการจดทะเบียน',
     'txt_juristic_person' => 'นิติบุคคล',
     'txt_company' => 'บริษัท',
-    'txt_pick_up_branch' => 'รับเองที่สาขา',
-    'txt_delivery_destination' => 'จัดส่งปลายทาง',
+    'txt_pick_up_branch' => 'ตามที่อยู่ปัจจุบัน',
+    'txt_delivery_destination' => 'ตามที่อยู่ออกใบกำกับภาษี',
 
     'txt_ref_no' => 'เลขที่อ้างอิง',
     'txt_date' => 'วันที่',
+
+    'txt_same_address' => 'เหมือนกับที่อยู่ปัจจุบัน',
+    'txt_same_address_other' => 'อื่นๆ',
+    'txt_btn_upload_more' => 'อัพโหลดเพิ่มเติม',
 
     'note' => 'หมายเหตุ',
     'amount' => 'จำนวน',

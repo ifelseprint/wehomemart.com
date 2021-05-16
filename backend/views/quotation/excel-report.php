@@ -29,7 +29,7 @@ $header_row = array(
 
 $row_sheet = 1;
 
-$arrayHeader = ['Quotation Type','Quotation Code','Quotation Firstname','Quotation Lastname','Quotation Email','Quotation Telephone','Quotation Company','Quotation Tax ID','Quotation Address','Quotation Building','Quotation Moo','Quotation District','Quotation Amphur','Quotation Province','Quotation Postal Code','Quotation Project Category ID','Quotation Product Name','Quotation Product Image','Quotation Product Image Path','Quotation Product Amount','Quotation Delivery Firstname','Quotation Delivery Lastname','Quotation Delivery Telephone','Quotation Delivery Address','Quotation Delivery Building','Quotation Delivery Moo','Quotation Delivery District','Quotation Delivery Amphur','Quotation Delivery Province','Quotation Delivery Postal Code','Quotation Delivery Note','Created Date'];
+$arrayHeader = ['Quotation Type','Quotation Code','Quotation Firstname','Quotation Lastname','Quotation Email','Quotation Telephone','Quotation Company','Quotation Tax ID','Quotation Address','Quotation Building','Quotation Moo','Quotation District','Quotation Amphur','Quotation Province','Quotation Postal Code','Quotation Project Category ID','Quotation Product Name','Quotation Delivery Type','Quotation Delivery Firstname','Quotation Delivery Lastname','Quotation Delivery Telephone','Quotation Delivery Address','Quotation Delivery Building','Quotation Delivery Moo','Quotation Delivery District','Quotation Delivery Amphur','Quotation Delivery Province','Quotation Delivery Postal Code','Quotation Delivery Note','Created Date'];
 
 $sheet->fromArray(
     $arrayHeader, // The data to set
@@ -37,7 +37,7 @@ $sheet->fromArray(
     'A'.$row_sheet // Top left coordinate of the worksheet range where
 //  we want to set these values (default is A1)
 );
-$sheet->getStyle('A'.$row_sheet.':'.'AF'.$row_sheet)->applyFromArray($header_row);
+$sheet->getStyle('A'.$row_sheet.':'.'AD'.$row_sheet)->applyFromArray($header_row);
 
 $row_sheet++;
 foreach($dataExcel as $data){
@@ -47,9 +47,13 @@ foreach($dataExcel as $data){
     $data->quotation_amphur = QuotationController::convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$data->quotation_amphur);
     $data->quotation_province = QuotationController::convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$data->quotation_province);
 
-    $data->quotation_delivery_district = QuotationController::convert('\common\models\Districts','name_'.Yii::$app->language,'id',$data->quotation_delivery_district);
-    $data->quotation_delivery_amphur = QuotationController::convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$data->quotation_delivery_amphur);
-    $data->quotation_delivery_province = QuotationController::convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$data->quotation_delivery_province);
+    $data->quotation_delivery_tax_district = QuotationController::convert('\common\models\Districts','name_'.Yii::$app->language,'id',$data->quotation_delivery_tax_district);
+    $data->quotation_delivery_tax_amphur = QuotationController::convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$data->quotation_delivery_tax_amphur);
+    $data->quotation_delivery_tax_province = QuotationController::convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$data->quotation_delivery_tax_province);
+
+    $data->quotation_delivery_other_district = QuotationController::convert('\common\models\Districts','name_'.Yii::$app->language,'id',$data->quotation_delivery_other_district);
+    $data->quotation_delivery_other_amphur = QuotationController::convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$data->quotation_delivery_other_amphur);
+    $data->quotation_delivery_other_province = QuotationController::convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$data->quotation_delivery_other_province);
 
     $data->quotation_project_category_id = QuotationController::convert('\common\models\ProjectCategory','project_category_name_'.Yii::$app->language,'project_category_id',$data->quotation_project_category_id);
     $FILE = '';
@@ -69,6 +73,52 @@ foreach($dataExcel as $data){
     }
     $QuotationProduct = implode(',', $QuotationProduct);
 
+
+    switch ($data->quotation_delivery_type) {
+        case 1:
+            $quotation_delivery_type = Yii::t('app', 'txt_pick_up_branch');
+            $quotation_delivery_firstname = '';
+            $quotation_delivery_lastname = '';
+            $quotation_delivery_telephone = '';
+            $quotation_delivery_address = $data->quotation_address;
+            $quotation_delivery_building = $data->quotation_building;
+            $quotation_delivery_moo = $data->quotation_moo;
+            $quotation_delivery_district = $data->quotation_district;
+            $quotation_delivery_amphur = $data->quotation_amphur;
+            $quotation_delivery_province = $data->quotation_province;
+            $quotation_delivery_postal_code = $data->quotation_postal_code;
+            $quotation_delivery_note = '';
+            break;
+        case 2:
+            $quotation_delivery_type = Yii::t('app', 'txt_delivery_destination');
+            $quotation_delivery_firstname = '';
+            $quotation_delivery_lastname = '';
+            $quotation_delivery_telephone = '';
+            $quotation_delivery_address = $data->quotation_delivery_tax_address;
+            $quotation_delivery_building = $data->quotation_delivery_tax_building;
+            $quotation_delivery_moo = $data->quotation_delivery_tax_moo;
+            $quotation_delivery_district = $data->quotation_delivery_tax_district;
+            $quotation_delivery_amphur = $data->quotation_delivery_tax_amphur;
+            $quotation_delivery_province = $data->quotation_delivery_tax_province;
+            $quotation_delivery_postal_code = $data->quotation_delivery_tax_postal_code;
+            $quotation_delivery_note = '';
+            break;
+        case 3:
+            $quotation_delivery_type = Yii::t('app', 'txt_same_address_other');
+            $quotation_delivery_firstname = $data->quotation_delivery_other_firstname;
+            $quotation_delivery_lastname = $data->quotation_delivery_other_lastname;
+            $quotation_delivery_telephone = $data->quotation_delivery_other_telephone;
+            $quotation_delivery_address = $data->quotation_delivery_other_address;
+            $quotation_delivery_building = $data->quotation_delivery_other_building;
+            $quotation_delivery_moo = $data->quotation_delivery_other_moo;
+            $quotation_delivery_district = $data->quotation_delivery_other_district;
+            $quotation_delivery_amphur = $data->quotation_delivery_other_amphur;
+            $quotation_delivery_province = $data->quotation_delivery_other_province;
+            $quotation_delivery_postal_code = $data->quotation_delivery_other_postal_code;
+            $quotation_delivery_note = $data->quotation_delivery_other_note;
+            break;
+    }
+
     $sheet->setCellValue("A".$row_sheet, $data->quotation_type);
     $sheet->setCellValue("B".$row_sheet, $data->quotation_code);
     $sheet->setCellValue("C".$row_sheet, $data->quotation_firstname);
@@ -86,21 +136,19 @@ foreach($dataExcel as $data){
     $sheet->setCellValue("O".$row_sheet, $data->quotation_postal_code);
     $sheet->setCellValue("P".$row_sheet, $data->quotation_project_category_id);
     $sheet->setCellValue("Q".$row_sheet, $QuotationProduct);
-    $sheet->setCellValue("R".$row_sheet, $FILE);
-    $sheet->setCellValue("S".$row_sheet, $data->quotation_product_image_path);
-    $sheet->setCellValue("T".$row_sheet, $data->quotation_product_amount);
-    $sheet->setCellValue("U".$row_sheet, $data->quotation_delivery_firstname);
-    $sheet->setCellValue("V".$row_sheet, $data->quotation_delivery_lastname);
-    $sheet->setCellValue("W".$row_sheet, $data->quotation_delivery_telephone);
-    $sheet->setCellValue("X".$row_sheet, $data->quotation_delivery_address);
-    $sheet->setCellValue("Y".$row_sheet, $data->quotation_delivery_building);
-    $sheet->setCellValue("Z".$row_sheet, $data->quotation_delivery_moo);
-    $sheet->setCellValue("AA".$row_sheet, $data->quotation_delivery_district);
-    $sheet->setCellValue("AB".$row_sheet, $data->quotation_delivery_amphur);
-    $sheet->setCellValue("AC".$row_sheet, $data->quotation_delivery_province);
-    $sheet->setCellValue("AD".$row_sheet, $data->quotation_delivery_postal_code);
-    $sheet->setCellValue("AE".$row_sheet, $data->quotation_delivery_note);
-    $sheet->setCellValue("AF".$row_sheet, date('d/m/Y', strtotime($data->created_date)));
+    $sheet->setCellValue("R".$row_sheet, $quotation_delivery_type);
+    $sheet->setCellValue("S".$row_sheet, $quotation_delivery_firstname);
+    $sheet->setCellValue("T".$row_sheet, $quotation_delivery_lastname);
+    $sheet->setCellValue("U".$row_sheet, $quotation_delivery_telephone);
+    $sheet->setCellValue("V".$row_sheet, $quotation_delivery_address);
+    $sheet->setCellValue("W".$row_sheet, $quotation_delivery_building);
+    $sheet->setCellValue("X".$row_sheet, $quotation_delivery_moo);
+    $sheet->setCellValue("Y".$row_sheet, $quotation_delivery_district);
+    $sheet->setCellValue("Z".$row_sheet, $quotation_delivery_amphur);
+    $sheet->setCellValue("AA".$row_sheet, $quotation_delivery_province);
+    $sheet->setCellValue("AB".$row_sheet, $quotation_delivery_postal_code);
+    $sheet->setCellValue("AC".$row_sheet, $quotation_delivery_note);
+    $sheet->setCellValue("AD".$row_sheet, date('d/m/Y', strtotime($data->created_date)));
 
     $row_sheet++;
 

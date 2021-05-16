@@ -81,82 +81,120 @@ $project_category_name = 'project_category_name_th';
   </tr>
 </table>
 
-<hr style="margin: 10px 0px;">
-<h5 class="modal-title">Product Information</h5>
-<hr style="margin: 10px 0px;">
 <?php
-$project_category_name = 'project_category_name_th';
-?>
-<table width="100%">
-  <tr>
-    <td width="700" colspan="2" height="25"><b><?=Yii::t('app', 'category')?> : </b></td>
-  </tr>
-  <?php
-  $product_name = 'product_name_th';
-  foreach ($QuotationProductMapping as $key => $data) {
-  ?>
-  <tr>
-    <td width="700" colspan="2" height="25"><?='- '.$data->product->$product_name?></td>
-  </tr>
-	<?php } ?>
-</table>
-<table width="100%">
-  <tr>
-    <td width="300" height="25"><b><?=Yii::t('app', 'product_name')?> : </b> <?=$Quotation->quotation_product_name?></td>
-    <td width="400"><b><?=Yii::t('app', 'amount')?> : </b> <?=$Quotation->quotation_product_amount?></td>
-  </tr>
-  <tr>
-  	<td colspan="2">
-  		<b><?=Yii::t('app', 'product_image')?> : </b> <a target="_blank" href="<?php echo str_replace('/admin', '', Yii::getAlias('@web')).'/uploads/'.$Quotation->quotation_product_image_path.'/'.$Quotation->quotation_product_image; ?>">Download</a>
-  	</td>
-  </tr>
-</table>
-<?php
-if(!empty($Quotation->quotation_delivery_address)){
-	$delivery = Yii::t('app', 'txt_delivery_destination');
-	$delivery_box = 'display: block;';
-}else{
-	$delivery = Yii::t('app', 'txt_pick_up_branch');
-	$delivery_box = 'display: none;';
+$delivery = Yii::t('app', 'txt_pick_up_branch');
+$delivery_tax_box = 'display: none;';
+$delivery_other_box = 'display: none;';
+
+if($Quotation->quotation_delivery_type==2){
+  $delivery = Yii::t('app', 'txt_delivery_destination');
+  $delivery_tax_box = 'display: block;';
+}else if($Quotation->quotation_delivery_type==3){
+  $delivery = Yii::t('app', 'txt_same_address_other');
+  $delivery_other_box = 'display: block;';
 }
 ?>
 <hr style="margin: 10px 0px;">
 <h5 class="modal-title">Delivery Information (<?=$delivery?>)</h5>
 <hr style="margin: 10px 0px;">
-<div style="<?=$delivery_box?>">
-	<table width="100%">
-	  <tr>
-	    <td width="300" height="25"><b><?=Yii::t('app', 'firstname')?> : </b> <?=$Quotation->quotation_delivery_firstname?></td>
-	    <td width="400"><b><?=Yii::t('app', 'lastname')?> : </b> <?=$Quotation->quotation_delivery_lastname?></td>
-	  </tr>
-	</table>
-	<table width="100%">
-	  <tr>
-	    <td width="300" height="25"><b><?=Yii::t('app', 'address')?> : </b> <?=$Quotation->quotation_delivery_address?></td>
-	    <td width="250"><b><?=Yii::t('app', 'building')?> : </b> <?=$Quotation->quotation_delivery_building?></td>
-	    <td width="150"><b><?=Yii::t('app', 'moo')?> : </b> <?=$Quotation->quotation_delivery_moo?></td>
-	  </tr>
-	</table>
-	<table width="100%">
-	  <tr>
-	    <td width="300" height="25"><b><?=Yii::t('app', 'district')?> : </b> <?=$Quotation->quotation_delivery_district?></td>
-	    <td width="400"><b><?=Yii::t('app', 'amphur')?> : </b> <?=$Quotation->quotation_delivery_amphur?></td>
-	  </tr>
-	</table>
-	<table width="100%">
-	  <tr>
-	    <td width="300" height="25"><b><?=Yii::t('app', 'province')?> : </b> <?=$Quotation->quotation_delivery_province?></td>
-	    <td width="400"><b><?=Yii::t('app', 'postal_code')?> : </b> <?=$Quotation->quotation_delivery_postal_code?></td>
-	  </tr>
-	</table>
-	<table width="100%">
-	  <tr>
-	    <td width="700" colspan="2" height="25"><b><?=Yii::t('app', 'telephone')?> : </b> <?=$Quotation->quotation_delivery_telephone?></td>
-	  </tr>
-	</table>
-	<table width="100%">
-	  <tr>
-	    <td width="700" colspan="2" height="25"><b><?=Yii::t('app', 'note')?> : </b> <?=$Quotation->quotation_delivery_note?></td>
-	  </tr>
-	</table>
+
+<div style="<?=$delivery_tax_box?>">
+  <table width="100%">
+    <tr>
+      <td width="300" height="25"><b><?=Yii::t('app', 'address')?> : </b> <?=$Quotation->quotation_delivery_tax_address?></td>
+      <td width="250"><b><?=Yii::t('app', 'building')?> : </b> <?=$Quotation->quotation_delivery_tax_building?></td>
+      <td width="150"><b><?=Yii::t('app', 'moo')?> : </b> <?=$Quotation->quotation_delivery_tax_moo?></td>
+    </tr>
+  </table>
+  <table width="100%">
+    <tr>
+      <td width="300" height="25"><b><?=Yii::t('app', 'district')?> : </b> <?=$Quotation->quotation_delivery_tax_district?></td>
+      <td width="400"><b><?=Yii::t('app', 'amphur')?> : </b> <?=$Quotation->quotation_delivery_tax_amphur?></td>
+    </tr>
+  </table>
+  <table width="100%">
+    <tr>
+      <td width="300" height="25"><b><b><?=Yii::t('app', 'province')?> : </b> <?=$Quotation->quotation_delivery_tax_province?></td>
+      <td width="400"><b><?=Yii::t('app', 'postal_code')?> : </b> <?=$Quotation->quotation_delivery_tax_postal_code?></td>
+    </tr>
+  </table>
 </div>
+
+<div style="<?=$delivery_other_box?>">
+  <table width="100%">
+    <tr>
+      <td width="300" height="25"><b><?=Yii::t('app', 'firstname')?> : </b> <?=$Quotation->quotation_delivery_other_firstname?></td>
+      <td width="400"><b><?=Yii::t('app', 'lastname')?> : </b> <?=$Quotation->quotation_delivery_other_lastname?></td>
+    </tr>
+  </table>
+  <table width="100%">
+    <tr>
+      <td width="300" height="25"><b><?=Yii::t('app', 'address')?> : </b> <?=$Quotation->quotation_delivery_other_address?></td>
+      <td width="250"><b><?=Yii::t('app', 'building')?> : </b> <?=$Quotation->quotation_delivery_other_building?></td>
+      <td width="150"><b><?=Yii::t('app', 'moo')?> : </b> <?=$Quotation->quotation_delivery_other_moo?></td>
+    </tr>
+  </table>
+  <table width="100%">
+    <tr>
+      <td width="300" height="25"><b><?=Yii::t('app', 'district')?> : </b> <?=$Quotation->quotation_delivery_other_district?></td>
+      <td width="400"><b><?=Yii::t('app', 'amphur')?> : </b> <?=$Quotation->quotation_delivery_other_amphur?></td>
+    </tr>
+  </table>
+  <table width="100%">
+    <tr>
+      <td width="300" height="25"><b><b><?=Yii::t('app', 'province')?> : </b> <?=$Quotation->quotation_delivery_other_province?></td>
+      <td width="400"><b><?=Yii::t('app', 'postal_code')?> : </b> <?=$Quotation->quotation_delivery_other_postal_code?></td>
+    </tr>
+  </table>
+  <table width="100%">
+    <tr>
+      <td width="100%" colspan="2" height="25"><b><?=Yii::t('app', 'telephone')?> : </b> <?=$Quotation->quotation_delivery_other_telephone?></td>
+    </tr>
+  </table>
+  <table width="100%">
+    <tr>
+      <td width="100%" colspan="2" height="25"><b><?=Yii::t('app', 'note')?> : </b> <?=$Quotation->quotation_delivery_other_note?></td>
+    </tr>
+  </table>
+</div>
+
+<hr style="margin: 10px 0px;">
+<h5 class="modal-title">Product Information</h5>
+<hr style="margin: 10px 0px;">
+<?php
+$project_category_name = 'project_category_name_'.Yii::$app->language;
+?>
+<table width="100%">
+  <tr>
+    <td width="100%" colspan="2" height="25"><b><?=Yii::t('app', 'category')?> : </b></td>
+  </tr>
+  <?php
+  $product_name = 'product_name_'.Yii::$app->language;
+  foreach ($QuotationProductMapping as $key => $data) {
+  ?>
+  <tr>
+    <td width="100%" colspan="2" height="25"><?='- '.$data->product->$product_name?></td>
+  </tr>
+  <?php } ?>
+</table>
+<table width="100%">
+  <tr>
+    <th width="70" height="25"><b>#</b></th>
+    <th width="300" height="25"><b><?=Yii::t('app', 'product_name')?></b></th>
+    <th width="100" height="25"><b><?=Yii::t('app', 'amount')?></b></th>
+    <th width="100" height="25"><b><?=Yii::t('app', 'unit')?></b></th>
+    <th width="130"><b><?=Yii::t('app', 'product_image')?></b></th>
+  </tr>
+  <?php
+  $number = 1;
+  foreach ($QuotationProductImageMapping as $key => $data) {
+  ?>
+  <tr>
+    <td><?=$number?></td>
+    <td><?=$data->quotation_product_name?></td>
+    <td><?=$data->quotation_product_amount?></td>
+    <td><?=$data->quotation_product_unit?></td>
+    <td><a target="_blank" href="<?php echo str_replace('/admin', '', Yii::getAlias('@web')).'/uploads/'.$data->quotation_product_image_path.'/'.$data->quotation_product_image; ?>"><img style="max-width: 100px; max-height: 100px;" src="<?php echo str_replace('/admin', '', Yii::getAlias('@web')).'/uploads/'.$data->quotation_product_image_path.'/'.$data->quotation_product_image; ?>"></a></td>
+  </tr>
+  <?php $number++;} ?>
+</table>

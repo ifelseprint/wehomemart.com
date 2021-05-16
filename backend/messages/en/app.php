@@ -16,11 +16,15 @@ return [
     'txt_type_registration' => 'Type of registration',
     'txt_juristic_person' => 'Juristic person',
     'txt_company' => 'Company',
-    'txt_pick_up_branch' => 'Pick up at the branch',
-    'txt_delivery_destination' => 'Delivery destination',
+    'txt_pick_up_branch' => 'At current address',
+    'txt_delivery_destination' => 'At tax address',
 
     'txt_ref_no' => 'Ref no.',
     'txt_date' => 'Date',
+
+    'txt_same_address' => 'Same as current address',
+    'txt_same_address_other' => 'Other',
+    'txt_btn_upload_more' => 'Upload More',
 
     'note' => 'Note',
     'amount' => 'Amount',

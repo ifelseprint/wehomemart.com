@@ -66,9 +66,13 @@ class QuotationController extends \yii\web\Controller
         $Quotation->quotation_amphur = $this->convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$Quotation->quotation_amphur);
         $Quotation->quotation_province = $this->convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$Quotation->quotation_province);
 
-        $Quotation->quotation_delivery_district = $this->convert('\common\models\Districts','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_district);
-        $Quotation->quotation_delivery_amphur = $this->convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_amphur);
-        $Quotation->quotation_delivery_province = $this->convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_province);
+        $Quotation->quotation_delivery_tax_district = $this->convert('\common\models\Districts','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_tax_district);
+        $Quotation->quotation_delivery_tax_amphur = $this->convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_tax_amphur);
+        $Quotation->quotation_delivery_tax_province = $this->convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_tax_province);
+
+        $Quotation->quotation_delivery_other_district = $this->convert('\common\models\Districts','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_other_district);
+        $Quotation->quotation_delivery_other_amphur = $this->convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_other_amphur);
+        $Quotation->quotation_delivery_other_province = $this->convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$Quotation->quotation_delivery_other_province);
 
         $ProjectCategory = \common\models\ProjectCategory::find()
         ->where(['project_category_id'=> $Quotation->quotation_project_category_id])
@@ -78,10 +82,15 @@ class QuotationController extends \yii\web\Controller
         ->where(['quotation_id'=> $id])
         ->all();
 
+        $QuotationProductImageMapping = \common\models\QuotationProductImageMapping::find()
+        ->where(['quotation_id'=> $id])
+        ->all();
+
         return $this->renderAjax('view', [
             'Quotation' => $Quotation,
             'ProjectCategory' => $ProjectCategory,
             'QuotationProductMapping' => $QuotationProductMapping,
+            'QuotationProductImageMapping' => $QuotationProductImageMapping
         ]);
     }
 

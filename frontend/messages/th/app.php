@@ -17,7 +17,7 @@ return [
     'txt_juristic_person' => 'นิติบุคคล',
     'txt_company' => 'บริษัท',
     'txt_pick_up_branch' => 'ตามที่อยู่ปัจจุบัน',
-    'txt_delivery_destination' => 'ตามที่อยู่ออกใบเสนอราคา',
+    'txt_delivery_destination' => 'ตามที่อยู่ออกใบกำกับภาษี',
 
     'txt_ref_no' => 'เลขที่อ้างอิง',
     'txt_date' => 'วันที่',
@@ -25,9 +25,11 @@ return [
 
     'txt_same_address' => 'เหมือนกับที่อยู่ปัจจุบัน',
     'txt_same_address_other' => 'อื่นๆ',
+    'txt_btn_upload_more' => 'อัพโหลดเพิ่มเติม',
 
     'note' => 'หมายเหตุ',
     'amount' => 'จำนวน',
+    'unit' => 'หน่วย',
     'username' => 'ชื่อผู้ใช้งาน',
     'password' => 'รหัสผ่านผู้ใช้งาน',
     'email' => 'อีเมล์',
@@ -88,7 +90,7 @@ return [
     'validate_category' => 'คุณยังไม่ได้ระบุหมวดหมู่',
     'validate_product_name' => 'คุณยังไม่ได้ระบุชื่อสินค้า',
     'validate_product_image' => 'คุณยังไม่ได้ระบุรูปภาพสินค้า หรือ รูปภาพสินค้าไม่ถูกต้อง',
-
+    'validate_product_file' => 'คุณยังไม่ได้ระบุรูปภาพหมวดหมู่สินค้า หรือ รูปภาพหมวดหมู่สินค้าไม่ถูกต้อง',
     // response message
     'response_quotation_success' => 'ท่านส่งขอใบเสนอราคาสําเร็จแล้ว ลําดับใบเสนอราคาของท่านคือ {quotation_code} ติดต่อสอบถามเพิ่มเติมโทร 038-659-951',
     'response_register_success' => 'ท่านได้ทำการสมัครสมาชิกเรียบร้อยแล้ว',

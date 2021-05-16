@@ -17,7 +17,7 @@ return [
     'txt_juristic_person' => 'Juristic person',
     'txt_company' => 'Company',
     'txt_pick_up_branch' => 'At current address',
-    'txt_delivery_destination' => 'At quotation address',
+    'txt_delivery_destination' => 'At tax address',
 
     'txt_ref_no' => 'Ref no.',
     'txt_date' => 'Date',
@@ -25,9 +25,11 @@ return [
 
     'txt_same_address' => 'Same as current address',
     'txt_same_address_other' => 'Other',
+    'txt_btn_upload_more' => 'Upload More',
 
     'note' => 'Note',
     'amount' => 'Amount',
+    'unit' => 'Unit',
     'username' => 'Username',
     'password' => 'Password',
     'email' => 'Email',
@@ -88,6 +90,7 @@ return [
     'validate_category' => 'Please enter category',
     'validate_product_name' => 'Please enter product name',
     'validate_product_image' => 'Please enter product image or information is incorrect.',
+    'validate_product_file' => 'Please enter product file or information is incorrect.',
 
     // response message
     'response_quotation_success' => 'You have successfully submitted a request for quotation. Your quotation number is {quotation_code} Contact us for more information, call 038-659-951',
