@@ -282,8 +282,7 @@ class QuotationController extends \yii\web\Controller
             'quotation'    => $quotation,
         ]);
         $mail->setFrom('noreply.wehomemart@gmail.com');
-        // $mail->setTo('sales@sch.co.th');
-        $mail->setTo('dekcomgigkok@gmail.com');
+        $mail->setTo('sales@sch.co.th');
         $mail->setSubject('Request quotation from wehomemart.com');
 
         if(!empty($generatePDF)){
