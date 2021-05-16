@@ -29,7 +29,7 @@ $header_row = array(
 
 $row_sheet = 1;
 
-$arrayHeader = ['User Email','User Firstname','User Lastname','User Telephone','User Age','User Career','User Location','User Company','User Address Tax','User Tax ID','User Address','User Building','User Moo','User District','User Amphur','User Province','User Postal Code','User Customer','Created Date'];
+$arrayHeader = ['User Email','User Firstname','User Lastname','User Telephone','User Age','User Career','User Location','User Company','User Address','User Building','User Moo','User District','User Amphur','User Province','User Postal Code','Tax ID','Tax Address','Tax Building','Tax Moo','Tax District','Tax Amphur','Tax Province','Tax Postal Code','User Customer','Created Date'];
 
 $sheet->fromArray(
     $arrayHeader, // The data to set
@@ -37,7 +37,7 @@ $sheet->fromArray(
     'A'.$row_sheet // Top left coordinate of the worksheet range where
 //  we want to set these values (default is A1)
 );
-$sheet->getStyle('A'.$row_sheet.':'.'S'.$row_sheet)->applyFromArray($header_row);
+$sheet->getStyle('A'.$row_sheet.':'.'Y'.$row_sheet)->applyFromArray($header_row);
 
 $row_sheet++;
 foreach($dataExcel as $data){
@@ -47,6 +47,10 @@ foreach($dataExcel as $data){
     $data->user_amphur = MemberController::convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$data->user_amphur);
     $data->user_province = MemberController::convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$data->user_province);
 
+    $data->tax_district = MemberController::convert('\common\models\Districts','name_'.Yii::$app->language,'id',$data->tax_district);
+    $data->tax_amphur = MemberController::convert('\common\models\Amphures','name_'.Yii::$app->language,'id',$data->tax_amphur);
+    $data->tax_province = MemberController::convert('\common\models\Provinces','name_'.Yii::$app->language,'id',$data->tax_province);
+
     $sheet->setCellValue("A".$row_sheet, $data->user_email);
     $sheet->setCellValue("B".$row_sheet, $data->user_firstname);
     $sheet->setCellValue("C".$row_sheet, $data->user_lastname);
@@ -55,17 +59,23 @@ foreach($dataExcel as $data){
     $sheet->setCellValue("F".$row_sheet, $data->user_career);
     $sheet->setCellValue("G".$row_sheet, $data->user_location);
     $sheet->setCellValue("H".$row_sheet, $data->user_company);
-    $sheet->setCellValue("I".$row_sheet, $data->user_address_tax);
-    $sheet->setCellValue("J".$row_sheet, $data->user_tax_id);
-    $sheet->setCellValue("K".$row_sheet, $data->user_address);
-    $sheet->setCellValue("L".$row_sheet, $data->user_building);
-    $sheet->setCellValue("M".$row_sheet, $data->user_moo);
-    $sheet->setCellValue("N".$row_sheet, $data->user_district);
-    $sheet->setCellValue("O".$row_sheet, $data->user_amphur);
-    $sheet->setCellValue("P".$row_sheet, $data->user_province);
-    $sheet->setCellValue("Q".$row_sheet, $data->user_postal_code);
-    $sheet->setCellValue("R".$row_sheet, $data->user_customer);
-    $sheet->setCellValue("S".$row_sheet, date('d/m/Y', strtotime($data->created_date)));
+    $sheet->setCellValue("I".$row_sheet, $data->user_address);
+    $sheet->setCellValue("J".$row_sheet, $data->user_building);
+    $sheet->setCellValue("K".$row_sheet, $data->user_moo);
+    $sheet->setCellValue("L".$row_sheet, $data->user_district);
+    $sheet->setCellValue("M".$row_sheet, $data->user_amphur);
+    $sheet->setCellValue("N".$row_sheet, $data->user_province);
+    $sheet->setCellValue("O".$row_sheet, $data->user_postal_code);
+    $sheet->setCellValue("P".$row_sheet, $data->tax_id);
+    $sheet->setCellValue("Q".$row_sheet, $data->tax_address);
+    $sheet->setCellValue("R".$row_sheet, $data->tax_building);
+    $sheet->setCellValue("S".$row_sheet, $data->tax_moo);
+    $sheet->setCellValue("T".$row_sheet, $data->tax_district);
+    $sheet->setCellValue("U".$row_sheet, $data->tax_amphur);
+    $sheet->setCellValue("V".$row_sheet, $data->tax_province);
+    $sheet->setCellValue("W".$row_sheet, $data->tax_postal_code);
+    $sheet->setCellValue("X".$row_sheet, $data->user_customer);
+    $sheet->setCellValue("Y".$row_sheet, date('d/m/Y', strtotime($data->created_date)));
 
     $row_sheet++;
 

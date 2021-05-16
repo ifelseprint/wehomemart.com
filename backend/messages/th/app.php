@@ -43,6 +43,7 @@ return [
     'amphur' => 'อําเภอ/เขต',
     'province' => 'จังหวัด',
     'postal_code' => 'รหัสไปรษณีย์',
+    'checked_customer' => 'เป็นลูกค้าโครงการ SC REALESTAE',
 
     'validate_amount' => 'คุณยังไม่ได้ระบุจำนวน',
     'validate_username' => 'คุณยังไม่ได้ระบุชื่อผู้ใช้งาน',

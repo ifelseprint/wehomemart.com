@@ -43,6 +43,7 @@ return [
     'amphur' => 'Amphur',
     'province' => 'Province',
     'postal_code' => 'Postal Code',
+    'checked_customer' => 'Is a SC REALESTAE project customer',
 
     'validate_amount' => 'Please enter amount',
     'validate_username' => 'Please enter username',
