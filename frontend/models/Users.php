@@ -33,8 +33,6 @@ class Users extends \common\models\Users implements IdentityInterface
             'user_career' => Yii::t('app', 'career'),
             'user_location' => Yii::t('app', 'location'),
             'user_company' => Yii::t('app', 'company'),
-            'user_address_tax' => Yii::t('app', 'address_tax'),
-            'user_tax_id' => Yii::t('app', 'tax_id'),
             'user_address' => Yii::t('app', 'address'),
             'user_building' => Yii::t('app', 'building'),
             'user_moo' => Yii::t('app', 'moo'),
@@ -42,7 +40,16 @@ class Users extends \common\models\Users implements IdentityInterface
             'user_amphur' => Yii::t('app', 'amphur'),
             'user_province' => Yii::t('app', 'province'),
             'user_postal_code' => Yii::t('app', 'postal_code'),
-            'user_customer' => Yii::t('app', 'checked_customer'),
+            'user_address_tax' => Yii::t('app', 'address_tax'),
+            'tax_id' => Yii::t('app', 'tax_id'),
+            'tax_address' => Yii::t('app', 'address'),
+            'tax_building' => Yii::t('app', 'building'),
+            'tax_moo' => Yii::t('app', 'moo'),
+            'tax_district' => Yii::t('app', 'district'),
+            'tax_amphur' => Yii::t('app', 'amphur'),
+            'tax_province' => Yii::t('app', 'province'),
+            'tax_postal_code' => Yii::t('app', 'postal_code'),
+            'user_customer' => Yii::t('app', 'checked_customer')
         ]);
     }
 

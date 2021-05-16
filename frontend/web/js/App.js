@@ -54,6 +54,49 @@
             });
         });
 
+        $(".checked_tax").click(function() {
+            var checked_tax = $(this).val();
+            if(checked_tax=='2'){
+                $("#box-tax").show();
+                $("#box-tax input.required").attr('required',true);
+            }else{
+                $("#box-tax").hide();
+                $("#box-tax input").attr('required',false);
+                $("#box-tax input").val('');
+                $('#tax_province').val($('#tax_province option:eq(0)').val()).trigger('change');
+                $("#tax_amphur").find("option:not(:first-child)").remove();
+                $("#tax_district").find("option:not(:first-child)").remove();
+            }
+        });
+
+        $("input,select").change(function() {
+            if ($(this).attr('required') == 'required') {
+                var form = $('#formMember');
+                form.validate({
+                    errorElement: 'div',
+                    errorPlacement: function (error, element) {
+                        error.addClass('invalid-feedback');
+                        if(element.attr('type')=='checkbox'){
+                            element.parent().next().append(error);
+                        }else if(element.attr('type')=='radio'){
+                             element.parent().parent().next().append(error);
+                        }else{
+                            element.next().append(error);
+                        }
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass('is-invalid');
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $(element).removeClass('is-invalid');
+                    }
+                });
+                
+
+                if(form.valid()){ }
+            }
+        });
+
         $('.submit-member').click(function (e){
 
             var form = $('#formMember');
@@ -204,6 +247,10 @@
     		}else{
     			$("#box-delivery").hide();
     			$("#box-delivery input").attr('required',false);
+                $("#box-tax input").val('');
+                $('#quotation_delivery_province').val($('#quotation_delivery_province option:eq(0)').val()).trigger('change');
+                $("#quotation_delivery_amphur").find("option:not(:first-child)").remove();
+                $("#quotation_delivery_district").find("option:not(:first-child)").remove();
     		}
     	});
 

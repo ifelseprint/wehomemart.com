@@ -16,7 +16,13 @@ class MemberController extends \yii\web\Controller
 
         if(Yii::$app->request->isPost){
             $post = Yii::$app->request->post();
-            if ($Users->load($post)){
+
+            if ($Users->load($post) && $Users->validate()){
+
+                // echo "<pre>";
+                // print_r($post);
+                // echo "</pre>";
+                // exit;
 
                 $Users->user_email = $post['Users']['login_username'];
                 $Users->login_password =  $Users->setPassword($post['Users']['login_password']);
@@ -56,6 +62,11 @@ class MemberController extends \yii\web\Controller
                         "response" => $Users->getErrors()
                     ]);
                 }
+            }else{
+                return json_encode([
+                    "status" => false,
+                    "response" => $Users->getErrors()
+                ]);
             }
         }
 

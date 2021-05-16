@@ -23,6 +23,9 @@ return [
     'txt_date' => 'วันที่',
     'txt_select' => 'เลือก',
 
+    'txt_same_address' => 'เหมือนกับที่อยู่ปัจจุบัน',
+    'txt_same_address_other' => 'อื่นๆ',
+
     'note' => 'หมายเหตุ',
     'amount' => 'จำนวน',
     'username' => 'ชื่อผู้ใช้งาน',
@@ -81,6 +84,7 @@ return [
     'product_name' => 'ชื่อสินค้า',
     'product_image' => 'รูปภาพสินค้า',
 
+    'validate_choose' => 'คุณยังไม่ได้เลือกข้อนี้',
     'validate_category' => 'คุณยังไม่ได้ระบุหมวดหมู่',
     'validate_product_name' => 'คุณยังไม่ได้ระบุชื่อสินค้า',
     'validate_product_image' => 'คุณยังไม่ได้ระบุรูปภาพสินค้า หรือ รูปภาพสินค้าไม่ถูกต้อง',

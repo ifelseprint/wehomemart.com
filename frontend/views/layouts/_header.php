@@ -155,7 +155,7 @@ $session = Yii::$app->session;
                 </div>
                 <div class="icon">
                     <i class="icon-phone" style="color: #fff;"></i>
-                     081-839-1818
+                     038659951
                 </div>
             </div>
         </div><!-- End .container -->

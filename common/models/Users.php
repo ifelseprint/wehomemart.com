@@ -22,8 +22,6 @@ use Yii;
  * @property string|null $user_career
  * @property string|null $user_location
  * @property string|null $user_company
- * @property string|null $user_address_tax
- * @property string|null $user_tax_id
  * @property string|null $user_address
  * @property string|null $user_building
  * @property string|null $user_moo
@@ -32,6 +30,14 @@ use Yii;
  * @property string|null $user_province
  * @property int|null $user_postal_code
  * @property int|null $user_customer
+ * @property string|null $tax_id
+ * @property string|null $tax_address
+ * @property string|null $tax_building
+ * @property string|null $tax_moo
+ * @property string|null $tax_district
+ * @property string|null $tax_amphur
+ * @property string|null $tax_province
+ * @property int|null $tax_postal_code
  * @property int|null $created_user
  * @property string|null $created_date
  * @property int|null $modified_user
@@ -55,11 +61,11 @@ class Users extends \yii\db\ActiveRecord
     {
         return [
             [['login_username', 'login_password'], 'required'],
-            [['is_active', 'user_age', 'user_postal_code', 'user_customer', 'created_user', 'modified_user', 'user_type'], 'integer'],
+            [['is_active', 'user_age', 'user_postal_code', 'user_customer', 'tax_postal_code', 'created_user', 'modified_user', 'user_type'], 'integer'],
             [['created_date', 'modified_date'], 'safe'],
-            [['login_username', 'password_reset_token', 'auth_key', 'verification_token', 'user_email', 'user_firstname', 'user_lastname', 'user_location', 'user_company', 'user_address_tax', 'user_address'], 'string', 'max' => 255],
-            [['login_password', 'user_career', 'user_building', 'user_moo', 'user_district', 'user_amphur', 'user_province'], 'string', 'max' => 100],
-            [['user_telephone', 'user_tax_id'], 'string', 'max' => 20],
+            [['login_username', 'password_reset_token', 'auth_key', 'verification_token', 'user_email', 'user_firstname', 'user_lastname', 'user_location', 'user_company', 'user_address', 'tax_address'], 'string', 'max' => 255],
+            [['login_password', 'user_career', 'user_building', 'user_moo', 'user_district', 'user_amphur', 'user_province', 'tax_building', 'tax_moo', 'tax_district', 'tax_amphur', 'tax_province'], 'string', 'max' => 100],
+            [['user_telephone', 'tax_id'], 'string', 'max' => 20],
         ];
     }
 
@@ -84,8 +90,6 @@ class Users extends \yii\db\ActiveRecord
             'user_career' => 'User Career',
             'user_location' => 'User Location',
             'user_company' => 'User Company',
-            'user_address_tax' => 'User Address Tax',
-            'user_tax_id' => 'User Tax ID',
             'user_address' => 'User Address',
             'user_building' => 'User Building',
             'user_moo' => 'User Moo',
@@ -94,6 +98,14 @@ class Users extends \yii\db\ActiveRecord
             'user_province' => 'User Province',
             'user_postal_code' => 'User Postal Code',
             'user_customer' => 'User Customer',
+            'tax_id' => 'Tax ID',
+            'tax_address' => 'Tax Address',
+            'tax_building' => 'Tax Building',
+            'tax_moo' => 'Tax Moo',
+            'tax_district' => 'Tax District',
+            'tax_amphur' => 'Tax Amphur',
+            'tax_province' => 'Tax Province',
+            'tax_postal_code' => 'Tax Postal Code',
             'created_user' => 'Created User',
             'created_date' => 'Created Date',
             'modified_user' => 'Modified User',

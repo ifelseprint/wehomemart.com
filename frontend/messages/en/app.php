@@ -23,6 +23,9 @@ return [
     'txt_date' => 'Date',
     'txt_select' => 'Select',
 
+    'txt_same_address' => 'Same as current address',
+    'txt_same_address_other' => 'Other',
+
     'note' => 'Note',
     'amount' => 'Amount',
     'username' => 'Username',
@@ -81,6 +84,7 @@ return [
     'product_name' => 'Product mame',
     'product_image' => 'Product image',
 
+    'validate_choose' => 'Please choose value',
     'validate_category' => 'Please enter category',
     'validate_product_name' => 'Please enter product name',
     'validate_product_image' => 'Please enter product image or information is incorrect.',
