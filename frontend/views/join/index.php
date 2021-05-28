@@ -34,8 +34,8 @@ JoinAsset::register($this);
 						</div>
 						<hr>
 						<div class="join-content-box">
-							<div><span class="text-header"><?=Yii::$app->translated->get(38);?> :</span> 081-8391818</div>
-							<div><span class="text-header"><?=Yii::$app->translated->get(39);?> :</span> hr@wehomemart.com</div>
+							<div><?=Yii::$app->translated->get(38);?></div>
+							<div><?=Yii::$app->translated->get(39);?></div>
 						</div>
 
 					</div>

@@ -19,29 +19,30 @@ JoinAsset::register($this);
 				<div class="col-xs-12 col-lg-4 box-left">
 					<div class="join-content">
 						<div class="join-content-box">
-							<div class="join-title-header"><span class="text-header">ขั้นตอนการสมัครงาน</span></div>
+							<div class="join-title-header"><span class="text-header"><?=Yii::$app->translated->get(33);?></span></div>
 							<div class="join-title-detail">
-								เข้ามาโดยตรงที่ออฟฟิต หรือกรอกข้อมูลสมัครงานในตำแหน่งงานที่ต้องการสมัครที่อยู่ด้านขวา โดยคลิกที่ปุ่ม <span class="text-header">Apply now</span>
+								<?=Yii::$app->translated->get(34);?>
+								 <span class="text-header">Apply now</span>
 							</div>
 						</div>
 						<hr>
 						<div class="join-content-box">
-							<div class="join-title-header"><span class="text-header">ลิลันดา บุคคล</span></div>
+							<div class="join-title-header"><span class="text-header"><?=Yii::$app->translated->get(35);?></span></div>
 							<div class="join-title-detail">
-								เจ้าหน้าที่ทรัพยากรบุคคล
+								<?=Yii::$app->translated->get(36);?>
 							</div>
 						</div>
 						<hr>
 						<div class="join-content-box">
-							<div class="join-title-header"><span class="text-header">ที่อยู่</span></div>
+							<div class="join-title-header"><span class="text-header"><?=Yii::$app->translated->get(37);?></span></div>
 							<div class="join-title-detail">
-								989/1-5 หมู่ 4 ตําบลปลวกแดง อ.ปลวกแดง จ.ระยอง 21140
+								<?=Yii::$app->translated->get(40);?>
 							</div>
 						</div>
 						<hr>
 						<div class="join-content-box">
-							<div><span class="text-header">Tel :</span> 081-8391818</div>
-							<div><span class="text-header">Email :</span> hr@wehomemart.com</div>
+							<div><?=Yii::$app->translated->get(38);?></div>
+							<div><?=Yii::$app->translated->get(39);?></div>
 						</div>
 
 					</div>
