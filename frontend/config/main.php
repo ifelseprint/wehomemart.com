@@ -77,8 +77,8 @@ return [
                 '<service_index:(we care|we care)>' => 'service/index',
                 'service/view/<id:\d+>' => 'service/view', // for modal view
                 // article
-                '<article_index:(article|บทความ)>' => 'article/index',
-                '<article_view:(article|บทความ)>/<slug>-<slug_id>' => 'article/view',
+                '<article_index:(article|บทความและกิจกรรม)>' => 'article/index',
+                '<article_view:(article|บทความและกิจกรรม)>/<slug>-<slug_id>' => 'article/view',
                 // join
                 '<join_index:(join us|ร่วมงานกับเรา)>' => 'join/index',
                 '<join_view:(join us|ร่วมงานกับเรา)>/<slug>-<slug_id>' => 'join/view',
