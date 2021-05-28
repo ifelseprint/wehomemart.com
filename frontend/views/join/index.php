@@ -34,8 +34,8 @@ JoinAsset::register($this);
 						</div>
 						<hr>
 						<div class="join-content-box">
-							<div><?=Yii::$app->translated->get(38);?></div>
-							<div><?=Yii::$app->translated->get(39);?></div>
+							<div><span class="text-header"><?=Yii::$app->translated->get(38);?> :</span> <?=Yii::$app->translated->get(46);?></div>
+							<div><span class="text-header"><?=Yii::$app->translated->get(39);?> :</span> <?=Yii::$app->translated->get(47);?></div>
 						</div>
 
 					</div>

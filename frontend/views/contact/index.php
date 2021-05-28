@@ -47,7 +47,7 @@ ContactAsset::register($this);
 		        					<table>
 		        						<tr>
 		        							<td class="icon"><i class="fa fa-mobile"></i></td>
-		        							<td class="text"><?=Yii::$app->translated->get(38);?></td>
+		        							<td class="text"><b><?=Yii::$app->translated->get(38);?> :</b> <?=Yii::$app->translated->get(46);?></td>
 		        						</tr>
 		        					</table>
 		        				</div>
@@ -55,7 +55,7 @@ ContactAsset::register($this);
 		        					<table>
 		        						<tr>
 		        							<td class="icon"><i class="fa fa-envelope-o" style="font-size: 12px;"></i></td>
-		        							<td class="text"><?=Yii::$app->translated->get(39);?></td>
+		        							<td class="text"><b><?=Yii::$app->translated->get(39);?> :</b> <?=Yii::$app->translated->get(47);?></td>
 		        						</tr>
 		        					</table>
 		        				</div>
